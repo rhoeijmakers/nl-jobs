@@ -9,37 +9,41 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0f0f13; color: #e0e0e0; }
 
-  header { padding: 20px 24px 12px; border-bottom: 1px solid #222; }
-  header h1 { font-size: 1.4rem; font-weight: 600; color: #fff; }
-  header p { font-size: 0.82rem; color: #888; margin-top: 4px; }
+  header { padding: 14px 20px 10px; border-bottom: 1px solid #222; }
+  header h1 { font-size: 1.2rem; font-weight: 600; color: #fff; }
+  header p { font-size: 0.78rem; color: #888; margin-top: 3px; }
 
   #controls {
-    display: flex; gap: 10px; align-items: center;
-    padding: 10px 24px; border-bottom: 1px solid #1a1a1a; flex-wrap: wrap;
+    display: flex; gap: 8px; align-items: center;
+    padding: 8px 16px; border-bottom: 1px solid #1a1a1a;
+    overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap;
+    scrollbar-width: none;
   }
+  #controls::-webkit-scrollbar { display: none; }
   .layer-btn {
-    padding: 5px 14px; border-radius: 20px; border: 1px solid #444;
-    background: #1c1c24; color: #aaa; cursor: pointer; font-size: 0.8rem;
-    transition: all 0.15s;
+    padding: 5px 13px; border-radius: 20px; border: 1px solid #444;
+    background: #1c1c24; color: #aaa; cursor: pointer; font-size: 0.78rem;
+    transition: all 0.15s; white-space: nowrap; flex-shrink: 0;
   }
   .layer-btn.active { background: #3a6cff; border-color: #3a6cff; color: #fff; }
   .layer-btn:hover:not(.active) { border-color: #666; color: #ddd; }
 
   #stats {
-    padding: 8px 24px; font-size: 0.78rem; color: #666;
-    display: flex; gap: 20px; border-bottom: 1px solid #1a1a1a;
+    padding: 6px 16px; font-size: 0.75rem; color: #666;
+    display: flex; gap: 14px; border-bottom: 1px solid #1a1a1a; flex-wrap: wrap;
   }
   #stats span b { color: #aaa; }
 
   #treemap-container {
     position: relative; overflow: hidden;
-    width: 100%; height: calc(100vh - 160px);
+    width: 100%; height: calc(100dvh - 130px);
   }
   #treemap-container svg { display: block; }
 
   .node rect { stroke: #0f0f13; }
   .node text { pointer-events: none; }
 
+  /* Tooltip — bottom sheet on mobile, floating on desktop */
   #tooltip {
     position: fixed; display: none; z-index: 100;
     background: rgba(15,15,20,0.97); border: 1px solid #333;
@@ -55,14 +59,33 @@
     display: inline-block; padding: 2px 10px; border-radius: 12px;
     font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;
   }
+  #tooltip .close-tip {
+    display: none; float: right; background: none; border: none;
+    color: #666; font-size: 1.2rem; cursor: pointer; line-height: 1; margin: -4px -4px 0 8px;
+  }
+  @media (pointer: coarse) {
+    /* Touch device: show as bottom sheet */
+    #tooltip {
+      bottom: 0; left: 0; right: 0; top: auto;
+      max-width: 100%; border-radius: 16px 16px 0 0;
+      border-bottom: none; pointer-events: auto;
+      max-height: 55vh; overflow-y: auto;
+    }
+    #tooltip .close-tip { display: block; }
+  }
 
+  /* Legend — inline in stats bar on mobile */
   #legend {
     position: absolute; bottom: 12px; right: 16px;
     background: rgba(15,15,20,0.9); border: 1px solid #222;
-    border-radius: 6px; padding: 10px 14px; font-size: 0.75rem;
+    border-radius: 6px; padding: 8px 12px; font-size: 0.75rem;
   }
-  #legend .grad { width: 160px; height: 10px; border-radius: 3px; margin: 5px 0 3px; }
-  #legend .grad-labels { display: flex; justify-content: space-between; color: #666; font-size: 0.7rem; }
+  #legend .grad { width: 140px; height: 8px; border-radius: 3px; margin: 4px 0 2px; }
+  #legend .grad-labels { display: flex; justify-content: space-between; color: #666; font-size: 0.68rem; }
+  @media (max-width: 500px) {
+    #legend { bottom: 8px; right: 8px; padding: 6px 10px; }
+    #legend .grad { width: 100px; }
+  }
 
   /* About button */
   #about-btn {
@@ -247,32 +270,35 @@ function scoreColor(score) {
   return d3.interpolateRgb("#f1c40f", "#e74c3c")((t - 0.5) * 2);
 }
 
-function showTooltip(event, d) {
-  const tooltip = document.getElementById("tooltip");
-  const s = scales[currentLayer];
+const isTouchDevice = () => window.matchMedia("(pointer: coarse)").matches;
+
+function buildTooltipHTML(d) {
   const sc = d.exposure;
-
-  let html = `<h3>${d.code} — ${d.title}</h3>`;
+  let html = `<button class="close-tip" onclick="hideTooltip()">×</button>`;
+  html += `<h3>${d.code} — ${d.title}</h3>`;
   html += `<div class="meta"><b>Categorie:</b> ${d.category}</div>`;
-
   if (sc != null) {
     const col = scoreColor(sc);
     html += `<span class="score-badge" style="background:${col}22;color:${col};border:1px solid ${col}55">AI: ${sc.toFixed(1)}/10</span><br>`;
   }
-
   html += `<div class="meta">`;
   if (d.jobs) html += `<b>Werkenden:</b> ${d.jobs}k (${(d.jobs/1000).toFixed(2)}M)<br>`;
   if (d.median_hourly_wage) html += `<b>Mediaan uurloon:</b> €${d.median_hourly_wage}/u<br>`;
   if (d.annual_wage) html += `<b>Geschat jaarsalaris:</b> €${d.annual_wage.toLocaleString("nl-NL")}<br>`;
   html += `</div>`;
+  if (d.exposure_rationale) html += `<div class="rationale">${d.exposure_rationale}</div>`;
+  return html;
+}
 
-  if (d.exposure_rationale) {
-    html += `<div class="rationale">${d.exposure_rationale}</div>`;
-  }
-
-  tooltip.innerHTML = html;
+function showTooltip(event, d) {
+  const tooltip = document.getElementById("tooltip");
+  tooltip.innerHTML = buildTooltipHTML(d);
   tooltip.style.display = "block";
-  moveTooltip(event);
+  if (!isTouchDevice()) moveTooltip(event);
+}
+
+function hideTooltip() {
+  document.getElementById("tooltip").style.display = "none";
 }
 
 function moveTooltip(event) {
@@ -347,7 +373,7 @@ function drawTreemap(data) {
     .paddingInner(1)
     .round(true)(hierarchy);
 
-  // Category group labels
+  // Category group labels — clip to available width
   const groups = hierarchy.children || [];
   svg.selectAll(".group-label")
     .data(groups)
@@ -358,7 +384,13 @@ function drawTreemap(data) {
     .attr("font-size", "10px")
     .attr("fill", "#666")
     .attr("pointer-events", "none")
-    .text(d => d.data.name);
+    .text(d => {
+      const w = d.x1 - d.x0;
+      const name = d.data.name;
+      if (w < 60) return "";
+      const maxChars = Math.floor(w / 6.5);
+      return name.length > maxChars ? name.slice(0, maxChars - 1) + "…" : name;
+    });
 
   // Leaf nodes
   const s = scales[currentLayer];
@@ -373,9 +405,16 @@ function drawTreemap(data) {
     .attr("height", d => Math.max(0, d.y1 - d.y0))
     .attr("fill", d => s.color(d.data))
     .attr("rx", 2)
-    .on("mouseover", (event, d) => showTooltip(event, d.data))
-    .on("mousemove", moveTooltip)
-    .on("mouseout", () => { document.getElementById("tooltip").style.display = "none"; });
+    .on("mouseover", (event, d) => { if (!isTouchDevice()) showTooltip(event, d.data); })
+    .on("mousemove", (event) => { if (!isTouchDevice()) moveTooltip(event); })
+    .on("mouseout", () => { if (!isTouchDevice()) hideTooltip(); })
+    .on("touchstart", (event, d) => {
+      event.preventDefault();
+      showTooltip(event.touches[0], d.data);
+    }, { passive: false })
+    .on("click", (event, d) => {
+      if (isTouchDevice()) showTooltip(event, d.data);
+    });
 
   nodes.append("text")
     .attr("x", 4)
@@ -402,6 +441,11 @@ function drawTreemap(data) {
       return s.label(d.data);
     });
 }
+
+// Dismiss touch tooltip by tapping the SVG background
+document.getElementById("treemap-container").addEventListener("touchstart", e => {
+  if (e.target.tagName === "svg" || e.target.tagName === "SVG") hideTooltip();
+});
 
 // About modal
 const modal = document.getElementById("about-modal");
