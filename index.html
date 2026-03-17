@@ -63,6 +63,48 @@
   }
   #legend .grad { width: 160px; height: 10px; border-radius: 3px; margin: 5px 0 3px; }
   #legend .grad-labels { display: flex; justify-content: space-between; color: #666; font-size: 0.7rem; }
+
+  /* About button */
+  #about-btn {
+    margin-left: auto; padding: 5px 14px; border-radius: 20px;
+    border: 1px solid #444; background: #1c1c24; color: #aaa;
+    cursor: pointer; font-size: 0.8rem; transition: all 0.15s;
+  }
+  #about-btn:hover { border-color: #666; color: #ddd; }
+
+  /* Modal overlay */
+  #about-modal {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.75); align-items: center; justify-content: center;
+  }
+  #about-modal.open { display: flex; }
+  #about-panel {
+    background: #16161e; border: 1px solid #2a2a38; border-radius: 12px;
+    padding: 32px 36px; max-width: 640px; width: 90%; max-height: 80vh;
+    overflow-y: auto; position: relative; line-height: 1.65;
+    font-size: 0.85rem; color: #bbb;
+  }
+  #about-panel h2 { color: #fff; font-size: 1.1rem; margin-bottom: 16px; }
+  #about-panel h3 { color: #ddd; font-size: 0.9rem; margin: 20px 0 8px; }
+  #about-panel p { margin-bottom: 10px; }
+  #about-panel ul { padding-left: 18px; margin-bottom: 10px; }
+  #about-panel li { margin-bottom: 5px; }
+  #about-panel a { color: #5b8fff; text-decoration: none; }
+  #about-panel a:hover { text-decoration: underline; }
+  #about-panel .prompt-box {
+    background: #0d0d14; border: 1px solid #2a2a38; border-radius: 6px;
+    padding: 12px 14px; font-family: monospace; font-size: 0.78rem;
+    color: #8a9; white-space: pre-wrap; margin: 8px 0;
+  }
+  #about-panel .caveat {
+    background: #1e1a10; border-left: 3px solid #f1c40f;
+    padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0;
+  }
+  #close-about {
+    position: absolute; top: 16px; right: 20px; background: none;
+    border: none; color: #666; font-size: 1.4rem; cursor: pointer; line-height: 1;
+  }
+  #close-about:hover { color: #fff; }
 </style>
 </head>
 <body>
@@ -77,6 +119,7 @@
   <button class="layer-btn active" data-layer="exposure">AI Blootstelling</button>
   <button class="layer-btn" data-layer="wage">Uurloon (mediaan)</button>
   <button class="layer-btn" data-layer="jobs">Werkgelegenheid</button>
+  <button id="about-btn">Over dit onderzoek ↗</button>
 </div>
 
 <div id="stats">
@@ -88,6 +131,65 @@
 <div id="treemap-container"></div>
 
 <div id="tooltip"></div>
+
+<div id="about-modal">
+  <div id="about-panel">
+    <button id="close-about">&times;</button>
+    <h2>Over dit onderzoek</h2>
+
+    <div class="caveat">
+      <strong>Let op:</strong> Een hoge AI-blootstellingsscore betekent <em>niet</em> dat een beroep verdwijnt.
+      Softwareontwikkelaars scoren 8/10 omdat AI hun werk ingrijpend verandert — maar de vraag naar
+      ontwikkelaars kan juist groeien als elke ontwikkelaar productiever wordt.
+    </div>
+
+    <h3>Wat meet AI Blootstelling?</h3>
+    <p>De score (0–10) geeft aan in welke mate huidige AI-technologie — taalmodellen, computervisie,
+    robotica — de taken binnen een beroepsgroep al kan uitvoeren of transformeert. De schaal:</p>
+    <ul>
+      <li><strong>0–1:</strong> Minimaal. Fysiek, manueel of vereist constante aanwezigheid ter plaatse.</li>
+      <li><strong>2–3:</strong> Laag. Enkele routinetaken automatiseerbaar, kern vereist menselijk oordeel.</li>
+      <li><strong>4–5:</strong> Matig. Mix van automatiseerbare en niet-automatiseerbare taken.</li>
+      <li><strong>6–7:</strong> Hoog. Veel taken zijn digitaal of kennisgebaseerd en worden al getransformeerd.</li>
+      <li><strong>8–9:</strong> Zeer hoog. Meeste werkproducten zijn digitaal; AI kan meeste taken overnemen.</li>
+      <li><strong>10:</strong> Maximum. Werk is nagenoeg geheel digitaal en repetitief.</li>
+    </ul>
+
+    <h3>Hoe zijn de scores bepaald?</h3>
+    <p>Elke beroepsgroep is gescoord door <strong>Claude (Anthropic)</strong> op basis van de officiële
+    ESCO-beroepsomschrijving. Het gebruikte scoringsprompt:</p>
+    <div class="prompt-box">Beoordeel de AI-blootstelling van dit beroep op een schaal van 0–10.
+Factoren:
+- Zijn de werkproducten fundamenteel digitaal?
+- Kan het werk op afstand/online worden gedaan?
+- Betreft het creatieve of originele contentcreatie?
+- Omvat het patroonherkenning, data-analyse of tekstverwerking?
+- Is fysieke aanwezigheid, manuele behendigheid of zintuiglijk
+  oordeel vereist?</div>
+    <p>Zweef over een beroepsgroep om de volledige redenering van het model te zien.</p>
+
+    <h3>Databronnen</h3>
+    <ul>
+      <li><strong>Beroepsindeling:</strong> <a href="https://esco.ec.europa.eu/nl/classification/occupation_main" target="_blank">ESCO v1.2</a> (Europese Commissie)</li>
+      <li><strong>Werkgelegenheid:</strong> <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85276NED" target="_blank">CBS 85276NED</a> — Enquête Beroepsbevolking 2023</li>
+      <li><strong>Lonen:</strong> <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85517NED" target="_blank">CBS 85517NED</a> — Arbeidsmarkt in Cijfers 2023</li>
+      <li><strong>AI-scoring:</strong> Claude (Anthropic), gescoord op ESCO-omschrijvingen</li>
+    </ul>
+
+    <h3>Beperkingen</h3>
+    <ul>
+      <li>Scores zijn gebaseerd op <em>huidige</em> AI-mogelijkheden, niet toekomstige ontwikkelingen.</li>
+      <li>ESCO-groepen zijn breed; binnen één groep kan de blootstelling sterk variëren.</li>
+      <li>Loondata voor ~36% van de groepen is afgeleid van de bovenliggende CBS-categorie (te kleine steekproef).</li>
+      <li>Werkgelegenheid betreft werkzame beroepsbevolking 15–75 jaar, CBS 2023.</li>
+    </ul>
+
+    <h3>Broncode</h3>
+    <p>Volledig reproduceerbaar: <a href="https://github.com/rhoeijmakers/nl-jobs" target="_blank">github.com/rhoeijmakers/nl-jobs</a><br>
+    Gebaseerd op het concept van <a href="https://karpathy.ai/jobs/" target="_blank">Andrej Karpathy</a> /
+    <a href="https://github.com/mariodian/jobs" target="_blank">mariodian/jobs</a>.</p>
+  </div>
+</div>
 
 <div id="legend">
   <div id="legend-title" style="color:#999;margin-bottom:4px;"></div>
@@ -300,6 +402,13 @@ function drawTreemap(data) {
       return s.label(d.data);
     });
 }
+
+// About modal
+const modal = document.getElementById("about-modal");
+document.getElementById("about-btn").addEventListener("click", () => modal.classList.add("open"));
+document.getElementById("close-about").addEventListener("click", () => modal.classList.remove("open"));
+modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") modal.classList.remove("open"); });
 
 // Layer buttons
 document.querySelectorAll(".layer-btn").forEach(btn => {
