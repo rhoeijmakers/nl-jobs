@@ -8,20 +8,20 @@ code,title,level,category,jobs_x1000,median_hourly_wage,annual_wage_est
 0115,Onderwijskundigen en overige doc...,4,Pedagogische beroepen,99,32.6,61027
 012,Sportinstructeurs,3,Pedagogische beroepen,56,17.0,31824
 0121,Beroepsgroep sportinstructeurs,4,Pedagogische beroepen,56,17.0,31824
-013,Leidsters kinderopvang en onderwi.,3,Pedagogische beroepen,186,,
+013,Leidsters kinderopvang en onderwi.,3,Pedagogische beroepen,186,20.6,38563
 0131,Leidsters kinderopvang en onderw...,4,Pedagogische beroepen,186,20.6,38563
 02,Creatieve en taalkundige beroepen,2,Creatieve en taalkundige beroepen,244,25.1,46987
 021,Auteurs en kunstenaars,3,Creatieve en taalkundige beroepen,139,27.6,51667
-0211,Bibliothecarissen en conservatoren,4,Creatieve en taalkundige beroepen,8,,
-0212,Auteurs en taalkundigen,4,Creatieve en taalkundige beroepen,36,,
-0213,Journalisten,4,Creatieve en taalkundige beroepen,25,,
-0214,Beeldend kunstenaars,4,Creatieve en taalkundige beroepen,15,,
-0215,Uitvoerend kunstenaars,4,Creatieve en taalkundige beroepen,54,,
-022,Vakspecialisten op artistiek en c.,3,Creatieve en taalkundige beroepen,105,,
+0211,Bibliothecarissen en conservatoren,4,Creatieve en taalkundige beroepen,8,27.6,51667
+0212,Auteurs en taalkundigen,4,Creatieve en taalkundige beroepen,36,27.6,51667
+0213,Journalisten,4,Creatieve en taalkundige beroepen,25,27.6,51667
+0214,Beeldend kunstenaars,4,Creatieve en taalkundige beroepen,15,27.6,51667
+0215,Uitvoerend kunstenaars,4,Creatieve en taalkundige beroepen,54,27.6,51667
+022,Vakspecialisten op artistiek en c.,3,Creatieve en taalkundige beroepen,105,23.0,43056
 0221,Grafisch vormgevers en producton...,4,Creatieve en taalkundige beroepen,75,23.9,44741
-0222,Fotografen en interieurontwerpers,4,Creatieve en taalkundige beroepen,30,,
+0222,Fotografen en interieurontwerpers,4,Creatieve en taalkundige beroepen,30,23.0,43056
 03,Commerciële beroepen,2,Commerciële beroepen,1081,18.3,34258
-031,"Adviseurs marketing, public relat.",3,Commerciële beroepen,237,,
+031,"Adviseurs marketing, public relat.",3,Commerciële beroepen,237,29.3,54850
 0311,"Adviseurs marketing, public rela...",4,Commerciële beroepen,237,29.3,54850
 032,Vertegenwoordigers en inkopers,3,Commerciële beroepen,191,29.0,54288
 0321,Vertegenwoordigers en inkopers,4,Commerciële beroepen,191,29.0,54288
@@ -29,14 +29,14 @@ code,title,level,category,jobs_x1000,median_hourly_wage,annual_wage_est
 0331,Winkeliers en teamleiders detail...,4,Commerciële beroepen,133,18.0,33696
 0332,Verkoopmedewerkers detailhandel,4,Commerciële beroepen,306,14.8,27706
 0333,Kassamedewerkers,4,Commerciële beroepen,86,10.7,20030
-0334,Callcentermedewerkers outbound e...,4,Commerciële beroepen,127,,
+0334,Callcentermedewerkers outbound e...,4,Commerciële beroepen,127,17.8,33322
 04,Bedrijfseconomische en administrat...,2,Bedrijfseconomische en administratieve beroepen,1870,25.1,46987
-041,Specialisten bedrijfsbeheer en ad.,3,Bedrijfseconomische en administratieve beroepen,656,,
+041,Specialisten bedrijfsbeheer en ad.,3,Bedrijfseconomische en administratieve beroepen,656,34.2,64022
 0411,Accountants,4,Bedrijfseconomische en administratieve beroepen,119,34.4,64397
 0412,Financieel specialisten en economen,4,Bedrijfseconomische en administratieve beroepen,104,33.4,62525
-0413,Bedrijfskundigen en organisatiea.,4,Bedrijfseconomische en administratieve beroepen,203,,
+0413,Bedrijfskundigen en organisatiea.,4,Bedrijfseconomische en administratieve beroepen,203,35.6,66643
 0414,Beleidsadviseurs,4,Bedrijfseconomische en administratieve beroepen,88,36.9,69077
-0415,Specialisten personeels- en loop.,4,Bedrijfseconomische en administratieve beroepen,143,,
+0415,Specialisten personeels- en loop.,4,Bedrijfseconomische en administratieve beroepen,143,30.1,56347
 042,Vakspecialisten bedrijfsbeheer en...,3,Bedrijfseconomische en administratieve beroepen,379,25.8,48298
 0421,Boekhouders,4,Bedrijfseconomische en administratieve beroepen,149,25.9,48485
 0422,Zakelijke dienstverleners,4,Bedrijfseconomische en administratieve beroepen,93,26.4,49421
@@ -46,85 +46,85 @@ code,title,level,category,jobs_x1000,median_hourly_wage,annual_wage_est
 0432,Secretaresses,4,Bedrijfseconomische en administratieve beroepen,40,22.2,41558
 0433,Receptionisten en telefonisten,4,Bedrijfseconomische en administratieve beroepen,186,19.4,36317
 0434,Boekhoudkundig medewerkers,4,Bedrijfseconomische en administratieve beroepen,155,23.0,43056
-0435,Transportplanners en logistiek m.,4,Bedrijfseconomische en administratieve beroepen,224,,
+0435,Transportplanners en logistiek m.,4,Bedrijfseconomische en administratieve beroepen,224,22.9,42869
 05,Managers,2,Managers,510,39.8,74506
-051,Algemeen directeuren,3,Managers,27,,
-0511,Algemeen directeuren,4,Managers,27,,
+051,Algemeen directeuren,3,Managers,27,39.8,74506
+0511,Algemeen directeuren,4,Managers,27,39.8,74506
 052,Managers op administratief en com...,3,Managers,152,44.2,82742
-0521,Managers zakelijke en administra.,4,Managers,91,,
+0521,Managers zakelijke en administra.,4,Managers,91,44.6,83491
 0522,Managers verkoop en marketing,4,Managers,60,43.5,81432
 053,Managers productie en gespecialis...,3,Managers,220,41.1,76939
 0531,Managers productie,4,Managers,59,41.4,77501
-0532,Managers logistiek,4,Managers,26,,
-0533,Managers ICT,4,Managers,32,,
+0532,Managers logistiek,4,Managers,26,41.1,76939
+0533,Managers ICT,4,Managers,32,41.1,76939
 0534,Managers zorginstellingen,4,Managers,37,37.1,69451
-0535,Managers onderwijs,4,Managers,22,,
-0536,Managers gespecialiseerde dienst.,4,Managers,43,,
-054,"Managers horeca, detailhandel en.",3,Managers,100,,
-0541,Managers horeca,4,Managers,28,,
+0535,Managers onderwijs,4,Managers,22,41.1,76939
+0536,Managers gespecialiseerde dienst.,4,Managers,43,41.1,76939
+054,"Managers horeca, detailhandel en.",3,Managers,100,25.2,47174
+0541,Managers horeca,4,Managers,28,25.2,47174
 0542,Managers detail- en groothandel,4,Managers,56,27.9,52229
-0543,Managers commerciële en persoonl.,4,Managers,16,,
-055,Managers z.n.d.,3,Managers,12,,
-0551,Managers z.n.d.,4,Managers,12,,
-06,"Openbaar bestuur, veiligheid en ju.",2,"Openbaar bestuur, veiligheid en juridische beroepen",337,,
+0543,Managers commerciële en persoonl.,4,Managers,16,25.2,47174
+055,Managers z.n.d.,3,Managers,12,39.8,74506
+0551,Managers z.n.d.,4,Managers,12,39.8,74506
+06,"Openbaar bestuur, veiligheid en ju.",2,"Openbaar bestuur, veiligheid en juridische beroepen",337,29.3,54850
 061,Overheidsambtenaren en -bestuurders,3,"Openbaar bestuur, veiligheid en juridische beroepen",124,31.6,59155
 0611,Overheidsbestuurders,4,"Openbaar bestuur, veiligheid en juridische beroepen",36,47.4,88733
 0612,Overheidsambtenaren,4,"Openbaar bestuur, veiligheid en juridische beroepen",88,29.1,54475
 062,Juristen,3,"Openbaar bestuur, veiligheid en juridische beroepen",74,37.4,70013
 0621,Juristen,4,"Openbaar bestuur, veiligheid en juridische beroepen",74,37.4,70013
 063,Beveiligingswerkers,3,"Openbaar bestuur, veiligheid en juridische beroepen",139,25.1,46987
-0631,Politie-inspecteurs,4,"Openbaar bestuur, veiligheid en juridische beroepen",12,,
+0631,Politie-inspecteurs,4,"Openbaar bestuur, veiligheid en juridische beroepen",12,25.1,46987
 0632,Politie en brandweer,4,"Openbaar bestuur, veiligheid en juridische beroepen",42,26.7,49982
 0633,Beveiligingspersoneel,4,"Openbaar bestuur, veiligheid en juridische beroepen",57,22.4,41933
-0634,Militaire beroepen,4,"Openbaar bestuur, veiligheid en juridische beroepen",27,,
+0634,Militaire beroepen,4,"Openbaar bestuur, veiligheid en juridische beroepen",27,25.1,46987
 07,Technische beroepen,2,Technische beroepen,1319,23.9,44741
-071,Ingenieurs en onderzoekers wis.,3,Technische beroepen,319,,
+071,Ingenieurs en onderzoekers wis.,3,Technische beroepen,319,31.4,58781
 0711,Biologen en natuurwetenschappers,4,Technische beroepen,67,30.3,56722
 0712,Ingenieurs (geen elektrotechniek),4,Technische beroepen,165,32.1,60091
-0713,Elektrotechnisch ingenieurs,4,Technische beroepen,18,,
+0713,Elektrotechnisch ingenieurs,4,Technische beroepen,18,31.4,58781
 0714,Architecten,4,Technische beroepen,69,30.8,57658
 072,Vakspecialisten natuur en techniek,3,Technische beroepen,227,27.7,51854
 0721,Technici bouwkunde en natuur,4,Technische beroepen,134,26.9,50357
 0722,Productieleiders industrie en bouw,4,Technische beroepen,71,28.2,52790
-0723,Procesoperators,4,Technische beroepen,22,,
+0723,Procesoperators,4,Technische beroepen,22,27.7,51854
 073,Bouwarbeiders,3,Technische beroepen,246,21.9,40997
 0731,Bouwarbeiders ruwbouw,4,Technische beroepen,62,20.9,39125
 0732,Timmerlieden,4,Technische beroepen,77,22.2,41558
-0733,Bouwarbeiders afbouw,4,Technische beroepen,40,,
-0734,Loodgieters en pijpfitters,4,Technische beroepen,38,,
-0735,Schilders en metaalspuiters,4,Technische beroepen,30,,
+0733,Bouwarbeiders afbouw,4,Technische beroepen,40,21.9,40997
+0734,Loodgieters en pijpfitters,4,Technische beroepen,38,21.9,40997
+0735,Schilders en metaalspuiters,4,Technische beroepen,30,21.9,40997
 074,"Metaalarbeiders, machinemonteurs",3,Technische beroepen,166,22.0,41184
-0741,Metaalbewerkers en constructiewe.,4,Technische beroepen,29,,
-0742,Lassers en plaatwerkers,4,Technische beroepen,27,,
+0741,Metaalbewerkers en constructiewe.,4,Technische beroepen,29,22.0,41184
+0742,Lassers en plaatwerkers,4,Technische beroepen,27,22.0,41184
 0743,Automonteurs,4,Technische beroepen,56,19.9,37253
 0744,Machinemonteurs,4,Technische beroepen,54,23.4,43805
 075,Voedselverwerkende beroepen en ov...,3,Technische beroepen,108,18.7,35006
-0751,Slagers,4,Technische beroepen,9,,
-0752,Bakkers,4,Technische beroepen,16,,
-0753,Productcontroleurs,4,Technische beroepen,24,,
-0754,"Meubelmakers, kleermakers en sto.",4,Technische beroepen,30,,
-0755,Medewerkers drukkerij en kunstni.,4,Technische beroepen,29,,
+0751,Slagers,4,Technische beroepen,9,18.7,35006
+0752,Bakkers,4,Technische beroepen,16,18.7,35006
+0753,Productcontroleurs,4,Technische beroepen,24,18.7,35006
+0754,"Meubelmakers, kleermakers en sto.",4,Technische beroepen,30,18.7,35006
+0755,Medewerkers drukkerij en kunstni.,4,Technische beroepen,29,18.7,35006
 076,Elektriciens en elektronicamonteurs,3,Technische beroepen,89,22.7,42494
 0761,Elektriciens en elektronicamonteurs,4,Technische beroepen,89,22.7,42494
 077,Productiemachinebedieners en asse...,3,Technische beroepen,104,20.5,38376
 0771,Productiemachinebedieners,4,Technische beroepen,79,21.3,39874
-0772,Assemblagemedewerkers,4,Technische beroepen,25,,
+0772,Assemblagemedewerkers,4,Technische beroepen,25,20.5,38376
 078,Hulpkrachten bouw en industrie,3,Technische beroepen,59,15.2,28454
 0781,Hulpkrachten bouw en industrie,4,Technische beroepen,59,15.2,28454
 08,ICT beroepen,2,ICT-beroepen,542,30.9,57845
 081,Specialisten ICT,3,ICT-beroepen,460,32.3,60466
-0811,Software- en applicatieontwikkel.,4,ICT-beroepen,370,,
+0811,Software- en applicatieontwikkel.,4,ICT-beroepen,370,32.5,60840
 0812,Databank- en netwerkspecialisten,4,ICT-beroepen,90,31.3,58594
 082,Vakspecialisten ICT,3,ICT-beroepen,83,22.8,42682
 0821,Gebruikersondersteuning ICT,4,ICT-beroepen,55,23.3,43618
-0822,Radio- en televisietechnici,4,ICT-beroepen,28,,
+0822,Radio- en televisietechnici,4,ICT-beroepen,28,22.8,42682
 09,Agrarische beroepen,2,Agrarische beroepen,176,16.0,29952
 091,"Tuinders, akkerbouwers en veetelers",3,Agrarische beroepen,141,17.4,32573
-0911,Land- en bosbouwers,4,Agrarische beroepen,26,,
+0911,Land- en bosbouwers,4,Agrarische beroepen,26,17.4,32573
 0912,"Hoveniers, tuinders en kwekers",4,Agrarische beroepen,71,16.8,31450
-0913,Veetelers,4,Agrarische beroepen,45,,
-092,Hulpkrachten landbouw,3,Agrarische beroepen,35,,
-0921,Hulpkrachten landbouw,4,Agrarische beroepen,35,,
+0913,Veetelers,4,Agrarische beroepen,45,17.4,32573
+092,Hulpkrachten landbouw,3,Agrarische beroepen,35,16.0,29952
+0921,Hulpkrachten landbouw,4,Agrarische beroepen,35,16.0,29952
 10,Zorg en welzijn beroepen,2,Transport en logistiek beroepen,1412,25.9,48485
 101,"Artsen, therapeuten en gespeciali...",3,Transport en logistiek beroepen,397,31.3,58594
 1011,Artsen,4,Transport en logistiek beroepen,156,36.9,69077
@@ -134,36 +134,36 @@ code,title,level,category,jobs_x1000,median_hourly_wage,annual_wage_est
 1021,Maatschappelijk werkers,4,Transport en logistiek beroepen,99,26.9,50357
 1022,Psychologen en sociologen,4,Transport en logistiek beroepen,94,34.0,63648
 103,Vakspecialisten gezondheidszorg,3,Transport en logistiek beroepen,281,24.4,45677
-1031,Laboranten,4,Transport en logistiek beroepen,28,,
-1032,Apothekersassistenten,4,Transport en logistiek beroepen,23,,
+1031,Laboranten,4,Transport en logistiek beroepen,28,24.4,45677
+1032,Apothekersassistenten,4,Transport en logistiek beroepen,23,24.4,45677
 1033,Verpleegkundigen (mbo),4,Transport en logistiek beroepen,74,26.6,49795
 1034,Medisch praktijkassistenten,4,Transport en logistiek beroepen,84,22.6,42307
 1035,Medisch vakspecialisten,4,Transport en logistiek beroepen,73,29.9,55973
-104,"Sociaal werkers, groeps- en woonb...",3,Transport en logistiek beroepen,275,,
-1041,"Sociaal werkers, groeps- en woon.",4,Transport en logistiek beroepen,275,,
+104,"Sociaal werkers, groeps- en woonb...",3,Transport en logistiek beroepen,275,24.0,44928
+1041,"Sociaal werkers, groeps- en woon.",4,Transport en logistiek beroepen,275,24.0,44928
 105,Verzorgenden,3,Transport en logistiek beroepen,267,22.8,42682
 1051,Verzorgenden,4,Transport en logistiek beroepen,267,22.8,42682
 11,Dienstverlenende beroepen,2,Medische en paramedische beroepen,777,15.4,28829
 111,Medewerkers persoonlijke dienstve...,3,Medische en paramedische beroepen,476,15.2,28454
-1111,Reisbegeleiders,4,Medische en paramedische beroepen,25,,
+1111,Reisbegeleiders,4,Medische en paramedische beroepen,25,15.2,28454
 1112,Koks,4,Medische en paramedische beroepen,66,16.6,31075
 1113,Kelners en barpersoneel,4,Medische en paramedische beroepen,223,13.7,25646
-1114,Kappers en schoonheidsspecialisten,4,Medische en paramedische beroepen,61,,
-1115,Conciërges en teamleiders schoon.,4,Medische en paramedische beroepen,53,,
-1116,Verleners van overige persoonlij.,4,Medische en paramedische beroepen,48,,
+1114,Kappers en schoonheidsspecialisten,4,Medische en paramedische beroepen,61,15.2,28454
+1115,Conciërges en teamleiders schoon.,4,Medische en paramedische beroepen,53,20.0,37440
+1116,Verleners van overige persoonlij.,4,Medische en paramedische beroepen,48,15.2,28454
 112,Schoonmakers en keukenhulpen,3,Medische en paramedische beroepen,301,15.5,29016
 1121,Schoonmakers,4,Medische en paramedische beroepen,223,16.1,30139
 1122,Keukenhulpen,4,Medische en paramedische beroepen,78,10.0,18720
 12,Transport en logistiek beroepen,2,Verzorgende en dienstverlenende beroepen,648,16.1,30139
 121,Bestuurders voertuigen en bediene...,3,Verzorgende en dienstverlenende beroepen,301,20.2,37814
-1211,Dekofficieren en piloten,4,Verzorgende en dienstverlenende beroepen,32,,
-1212,"Chauffeurs auto's, taxi's en bes.",4,Verzorgende en dienstverlenende beroepen,86,,
-1213,Buschauffeurs en trambestuurders,4,Verzorgende en dienstverlenende beroepen,23,,
+1211,Dekofficieren en piloten,4,Verzorgende en dienstverlenende beroepen,32,20.2,37814
+1212,"Chauffeurs auto's, taxi's en bes.",4,Verzorgende en dienstverlenende beroepen,86,16.0,29952
+1213,Buschauffeurs en trambestuurders,4,Verzorgende en dienstverlenende beroepen,23,20.2,37814
 1214,Vrachtwagenchauffeurs,4,Verzorgende en dienstverlenende beroepen,99,20.3,38002
 1215,Bedieners mobiele machines,4,Verzorgende en dienstverlenende beroepen,62,21.0,39312
 122,Hulpkrachten transport en logistiek,3,Verzorgende en dienstverlenende beroepen,347,12.0,22464
 1221,"Laders, lossers en vakkenvullers",4,Verzorgende en dienstverlenende beroepen,306,11.0,20592
-1222,Vuilnisophalers en dagbladenbezo.,4,Verzorgende en dienstverlenende beroepen,41,,
+1222,Vuilnisophalers en dagbladenbezo.,4,Verzorgende en dienstverlenende beroepen,41,12.0,22464
 13,Beroepsklasse overig,2,Bouwberoepen,99,17.7,33134
 131,Beroepssegment overig,3,Bouwberoepen,99,17.7,33134
 1311,Beroepsgroep overig,4,Bouwberoepen,99,17.7,33134

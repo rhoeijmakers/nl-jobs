@@ -29,10 +29,14 @@ wage_data = cbsodata.get_data(
     "85517NED",
     filters=f"Perioden eq '{YEAR}'",
 )
-wage = {
-    r["Beroep"]: r["k_50ePercentielMediaan_3"]
-    for r in wage_data
-}
+# Index wage by the numeric code prefix (e.g. "0811") so truncated
+# CBS labels like "0811 Software- en applicatieontwikkel..." still match.
+wage = {}
+for r in wage_data:
+    beroep = r["Beroep"].strip()
+    parts = beroep.split(" ", 1)
+    if parts[0].isdigit() and r["k_50ePercentielMediaan_3"]:
+        wage[parts[0]] = r["k_50ePercentielMediaan_3"]
 print(f"  {len(wage)} occupation wage entries")
 
 # --- Merge ---
@@ -81,7 +85,7 @@ for beroep, jobs in emp.items():
     cat_code = code[:2]
     category = CATEGORIES.get(cat_code, "Overig")
 
-    hourly = wage.get(beroep)
+    hourly = wage.get(code)
     # Estimate annual salary: hourly * 36 hours/week * 52 weeks (NL average)
     annual = round(float(hourly) * 36 * 52) if hourly else None
 
@@ -94,6 +98,18 @@ for beroep, jobs in emp.items():
         "median_hourly_wage": hourly,
         "annual_wage_est": annual,
     })
+
+# Fill missing wages using parent group (3-digit → 2-digit fallback)
+wage_by_code = {r["code"]: r["median_hourly_wage"] for r in rows if r["median_hourly_wage"]}
+for r in rows:
+    if not r["median_hourly_wage"]:
+        # Try 3-digit parent, then 2-digit grandparent
+        for parent_len in (3, 2):
+            parent = r["code"][:parent_len]
+            if parent in wage_by_code:
+                r["median_hourly_wage"] = wage_by_code[parent]
+                r["annual_wage_est"] = round(float(wage_by_code[parent]) * 36 * 52)
+                break
 
 rows.sort(key=lambda r: r["code"])
 
