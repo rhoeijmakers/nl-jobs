@@ -46,7 +46,6 @@
   #treemap-container {
     position: relative; overflow: hidden;
     width: 100%; height: calc(100dvh - 130px);
-    padding-bottom: 24px;
   }
   #treemap-container svg { display: block; }
 
@@ -372,7 +371,7 @@ function drawTreemap(data) {
 
   const container = document.getElementById("treemap-container");
   const W = container.clientWidth;
-  const H = container.clientHeight;
+  const H = container.clientHeight - 24;
 
   d3.select("#treemap-container svg").remove();
   const svg = d3.select("#treemap-container")
