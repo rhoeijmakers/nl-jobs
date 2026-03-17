@@ -1,203 +1,142 @@
 """
-Score each occupation's AI exposure using an LLM via OpenRouter.
-
-Reads Markdown descriptions from pages/, sends each to an LLM with a scoring
-rubric, and collects structured scores. Results are cached incrementally to
-scores.json so the script can be resumed if interrupted.
+Score each occupation for AI exposure using Claude (Anthropic API).
+Reads pages/*.md and outputs scores.json.
 
 Usage:
-    uv run python score.py
-    uv run python score.py --model google/gemini-3-flash-preview
-    uv run python score.py --start 0 --end 10   # test on first 10
+  export ANTHROPIC_API_KEY=...
+  python3 score.py
 """
 
-import argparse
+import csv
 import json
 import os
+import re
+import sys
 import time
-import httpx
-from dotenv import load_dotenv
+import glob
 
-load_dotenv()
+import anthropic
 
-DEFAULT_MODEL = "google/gemini-3-flash-preview"
-OUTPUT_FILE = "scores.json"
-API_URL = "https://openrouter.ai/api/v1/chat/completions"
+API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+if not API_KEY:
+    sys.exit("Error: ANTHROPIC_API_KEY is not set.")
 
-SYSTEM_PROMPT = """\
-You are an expert analyst evaluating how exposed different occupations are to \
-AI. You will be given a detailed description of an occupation from the Bureau \
-of Labor Statistics.
+client = anthropic.Anthropic(api_key=API_KEY)
 
-Rate the occupation's overall **AI Exposure** on a scale from 0 to 10.
+MODEL = "claude-haiku-4-5"   # fast + cheap for bulk scoring; swap for opus if you want deeper analysis
+PAGES_DIR = "pages"
+SCORES_FILE = "scores.json"
 
-AI Exposure measures: how much will AI reshape this occupation? Consider both \
-direct effects (AI automating tasks currently done by humans) and indirect \
-effects (AI making each worker so productive that fewer are needed).
+SYSTEM_PROMPT = (
+    "You are an expert labor economist analyzing how much current AI technology "
+    "(large language models, computer vision, robotics, etc.) will reshape occupations. "
+    "Always respond with valid JSON only — no markdown, no code blocks, no extra text."
+)
 
-A key signal is whether the job's work product is fundamentally digital. If \
-the job can be done entirely from a home office on a computer — writing, \
-coding, analyzing, communicating — then AI exposure is inherently high (7+), \
-because AI capabilities in digital domains are advancing rapidly. Even if \
-today's AI can't handle every aspect of such a job, the trajectory is steep \
-and the ceiling is very high. Conversely, jobs requiring physical presence, \
-manual skill, or real-time human interaction in the physical world have a \
-natural barrier to AI exposure.
+PROMPT_TEMPLATE = """Score the following Dutch occupation for AI exposure on a scale from 0 to 10:
+- 0-1: Minimal exposure. Highly physical, manual, or requires constant real-world presence (e.g., roofer, garbage collector).
+- 2-3: Low exposure. Some routine tasks automatable, but core work requires human judgment or dexterity.
+- 4-5: Moderate exposure. Mix of automatable and non-automatable tasks.
+- 6-7: High exposure. Many tasks are digital, routine, or knowledge-based and are already being transformed by AI tools.
+- 8-9: Very high exposure. Most work products are digital; AI can do most tasks with minimal human oversight.
+- 10: Maximum exposure. Work is almost entirely digital and repetitive (e.g., medical transcription).
 
-Use these anchors to calibrate your score:
+Key factors to consider:
+- Are the work products fundamentally digital?
+- Can the work be done remotely/online?
+- Does the occupation involve creative or original content generation?
+- Does it involve pattern recognition, data analysis, or text processing?
+- Does it require physical presence, manual dexterity, or sensory judgment?
 
-- **0–1: Minimal exposure.** The work is almost entirely physical, hands-on, \
-or requires real-time human presence in unpredictable environments. AI has \
-essentially no impact on daily work. \
-Examples: roofer, landscaper, commercial diver.
+--- OCCUPATION ---
+{content}
 
-- **2–3: Low exposure.** Mostly physical or interpersonal work. AI might help \
-with minor peripheral tasks (scheduling, paperwork) but doesn't touch the \
-core job. \
-Examples: electrician, plumber, firefighter, dental hygienist.
-
-- **4–5: Moderate exposure.** A mix of physical/interpersonal work and \
-knowledge work. AI can meaningfully assist with the information-processing \
-parts but a substantial share of the job still requires human presence. \
-Examples: registered nurse, police officer, veterinarian.
-
-- **6–7: High exposure.** Predominantly knowledge work with some need for \
-human judgment, relationships, or physical presence. AI tools are already \
-useful and workers using AI may be substantially more productive. \
-Examples: teacher, manager, accountant, journalist.
-
-- **8–9: Very high exposure.** The job is almost entirely done on a computer. \
-All core tasks — writing, coding, analyzing, designing, communicating — are \
-in domains where AI is rapidly improving. The occupation faces major \
-restructuring. \
-Examples: software developer, graphic designer, translator, data analyst, \
-paralegal, copywriter.
-
-- **10: Maximum exposure.** Routine information processing, fully digital, \
-with no physical component. AI can already do most of it today. \
-Examples: data entry clerk, telemarketer.
-
-Respond with ONLY a JSON object in this exact format, no other text:
-{
-  "exposure": <0-10>,
-  "rationale": "<2-3 sentences explaining the key factors>"
-}\
-"""
+Respond with valid JSON only, in this exact format:
+{{"score": <number 0-10>, "rationale": "<2-3 sentence explanation in English>"}}"""
 
 
-def score_occupation(client, text, model):
-    """Send one occupation to the LLM and parse the structured response."""
-    response = client.post(
-        API_URL,
-        headers={
-            "Authorization": f"Bearer {os.environ['OPENROUTER_API_KEY']}",
-        },
-        json={
-            "model": model,
-            "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": text},
-            ],
-            "temperature": 0.2,
-        },
-        timeout=60,
-    )
-    response.raise_for_status()
-    content = response.json()["choices"][0]["message"]["content"]
-
-    # Strip markdown code fences if present
-    content = content.strip()
-    if content.startswith("```"):
-        content = content.split("\n", 1)[1]  # remove first line
-        if content.endswith("```"):
-            content = content[:-3]
-        content = content.strip()
-
-    return json.loads(content)
-
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default=DEFAULT_MODEL)
-    parser.add_argument("--start", type=int, default=0)
-    parser.add_argument("--end", type=int, default=None)
-    parser.add_argument("--delay", type=float, default=0.5)
-    parser.add_argument("--force", action="store_true",
-                        help="Re-score even if already cached")
-    args = parser.parse_args()
-
-    with open("occupations.json") as f:
-        occupations = json.load(f)
-
-    subset = occupations[args.start:args.end]
-
-    # Load existing scores
-    scores = {}
-    if os.path.exists(OUTPUT_FILE) and not args.force:
-        with open(OUTPUT_FILE) as f:
-            for entry in json.load(f):
-                scores[entry["slug"]] = entry
-
-    print(f"Scoring {len(subset)} occupations with {args.model}")
-    print(f"Already cached: {len(scores)}")
-
-    errors = []
-    client = httpx.Client()
-
-    for i, occ in enumerate(subset):
-        slug = occ["slug"]
-
-        if slug in scores:
-            continue
-
-        md_path = f"pages/{slug}.md"
-        if not os.path.exists(md_path):
-            print(f"  [{i+1}] SKIP {slug} (no markdown)")
-            continue
-
-        with open(md_path) as f:
-            text = f.read()
-
-        print(f"  [{i+1}/{len(subset)}] {occ['title']}...", end=" ", flush=True)
-
+def score_occupation(title: str, content: str) -> dict:
+    prompt = PROMPT_TEMPLATE.format(content=content[:3000])
+    for attempt in range(3):
         try:
-            result = score_occupation(client, text, args.model)
-            scores[slug] = {
-                "slug": slug,
-                "title": occ["title"],
-                **result,
-            }
-            print(f"exposure={result['exposure']}")
+            response = client.messages.create(
+                model=MODEL,
+                max_tokens=300,
+                system=SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            text = response.content[0].text.strip()
+            # Strip markdown code fences (```json ... ``` or ``` ... ```)
+            text = re.sub(r"^```(?:json)?\s*", "", text)
+            text = re.sub(r"\s*```$", "", text).strip()
+            return json.loads(text)
+        except json.JSONDecodeError:
+            print(f"  JSON parse error, attempt {attempt + 1}: {text[:80]!r}")
+            time.sleep(1)
+        except anthropic.RateLimitError:
+            wait = 15 * (attempt + 1)
+            print(f"  Rate limited, waiting {wait}s...")
+            time.sleep(wait)
+        except anthropic.APIStatusError as e:
+            print(f"  API error {e.status_code}: {e.message}")
+            time.sleep(2)
         except Exception as e:
-            print(f"ERROR: {e}")
-            errors.append(slug)
-
-        # Save after each one (incremental checkpoint)
-        with open(OUTPUT_FILE, "w") as f:
-            json.dump(list(scores.values()), f, indent=2)
-
-        if i < len(subset) - 1:
-            time.sleep(args.delay)
-
-    client.close()
-
-    print(f"\nDone. Scored {len(scores)} occupations, {len(errors)} errors.")
-    if errors:
-        print(f"Errors: {errors}")
-
-    # Summary stats
-    vals = [s for s in scores.values() if "exposure" in s]
-    if vals:
-        avg = sum(s["exposure"] for s in vals) / len(vals)
-        by_score = {}
-        for s in vals:
-            bucket = s["exposure"]
-            by_score[bucket] = by_score.get(bucket, 0) + 1
-        print(f"\nAverage exposure across {len(vals)} occupations: {avg:.1f}")
-        print("Distribution:")
-        for k in sorted(by_score):
-            print(f"  {k}: {'█' * by_score[k]} ({by_score[k]})")
+            print(f"  Error: {e}")
+            time.sleep(2)
+    return {"score": None, "rationale": "Error: failed to score."}
 
 
-if __name__ == "__main__":
-    main()
+# Load existing scores
+if os.path.exists(SCORES_FILE):
+    with open(SCORES_FILE, encoding="utf-8") as f:
+        scores = json.load(f)
+else:
+    scores = {}
+
+# Load occupations list
+with open("occupations.csv", encoding="utf-8") as f:
+    occupations = list(csv.DictReader(f))
+
+total = len(occupations)
+new_scores = 0
+
+for i, occ in enumerate(occupations):
+    code = occ["code"]
+    title = occ["title"]
+
+    if code in scores and scores[code].get("score") is not None:
+        print(f"  [{i+1}/{total}] {code} {title[:40]} — skip (cached)")
+        continue
+
+    # Find the markdown file
+    pattern = os.path.join(PAGES_DIR, f"{code}_*.md")
+    matches = glob.glob(pattern)
+    if not matches:
+        print(f"  [{i+1}/{total}] {code} {title[:40]} — no page file, skipping")
+        scores[code] = {"score": None, "rationale": "No description available."}
+        continue
+
+    with open(matches[0], encoding="utf-8") as f:
+        content = f.read()
+
+    print(f"  [{i+1}/{total}] {code} {title[:40]}", end=" ", flush=True)
+    result = score_occupation(title, content)
+    scores[code] = result
+    new_scores += 1
+    print(f"→ {result.get('score')}")
+
+    # Save periodically
+    if new_scores % 10 == 0:
+        with open(SCORES_FILE, "w", encoding="utf-8") as f:
+            json.dump(scores, f, ensure_ascii=False, indent=2)
+
+    time.sleep(0.2)  # gentle rate limiting
+
+# Final save
+with open(SCORES_FILE, "w", encoding="utf-8") as f:
+    json.dump(scores, f, ensure_ascii=False, indent=2)
+
+valid = [v["score"] for v in scores.values() if v.get("score") is not None]
+print(f"\nScored {len(valid)}/{total} occupations.")
+if valid:
+    print(f"Average AI exposure: {sum(valid)/len(valid):.1f}/10")
