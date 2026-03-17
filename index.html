@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nederlandse Arbeidsmarkt — AI Blootstelling</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0f0f13; color: #e0e0e0; }
+
+  header { padding: 20px 24px 12px; border-bottom: 1px solid #222; }
+  header h1 { font-size: 1.4rem; font-weight: 600; color: #fff; }
+  header p { font-size: 0.82rem; color: #888; margin-top: 4px; }
+
+  #controls {
+    display: flex; gap: 10px; align-items: center;
+    padding: 10px 24px; border-bottom: 1px solid #1a1a1a; flex-wrap: wrap;
+  }
+  .layer-btn {
+    padding: 5px 14px; border-radius: 20px; border: 1px solid #444;
+    background: #1c1c24; color: #aaa; cursor: pointer; font-size: 0.8rem;
+    transition: all 0.15s;
+  }
+  .layer-btn.active { background: #3a6cff; border-color: #3a6cff; color: #fff; }
+  .layer-btn:hover:not(.active) { border-color: #666; color: #ddd; }
+
+  #stats {
+    padding: 8px 24px; font-size: 0.78rem; color: #666;
+    display: flex; gap: 20px; border-bottom: 1px solid #1a1a1a;
+  }
+  #stats span b { color: #aaa; }
+
+  #treemap-container {
+    position: relative; overflow: hidden;
+    width: 100%; height: calc(100vh - 160px);
+  }
+  #treemap-container svg { display: block; }
+
+  .node rect { stroke: #0f0f13; }
+  .node text { pointer-events: none; }
+
+  #tooltip {
+    position: fixed; display: none; z-index: 100;
+    background: rgba(15,15,20,0.97); border: 1px solid #333;
+    border-radius: 8px; padding: 12px 16px; max-width: 340px;
+    font-size: 0.82rem; line-height: 1.5; pointer-events: none;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  }
+  #tooltip h3 { font-size: 0.95rem; color: #fff; margin-bottom: 6px; }
+  #tooltip .meta { color: #888; margin-bottom: 6px; }
+  #tooltip .meta b { color: #ccc; }
+  #tooltip .rationale { color: #aaa; font-style: italic; font-size: 0.78rem; }
+  #tooltip .score-badge {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;
+  }
+
+  #legend {
+    position: absolute; bottom: 12px; right: 16px;
+    background: rgba(15,15,20,0.9); border: 1px solid #222;
+    border-radius: 6px; padding: 10px 14px; font-size: 0.75rem;
+  }
+  #legend .grad { width: 160px; height: 10px; border-radius: 3px; margin: 5px 0 3px; }
+  #legend .grad-labels { display: flex; justify-content: space-between; color: #666; font-size: 0.7rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Nederlandse Arbeidsmarkt &amp; AI Blootstelling</h1>
+  <p>168 beroepsgroepen · CBS 2023 · Oppervlakte = werkgelegenheid</p>
+</header>
+
+<div id="controls">
+  <span style="font-size:0.8rem;color:#555;margin-right:4px;">Kleur:</span>
+  <button class="layer-btn active" data-layer="exposure">AI Blootstelling</button>
+  <button class="layer-btn" data-layer="wage">Uurloon (mediaan)</button>
+  <button class="layer-btn" data-layer="jobs">Werkgelegenheid</button>
+</div>
+
+<div id="stats">
+  <span id="stat-total"></span>
+  <span id="stat-avg"></span>
+  <span id="stat-jobs"></span>
+</div>
+
+<div id="treemap-container"></div>
+
+<div id="tooltip"></div>
+
+<div id="legend">
+  <div id="legend-title" style="color:#999;margin-bottom:4px;"></div>
+  <div class="grad" id="legend-grad"></div>
+  <div class="grad-labels" id="legend-labels"></div>
+</div>
+
+<script>
+let currentLayer = "exposure";
+let allData = [];
+
+// Color scales
+const scales = {
+  exposure: {
+    color: d => {
+      if (d.exposure == null) return "#2a2a35";
+      // green (0) → yellow (5) → red (10)
+      const t = d.exposure / 10;
+      if (t < 0.5) return d3.interpolateRgb("#2ecc71", "#f1c40f")(t * 2);
+      return d3.interpolateRgb("#f1c40f", "#e74c3c")((t - 0.5) * 2);
+    },
+    label: d => d.exposure != null ? d.exposure.toFixed(1) : "?",
+    legendTitle: "AI Blootstelling (0–10)",
+    legendLabels: ["0 (laag)", "5", "10 (hoog)"],
+    legendGrad: "linear-gradient(to right, #2ecc71, #f1c40f, #e74c3c)",
+  },
+  wage: {
+    color: d => {
+      if (!d.median_hourly_wage) return "#2a2a35";
+      const scale = d3.scaleSequential(d3.interpolatePlasma).domain([10, 50]);
+      return scale(d.median_hourly_wage);
+    },
+    label: d => d.median_hourly_wage ? `€${d.median_hourly_wage}` : "?",
+    legendTitle: "Mediaan uurloon",
+    legendLabels: ["€10", "€30", "€50+"],
+    legendGrad: "linear-gradient(to right, #0d0887, #7e03a8, #cc4778, #f89441, #f0f921)",
+  },
+  jobs: {
+    color: d => {
+      if (!d.jobs) return "#2a2a35";
+      const scale = d3.scaleSequential(d3.interpolateCool).domain([0, 500]);
+      return scale(Math.min(d.jobs, 500));
+    },
+    label: d => d.jobs ? `${d.jobs}k` : "?",
+    legendTitle: "Werkgelegenheid",
+    legendLabels: ["0", "250k", "500k+"],
+    legendGrad: "linear-gradient(to right, #6e40aa, #1ac7c2, #aff05b)",
+  },
+};
+
+function scoreColor(score) {
+  if (score == null) return "#444";
+  const t = score / 10;
+  if (t < 0.5) return d3.interpolateRgb("#2ecc71", "#f1c40f")(t * 2);
+  return d3.interpolateRgb("#f1c40f", "#e74c3c")((t - 0.5) * 2);
+}
+
+function showTooltip(event, d) {
+  const tooltip = document.getElementById("tooltip");
+  const s = scales[currentLayer];
+  const sc = d.exposure;
+
+  let html = `<h3>${d.code} — ${d.title}</h3>`;
+  html += `<div class="meta"><b>Categorie:</b> ${d.category}</div>`;
+
+  if (sc != null) {
+    const col = scoreColor(sc);
+    html += `<span class="score-badge" style="background:${col}22;color:${col};border:1px solid ${col}55">AI: ${sc.toFixed(1)}/10</span><br>`;
+  }
+
+  html += `<div class="meta">`;
+  if (d.jobs) html += `<b>Werkenden:</b> ${d.jobs}k (${(d.jobs/1000).toFixed(2)}M)<br>`;
+  if (d.median_hourly_wage) html += `<b>Mediaan uurloon:</b> €${d.median_hourly_wage}/u<br>`;
+  if (d.annual_wage) html += `<b>Geschat jaarsalaris:</b> €${d.annual_wage.toLocaleString("nl-NL")}<br>`;
+  html += `</div>`;
+
+  if (d.exposure_rationale) {
+    html += `<div class="rationale">${d.exposure_rationale}</div>`;
+  }
+
+  tooltip.innerHTML = html;
+  tooltip.style.display = "block";
+  moveTooltip(event);
+}
+
+function moveTooltip(event) {
+  const tooltip = document.getElementById("tooltip");
+  const x = event.clientX + 14;
+  const y = event.clientY + 14;
+  const tw = tooltip.offsetWidth;
+  const th = tooltip.offsetHeight;
+  tooltip.style.left = (x + tw > window.innerWidth ? x - tw - 28 : x) + "px";
+  tooltip.style.top = (y + th > window.innerHeight ? y - th - 28 : y) + "px";
+}
+
+function updateLegend(layer) {
+  const s = scales[layer];
+  document.getElementById("legend-title").textContent = s.legendTitle;
+  document.getElementById("legend-grad").style.background = s.legendGrad;
+  const labels = document.getElementById("legend-labels");
+  labels.innerHTML = s.legendLabels.map(l => `<span>${l}</span>`).join("");
+}
+
+function updateStats(data) {
+  const leaf = data.filter(d => d.level === 4);
+  const scored = leaf.filter(d => d.exposure != null);
+  const totalJobs = d3.sum(leaf, d => d.jobs || 0);
+  const avgExposure = scored.length ? d3.mean(scored, d => d.exposure) : null;
+
+  document.getElementById("stat-total").innerHTML = `<b>${leaf.length}</b> beroepsgroepen`;
+  document.getElementById("stat-jobs").innerHTML = `<b>${(totalJobs/1000).toFixed(1)}M</b> werkenden`;
+  document.getElementById("stat-avg").innerHTML = avgExposure != null
+    ? `Gem. AI blootstelling: <b>${avgExposure.toFixed(1)}/10</b>`
+    : "";
+}
+
+function drawTreemap(data) {
+  allData = data;
+
+  // Build hierarchy: category (cat_code) → leaf occupations (level 4)
+  // Use only level-2 (major group) and level-4 (unit group) for clean display
+  const leafs = data.filter(d => d.level === 4);
+  const cats = [...new Set(leafs.map(d => d.cat_code))];
+
+  const root_obj = {
+    name: "root",
+    children: cats.map(cat => {
+      const children = leafs.filter(d => d.cat_code === cat);
+      const catName = children[0]?.category || cat;
+      return { name: catName, cat, children };
+    }),
+  };
+
+  updateStats(data);
+  updateLegend(currentLayer);
+
+  const container = document.getElementById("treemap-container");
+  const W = container.clientWidth;
+  const H = container.clientHeight;
+
+  d3.select("#treemap-container svg").remove();
+  const svg = d3.select("#treemap-container")
+    .append("svg")
+    .attr("width", W)
+    .attr("height", H);
+
+  const hierarchy = d3.hierarchy(root_obj)
+    .sum(d => d.jobs || 0)
+    .sort((a, b) => b.value - a.value);
+
+  d3.treemap()
+    .size([W, H])
+    .paddingOuter(3)
+    .paddingTop(18)
+    .paddingInner(1)
+    .round(true)(hierarchy);
+
+  // Category group labels
+  const groups = hierarchy.children || [];
+  svg.selectAll(".group-label")
+    .data(groups)
+    .join("text")
+    .attr("class", "group-label")
+    .attr("x", d => d.x0 + 4)
+    .attr("y", d => d.y0 + 13)
+    .attr("font-size", "10px")
+    .attr("fill", "#666")
+    .attr("pointer-events", "none")
+    .text(d => d.data.name);
+
+  // Leaf nodes
+  const s = scales[currentLayer];
+  const nodes = svg.selectAll(".node")
+    .data(hierarchy.leaves())
+    .join("g")
+    .attr("class", "node")
+    .attr("transform", d => `translate(${d.x0},${d.y0})`);
+
+  nodes.append("rect")
+    .attr("width", d => Math.max(0, d.x1 - d.x0))
+    .attr("height", d => Math.max(0, d.y1 - d.y0))
+    .attr("fill", d => s.color(d.data))
+    .attr("rx", 2)
+    .on("mouseover", (event, d) => showTooltip(event, d.data))
+    .on("mousemove", moveTooltip)
+    .on("mouseout", () => { document.getElementById("tooltip").style.display = "none"; });
+
+  nodes.append("text")
+    .attr("x", 4)
+    .attr("y", 13)
+    .attr("font-size", "10px")
+    .attr("fill", "rgba(255,255,255,0.8)")
+    .text(d => {
+      const w = d.x1 - d.x0;
+      const title = d.data.title;
+      if (w < 40) return "";
+      if (w < 80) return title.slice(0, 6) + "…";
+      return title.slice(0, Math.floor(w / 7));
+    });
+
+  nodes.append("text")
+    .attr("x", 4)
+    .attr("y", 26)
+    .attr("font-size", "9px")
+    .attr("fill", "rgba(255,255,255,0.5)")
+    .text(d => {
+      const w = d.x1 - d.x0;
+      const h = d.y1 - d.y0;
+      if (w < 50 || h < 30) return "";
+      return s.label(d.data);
+    });
+}
+
+// Layer buttons
+document.querySelectorAll(".layer-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".layer-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentLayer = btn.dataset.layer;
+    drawTreemap(allData);
+  });
+});
+
+// Load data
+fetch("data.json")
+  .then(r => r.json())
+  .then(data => drawTreemap(data))
+  .catch(err => {
+    document.getElementById("treemap-container").innerHTML =
+      `<p style="padding:40px;color:#e74c3c;">Kon data.json niet laden: ${err.message}<br>Zorg dat build_site_data.py is uitgevoerd.</p>`;
+  });
+
+window.addEventListener("resize", () => {
+  if (allData.length) drawTreemap(allData);
+});
+</script>
+</body>
+</html>
