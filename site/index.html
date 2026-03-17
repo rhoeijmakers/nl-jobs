@@ -293,8 +293,16 @@ function buildTooltipHTML(d) {
 function showTooltip(event, d) {
   const tooltip = document.getElementById("tooltip");
   tooltip.innerHTML = buildTooltipHTML(d);
+  if (isTouchDevice()) {
+    // Clear any desktop inline positioning so CSS bottom-sheet takes over
+    tooltip.style.left = "";
+    tooltip.style.top = "";
+    tooltip.style.right = "";
+    tooltip.style.bottom = "";
+  } else {
+    moveTooltip(event);
+  }
   tooltip.style.display = "block";
-  if (!isTouchDevice()) moveTooltip(event);
 }
 
 function hideTooltip() {
