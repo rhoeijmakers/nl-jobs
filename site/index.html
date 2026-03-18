@@ -277,6 +277,7 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
   <span style="font-size:0.8rem;color:#555;margin-right:4px;">Kleur:</span>
   <button class="layer-btn active" data-layer="exposure">AI Blootstelling</button>
   <button class="layer-btn" data-layer="wage">Uurloon (mediaan)</button>
+  <button class="layer-btn" data-layer="education">Opleidingsniveau</button>
 </div>
 
 <div id="stats"></div>
@@ -473,6 +474,16 @@ const scales = {
     legendLabels: ["€10", "€30", "€50+"],
     legendGrad: "linear-gradient(to right, #0d0887, #7e03a8, #cc4778, #f89441, #f0f921)",
   },
+  education: {
+    color: d => {
+      if (d.isco_skill_level == null) return "#2a2a35";
+      return ["#d4e6f1", "#5dade2", "#1a5276", "#0b3d91"][d.isco_skill_level - 1];
+    },
+    label: d => d.isco_skill_level != null ? `niveau ${d.isco_skill_level}` : null,
+    legendTitle: "Opleidingsniveau (ISCO)",
+    legendLabels: ["Elem.", "MBO", "HBO-ad", "HBO+"],
+    legendGrad: "linear-gradient(to right, #d4e6f1, #5dade2, #1a5276, #0b3d91)",
+  },
 };
 
 // Karpathy-style green→amber→red with contrast boost (pow 0.55)
@@ -509,10 +520,17 @@ function buildTooltipHTML(d) {
     const col = scoreColor(sc);
     html += `<span class="score-badge" style="background:${col}22;color:${col};border:1px solid ${col}55">AI: ${sc.toFixed(1)}/10</span><br>`;
   }
+  const EDU_LABELS = {
+    1: "Elementair / basisonderwijs",
+    2: "MBO niveau 1–2 / VMBO",
+    3: "MBO niveau 3–4 / HBO-ad",
+    4: "HBO-bachelor of hoger",
+  };
   html += `<div class="meta">`;
   if (d.jobs) html += `<b>Werkenden:</b> ${d.jobs}k (${(d.jobs/1000).toFixed(2)}M)<br>`;
   if (d.median_hourly_wage) html += `<b>Mediaan uurloon:</b> €${d.median_hourly_wage}/u<br>`;
   if (d.annual_wage) html += `<b>Geschat jaarsalaris:</b> €${d.annual_wage.toLocaleString("nl-NL")}<br>`;
+  if (d.isco_skill_level != null) html += `<b>Opleidingsniveau:</b> ${EDU_LABELS[d.isco_skill_level]}<br>`;
   html += `</div>`;
   if (d.exposure_rationale) html += `<div class="rationale">${d.exposure_rationale}</div>`;
   return html;
