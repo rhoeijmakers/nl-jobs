@@ -122,8 +122,13 @@
   #footer-bar {
     position: fixed; bottom: 0; left: 0; right: 0; height: 28px;
     background: #0f0f13; border-top: 1px solid #1e1e1e;
-    display: flex; align-items: center; padding: 0 16px; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 16px; z-index: 50;
   }
+  #footer-credit {
+    font-size: 0.72rem; color: #404040;
+  }
+  #footer-credit a { color: #404040; text-decoration: none; }
+  #footer-credit a:hover { color: #aaa; }
   #changelog-btn {
     background: none; border: none; color: #484848;
     font-size: 0.74rem; cursor: pointer; padding: 0;
@@ -238,6 +243,11 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
     omdat AI hun werk ingrijpend verandert, maar de vraag kan juist groeien als elke ontwikkelaar productiever wordt.
     De scores zijn ruwe schattingen van een taalmodel en houden geen rekening met vraagveranderingen of regelgeving.</p>
   </details>
+  <p style="margin-top:12px;font-size:0.78rem;color:#444;">
+    Gebaseerd op <a href="https://karpathy.ai/jobs/" target="_blank">karpathy.ai/jobs</a> van
+    <a href="https://karpathy.ai" target="_blank">Andrej Karpathy</a> &middot;
+    <a href="https://github.com/rhoeijmakers/nl-jobs" target="_blank">GitHub ↗</a>
+  </p>
 </div>
 
 <div id="controls">
@@ -320,6 +330,7 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
 
 <div id="footer-bar">
   <button id="changelog-btn">v1.5 &middot; Wijzigingen ↗</button>
+  <span id="footer-credit">Gebaseerd op <a href="https://karpathy.ai/jobs/" target="_blank">karpathy.ai/jobs</a> door Andrej Karpathy</span>
 </div>
 
 <div id="changelog-modal">
