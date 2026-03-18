@@ -710,9 +710,9 @@ function drawTreemap(data) {
       const w = d.x1 - d.x0;
       const h = d.y1 - d.y0;
       if (w < 50 || h < 30) return "";
-      const score = d.data.exposure != null ? `${Math.round(d.data.exposure)}/10` : "?";
+      const label = scales[currentLayer].label(d.data) ?? "?";
       const jobs = d.data.jobs ? ` \u00B7 ${d.data.jobs}k banen` : "";
-      return w < 90 ? score : score + jobs;
+      return w < 90 ? label : label + jobs;
     });
 }
 
