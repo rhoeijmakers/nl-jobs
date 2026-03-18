@@ -186,7 +186,6 @@
   <span style="font-size:0.8rem;color:#555;margin-right:4px;">Kleur:</span>
   <button class="layer-btn active" data-layer="exposure">AI Blootstelling</button>
   <button class="layer-btn" data-layer="wage">Uurloon (mediaan)</button>
-  <button class="layer-btn" data-layer="jobs">Werkgelegenheid</button>
   <button id="about-btn">Over dit onderzoek ↗</button>
 </div>
 
@@ -334,17 +333,6 @@ const scales = {
     legendTitle: "Mediaan uurloon",
     legendLabels: ["€10", "€30", "€50+"],
     legendGrad: "linear-gradient(to right, #0d0887, #7e03a8, #cc4778, #f89441, #f0f921)",
-  },
-  jobs: {
-    color: d => {
-      if (!d.jobs) return "#2a2a35";
-      const scale = d3.scaleSequential(d3.interpolateCool).domain([0, 500]);
-      return scale(Math.min(d.jobs, 500));
-    },
-    label: d => d.jobs ? `${d.jobs}k` : "?",
-    legendTitle: "Werkgelegenheid",
-    legendLabels: ["0", "250k", "500k+"],
-    legendGrad: "linear-gradient(to right, #6e40aa, #1ac7c2, #aff05b)",
   },
 };
 
