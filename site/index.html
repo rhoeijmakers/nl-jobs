@@ -37,16 +37,37 @@
   .stat-val { font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1.1; }
   .stat-lbl { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-top: 2px; }
 
-  #intro-bar {
-    padding: 5px 16px;
-    font-size: 0.74rem; color: #555;
+  #intro-section {
+    padding: 18px 24px 16px;
     border-bottom: 1px solid #1a1a1a;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-size: 0.875rem; line-height: 1.65; color: #888;
+    max-width: 960px;
+  }
+  #intro-section p { margin-bottom: 0; }
+  #intro-section a { color: #5b8fff; text-decoration: none; }
+  #intro-section a:hover { text-decoration: underline; }
+  #intro-section details { margin-top: 10px; }
+  #intro-section summary {
+    color: #5b8fff; cursor: pointer; font-size: 0.83rem;
+    list-style: none; display: inline-flex; align-items: center; gap: 6px;
+  }
+  #intro-section summary::-webkit-details-marker { display: none; }
+  #intro-section summary::before { content: "▶"; font-size: 0.6rem; transition: transform 0.15s; }
+  #intro-section details[open] summary::before { transform: rotate(90deg); }
+  #intro-section summary:hover { color: #8abaff; }
+  #intro-section .prompt-box {
+    background: #0d0d14; border: 1px solid #2a2a38; border-radius: 6px;
+    padding: 12px 14px; font-family: monospace; font-size: 0.78rem;
+    color: #8a9; white-space: pre-wrap; margin: 10px 0 4px;
+  }
+  #intro-section .caveat {
+    font-size: 0.8rem; color: #666; margin-top: 8px;
+    border-left: 2px solid #444; padding-left: 10px;
   }
 
   #treemap-container {
     position: relative; overflow: hidden;
-    width: 100%; height: calc(100dvh - 206px);
+    width: 100%; height: calc(100dvh - 310px);
   }
   #treemap-container svg { display: block; }
 
@@ -132,14 +153,6 @@
   }
   #close-changelog:hover { color: #fff; }
 
-  /* About button */
-  #about-btn {
-    margin-left: auto; padding: 5px 14px; border-radius: 20px;
-    border: 1px solid #444; background: #1c1c24; color: #aaa;
-    cursor: pointer; font-size: 0.8rem; transition: all 0.15s;
-  }
-  #about-btn:hover { border-color: #666; color: #ddd; }
-
   /* Modal overlay */
   #about-modal {
     display: none; position: fixed; inset: 0; z-index: 200;
@@ -168,29 +181,65 @@
     background: #1e1a10; border-left: 3px solid #f1c40f;
     padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0;
   }
+  #about-panel details { margin: 12px 0; }
+  #about-panel summary {
+    color: #5b8fff; cursor: pointer; font-size: 0.83rem;
+    list-style: none; display: inline-flex; align-items: center; gap: 6px;
+  }
+  #about-panel summary::-webkit-details-marker { display: none; }
+  #about-panel summary::before { content: "▶"; font-size: 0.6rem; transition: transform 0.15s; }
+  #about-panel details[open] summary::before { transform: rotate(90deg); }
+  #about-panel summary:hover { color: #8abaff; }
+  #about-panel .divider { border: none; border-top: 1px solid #2a2a38; margin: 18px 0; }
   #close-about {
     position: absolute; top: 16px; right: 20px; background: none;
     border: none; color: #666; font-size: 1.4rem; cursor: pointer; line-height: 1;
   }
   #close-about:hover { color: #fff; }
 </style>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-srZ-rvroOrpb6c4rtyLWV.js"></script>
 </head>
 <body>
 
 <header>
   <h1>Nederlandse Arbeidsmarkt &amp; AI Blootstelling</h1>
-  <p>CBS 2023 · Oppervlakte = werkgelegenheid</p>
+  <p>CBS 2023 &middot; <a href="https://github.com/rhoeijmakers/nl-jobs" style="color:#555;text-decoration:none;" target="_blank">GitHub ↗</a></p>
 </header>
+
+<div id="intro-section">
+  <p>Dit is een onderzoeksvisualisatie van <strong style="color:#ccc;">114 beroepsgroepen</strong> uit de
+  <a href="https://esco.ec.europa.eu/nl/classification/occupation_main" target="_blank">ESCO-beroepsclassificatie</a>
+  (Europese Commissie), goed voor <strong style="color:#ccc;">9,7 miljoen banen</strong> in Nederland
+  (<a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85276NED" target="_blank">CBS 2023</a>).
+  De oppervlakte van elke tegel is evenredig met het aantal werkenden; de kleur toont AI-blootstelling (0–10)
+  of mediaan uurloon — schakel via de knoppen onderaan.
+  Zweef of tik op een tegel voor naam, score en toelichting.
+  Dit is geen rapport of economische publicatie — het is een hulpmiddel om arbeidsmarktdata visueel te verkennen.</p>
+
+  <details>
+    <summary>Bekijk de gebruikte scoringsprompt (voorbeeld)</summary>
+    <div class="prompt-box">Beoordeel de AI-blootstelling van dit beroep op een schaal van 0–10.
+
+Factoren:
+- Zijn de werkproducten fundamenteel digitaal?
+- Kan het werk op afstand/online worden gedaan?
+- Betreft het creatieve of originele contentcreatie?
+- Omvat het patroonherkenning, data-analyse of tekstverwerking?
+- Is fysieke aanwezigheid, manuele behendigheid of zintuiglijk
+  oordeel vereist?
+
+Geef een score en een korte toelichting van 2-3 zinnen.</div>
+    <p class="caveat">Een hoge score betekent niet dat een beroep verdwijnt — softwareontwikkelaars scoren 8/10
+    omdat AI hun werk ingrijpend verandert, maar de vraag kan juist groeien als elke ontwikkelaar productiever wordt.
+    De scores zijn ruwe schattingen van een taalmodel en houden geen rekening met vraagveranderingen of regelgeving.</p>
+  </details>
+</div>
 
 <div id="controls">
   <span style="font-size:0.8rem;color:#555;margin-right:4px;">Kleur:</span>
   <button class="layer-btn active" data-layer="exposure">AI Blootstelling</button>
   <button class="layer-btn" data-layer="wage">Uurloon (mediaan)</button>
-  <button id="about-btn">Over dit onderzoek ↗</button>
-</div>
-
-<div id="intro-bar">
-  114 beroepsgroepen &middot; 9,7M werkenden &middot; AI-blootstelling (0&ndash;10) gescoord door Claude op ESCO-omschrijvingen &middot; klik op een tegel voor details
 </div>
 
 <div id="stats"></div>
@@ -204,68 +253,91 @@
     <button id="close-about">&times;</button>
     <h2>Over dit onderzoek</h2>
 
-    <div class="caveat">
-      <strong>Let op:</strong> Een hoge AI-blootstellingsscore betekent <em>niet</em> dat een beroep verdwijnt.
-      Softwareontwikkelaars scoren 8/10 omdat AI hun werk ingrijpend verandert — maar de vraag naar
-      ontwikkelaars kan juist groeien als elke ontwikkelaar productiever wordt.
-    </div>
+    <p>Dit is een onderzoeksvisualisatie van 114 beroepsgroepen uit de
+    <a href="https://esco.ec.europa.eu/nl/classification/occupation_main" target="_blank">ESCO-beroepsclassificatie</a>
+    (Europese Commissie), goed voor 9,7 miljoen banen in de Nederlandse economie
+    op basis van <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85276NED" target="_blank">CBS-data 2023</a>.
+    De oppervlakte van elke tegel is evenredig met het aantal werkenden.
+    De kleur toont de geselecteerde maatstaf — wissel tussen AI-blootstelling en mediaan uurloon
+    (<a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85517NED" target="_blank">CBS 2023</a>).
+    Zweef of klik op een tegel voor details.
+    Dit is geen rapport, geen onderzoekspaper en geen serieuze economische publicatie —
+    het is een hulpmiddel om arbeidsmarktdata visueel te verkennen.</p>
 
-    <h3>Wat meet AI Blootstelling?</h3>
-    <p>De score (0–10) geeft aan in welke mate huidige AI-technologie — taalmodellen, computervisie,
-    robotica — de taken binnen een beroepsgroep al kan uitvoeren of transformeert. De schaal:</p>
-    <ul>
-      <li><strong>0–1:</strong> Minimaal. Fysiek, manueel of vereist constante aanwezigheid ter plaatse.</li>
-      <li><strong>2–3:</strong> Laag. Enkele routinetaken automatiseerbaar, kern vereist menselijk oordeel.</li>
-      <li><strong>4–5:</strong> Matig. Mix van automatiseerbare en niet-automatiseerbare taken.</li>
-      <li><strong>6–7:</strong> Hoog. Veel taken zijn digitaal of kennisgebaseerd en worden al getransformeerd.</li>
-      <li><strong>8–9:</strong> Zeer hoog. Meeste werkproducten zijn digitaal; AI kan meeste taken overnemen.</li>
-      <li><strong>10:</strong> Maximum. Werk is nagenoeg geheel digitaal en repetitief.</li>
-    </ul>
+    <hr class="divider">
 
-    <h3>Hoe zijn de scores bepaald?</h3>
-    <p>Elke beroepsgroep is gescoord door <strong>Claude (Anthropic)</strong> op basis van de officiële
-    ESCO-beroepsomschrijving. Het gebruikte scoringsprompt:</p>
-    <div class="prompt-box">Beoordeel de AI-blootstelling van dit beroep op een schaal van 0–10.
+    <p><strong>Door AI gescoord:</strong> De
+    <a href="https://github.com/rhoeijmakers/nl-jobs" target="_blank">broncode</a>
+    bevat scrapers en een scoringspipeline waarmee je via een prompt aan
+    Claude (Anthropic) elke beroepsgroep een score kunt laten geven.
+    Je schrijft een prompt, Claude scoort elke beroepsgroep, en de treemap kleurt dienovereenkomstig.
+    De optie <em>AI Blootstelling</em> is één voorbeeld — het schat in hoeverre huidige AI
+    (die primair digitaal werkt) elk beroep zal transformeren.
+    Maar je kunt een andere prompt schrijven voor elke vraag —
+    bijv. blootstelling aan humanoid robotics, risico op offshoring, impact van de energietransitie —
+    en de pipeline opnieuw draaien voor een andere kleurlaag.</p>
+
+    <details>
+      <summary>Bekijk de gebruikte scoringsprompt (voorbeeld)</summary>
+      <div class="prompt-box" style="margin-top:10px">Beoordeel de AI-blootstelling van dit beroep op een schaal van 0–10.
+
 Factoren:
 - Zijn de werkproducten fundamenteel digitaal?
 - Kan het werk op afstand/online worden gedaan?
 - Betreft het creatieve of originele contentcreatie?
 - Omvat het patroonherkenning, data-analyse of tekstverwerking?
 - Is fysieke aanwezigheid, manuele behendigheid of zintuiglijk
-  oordeel vereist?</div>
-    <p>Zweef over een beroepsgroep om de volledige redenering van het model te zien.</p>
+  oordeel vereist?
 
-    <h3>Databronnen</h3>
-    <ul>
-      <li><strong>Beroepsindeling:</strong> <a href="https://esco.ec.europa.eu/nl/classification/occupation_main" target="_blank">ESCO v1.2</a> (Europese Commissie)</li>
-      <li><strong>Werkgelegenheid:</strong> <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85276NED" target="_blank">CBS 85276NED</a> — Enquête Beroepsbevolking 2023</li>
-      <li><strong>Lonen:</strong> <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85517NED" target="_blank">CBS 85517NED</a> — Arbeidsmarkt in Cijfers 2023</li>
-      <li><strong>AI-scoring:</strong> Claude (Anthropic), gescoord op ESCO-omschrijvingen</li>
-    </ul>
+Geef een score en een korte toelichting van 2-3 zinnen.</div>
+    </details>
 
-    <h3>Beperkingen</h3>
-    <ul>
-      <li>Scores zijn gebaseerd op <em>huidige</em> AI-mogelijkheden, niet toekomstige ontwikkelingen.</li>
-      <li>ESCO-groepen zijn breed; binnen één groep kan de blootstelling sterk variëren.</li>
-      <li>Loondata voor ~36% van de groepen is afgeleid van de bovenliggende CBS-categorie (te kleine steekproef).</li>
-      <li>Werkgelegenheid betreft werkzame beroepsbevolking 15–75 jaar, CBS 2023.</li>
-    </ul>
+    <hr class="divider">
 
-    <h3>Broncode</h3>
-    <p>Volledig reproduceerbaar: <a href="https://github.com/rhoeijmakers/nl-jobs" target="_blank">github.com/rhoeijmakers/nl-jobs</a><br>
-    Gebaseerd op het concept van <a href="https://karpathy.ai/jobs/" target="_blank">Andrej Karpathy</a> /
-    <a href="https://github.com/mariodian/jobs" target="_blank">mariodian/jobs</a>.</p>
+    <div class="caveat">
+      <strong>Kanttekening bij AI-blootstellingsscores:</strong> Dit zijn ruwe schattingen van een
+      taalmodel, geen rigoureuze voorspellingen. Een hoge score betekent <em>niet</em> dat een beroep
+      verdwijnt. Softwareontwikkelaars scoren 8/10 omdat AI hun werk ingrijpend verandert —
+      maar de vraag naar ontwikkelaars kan juist groeien als elke ontwikkelaar productiever wordt.
+      De score houdt geen rekening met vraagveranderingen, latente vraag, regelgeving of
+      sociale voorkeur voor menselijke arbeid. Veel beroepen met een hoge score zullen
+      <em>veranderen</em>, niet verdwijnen.
+    </div>
+
+    <hr class="divider">
+
+    <p style="font-size:0.78rem;color:#666;">
+      Broncode: <a href="https://github.com/rhoeijmakers/nl-jobs" target="_blank">github.com/rhoeijmakers/nl-jobs</a> ·
+      Gebaseerd op het concept van <a href="https://karpathy.ai/jobs/" target="_blank">Andrej Karpathy</a> /
+      <a href="https://github.com/mariodian/jobs" target="_blank">mariodian/jobs</a>
+    </p>
   </div>
 </div>
 
 <div id="footer-bar">
-  <button id="changelog-btn">v1.3 &middot; Wijzigingen ↗</button>
+  <button id="changelog-btn">v1.5 &middot; Wijzigingen ↗</button>
 </div>
 
 <div id="changelog-modal">
   <div id="changelog-panel">
     <button id="close-changelog">&times;</button>
     <h2>Versiegeschiedenis</h2>
+
+    <h3>v1.5 — maart 2026</h3>
+    <ul>
+      <li>Introductietekst zichtbaar op de hoofdpagina (niet meer achter een knop)</li>
+      <li>Scoringsprompt uitklapbaar direct onder de introductie</li>
+      <li>Nieuwe OG-preview afbeelding bijgewerkt</li>
+    </ul>
+
+    <h3>v1.4 — maart 2026</h3>
+    <ul>
+      <li>Toelichting 'Over dit onderzoek' herschreven in karpathy-stijl</li>
+      <li>Scoringsprompt zichtbaar als uitklapbare sectie</li>
+      <li>Tegellabels tonen score én aantal banen (bijv. 8/10 · 287k banen)</li>
+      <li>Knop 'Werkgelegenheid' verwijderd</li>
+      <li>Plausible analytics toegevoegd</li>
+    </ul>
 
     <h3>v1.3 — maart 2026</h3>
     <ul>
@@ -549,7 +621,6 @@ document.getElementById("treemap-container").addEventListener("touchstart", e =>
 
 // About modal
 const modal = document.getElementById("about-modal");
-document.getElementById("about-btn").addEventListener("click", () => modal.classList.add("open"));
 document.getElementById("close-about").addEventListener("click", () => modal.classList.remove("open"));
 modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
 
