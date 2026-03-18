@@ -29,10 +29,13 @@
   .layer-btn:hover:not(.active) { border-color: #666; color: #ddd; }
 
   #stats {
-    padding: 6px 16px; font-size: 0.75rem; color: #666;
-    display: flex; gap: 14px; border-bottom: 1px solid #1a1a1a; flex-wrap: wrap;
+    padding: 8px 20px 10px;
+    display: flex; gap: 32px; border-bottom: 1px solid #1a1a1a;
+    flex-wrap: wrap;
   }
-  #stats span b { color: #aaa; }
+  .stat-block { display: flex; flex-direction: column; }
+  .stat-val { font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1.1; }
+  .stat-lbl { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-top: 2px; }
 
   #intro-bar {
     padding: 5px 16px;
@@ -43,7 +46,7 @@
 
   #treemap-container {
     position: relative; overflow: hidden;
-    width: 100%; height: calc(100dvh - 180px);
+    width: 100%; height: calc(100dvh - 206px);
   }
   #treemap-container svg { display: block; }
 
@@ -176,7 +179,7 @@
 
 <header>
   <h1>Nederlandse Arbeidsmarkt &amp; AI Blootstelling</h1>
-  <p>168 beroepsgroepen · CBS 2023 · Oppervlakte = werkgelegenheid</p>
+  <p>CBS 2023 · Oppervlakte = werkgelegenheid</p>
 </header>
 
 <div id="controls">
@@ -188,14 +191,10 @@
 </div>
 
 <div id="intro-bar">
-  Elke tegel is een beroepsgroep &middot; oppervlak = werkenden &middot; knoppen wisselen de kleur &middot; klik op een tegel voor details
+  114 beroepsgroepen &middot; 9,7M werkenden &middot; AI-blootstelling (0&ndash;10) gescoord door Claude op ESCO-omschrijvingen &middot; klik op een tegel voor details
 </div>
 
-<div id="stats">
-  <span id="stat-total"></span>
-  <span id="stat-avg"></span>
-  <span id="stat-jobs"></span>
-</div>
+<div id="stats"></div>
 
 <div id="treemap-container"></div>
 
@@ -261,13 +260,20 @@ Factoren:
 </div>
 
 <div id="footer-bar">
-  <button id="changelog-btn">v1.2 &middot; Wijzigingen ↗</button>
+  <button id="changelog-btn">v1.3 &middot; Wijzigingen ↗</button>
 </div>
 
 <div id="changelog-modal">
   <div id="changelog-panel">
     <button id="close-changelog">&times;</button>
     <h2>Versiegeschiedenis</h2>
+
+    <h3>v1.3 — maart 2026</h3>
+    <ul>
+      <li>Tegels beginnen donker; volle kleur verschijnt bij hoveren (zoals karpathy.ai/jobs)</li>
+      <li>Dashboard-stijl stats: grote vetgedrukte cijfers met uppercase labels</li>
+      <li>Subtitel vereenvoudigd, introbar in onderzoeksstijl</li>
+    </ul>
 
     <h3>v1.2 — maart 2026</h3>
     <ul>
@@ -411,12 +417,22 @@ function updateStats(data) {
   const scored = leaf.filter(d => d.exposure != null);
   const totalJobs = d3.sum(leaf, d => d.jobs || 0);
   const avgExposure = scored.length ? d3.mean(scored, d => d.exposure) : null;
+  const avgColor = avgExposure != null ? scoreColor(avgExposure) : "#aaa";
 
-  document.getElementById("stat-total").innerHTML = `<b>${leaf.length}</b> beroepsgroepen`;
-  document.getElementById("stat-jobs").innerHTML = `<b>${(totalJobs/1000).toFixed(1)}M</b> werkenden`;
-  document.getElementById("stat-avg").innerHTML = avgExposure != null
-    ? `Gem. AI blootstelling: <b>${avgExposure.toFixed(1)}/10</b>`
-    : "";
+  document.getElementById("stats").innerHTML = `
+    <div class="stat-block">
+      <div class="stat-val">${leaf.length}</div>
+      <div class="stat-lbl">Beroepsgroepen</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-val" style="color:${avgColor}">${avgExposure != null ? avgExposure.toFixed(1) + "/10" : "—"}</div>
+      <div class="stat-lbl">Gem. AI-blootstelling</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-val">${(totalJobs/1000).toFixed(1)}M</div>
+      <div class="stat-lbl">Werkenden</div>
+    </div>
+  `;
 }
 
 function drawTreemap(data) {
@@ -491,10 +507,17 @@ function drawTreemap(data) {
     .attr("width", d => Math.max(0, d.x1 - d.x0))
     .attr("height", d => Math.max(0, d.y1 - d.y0))
     .attr("fill", d => s.color(d.data))
+    .attr("fill-opacity", 0.28)
     .attr("rx", 2)
-    .on("mouseover", (event, d) => { if (!isTouchDevice()) showTooltip(event, d.data); })
+    .on("mouseover", (event, d) => {
+      d3.select(event.currentTarget).attr("fill-opacity", 1);
+      if (!isTouchDevice()) showTooltip(event, d.data);
+    })
     .on("mousemove", (event) => { if (!isTouchDevice()) moveTooltip(event); })
-    .on("mouseout", () => { if (!isTouchDevice()) hideTooltip(); })
+    .on("mouseout", (event) => {
+      d3.select(event.currentTarget).attr("fill-opacity", 0.28);
+      if (!isTouchDevice()) hideTooltip();
+    })
     .on("touchstart", (event, d) => {
       event.preventDefault();
       showTooltip(event.touches[0], d.data);
