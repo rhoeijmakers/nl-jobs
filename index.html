@@ -442,15 +442,12 @@ const scales = {
   exposure: {
     color: d => {
       if (d.exposure == null) return "#2a2a35";
-      // green (0) → yellow (5) → red (10)
-      const t = d.exposure / 10;
-      if (t < 0.5) return d3.interpolateRgb("#2ecc71", "#f1c40f")(t * 2);
-      return d3.interpolateRgb("#f1c40f", "#e74c3c")((t - 0.5) * 2);
+      return greenRedCSS(d.exposure / 10);
     },
     label: d => d.exposure != null ? d.exposure.toFixed(1) : "?",
     legendTitle: "AI Blootstelling (0–10)",
     legendLabels: ["0 (laag)", "5", "10 (hoog)"],
-    legendGrad: "linear-gradient(to right, #2ecc71, #f1c40f, #e74c3c)",
+    legendGrad: "linear-gradient(to right, rgb(30,180,40), rgb(230,160,20), rgb(255,15,15))",
   },
   wage: {
     color: d => {
@@ -465,11 +462,27 @@ const scales = {
   },
 };
 
+// Karpathy-style green→amber→red with contrast boost (pow 0.55)
+function greenRedCSS(t) {
+  t = Math.pow(Math.max(0, Math.min(1, t)), 0.55);
+  let r, g, b;
+  if (t < 0.5) {
+    const s = t / 0.5;
+    r = Math.round(30 + s * 200);
+    g = Math.round(180 - s * 20);
+    b = Math.round(40 - s * 20);
+  } else {
+    const s = (t - 0.5) / 0.5;
+    r = Math.round(230 + s * 25);
+    g = Math.round(160 - s * 130);
+    b = Math.round(20 - s * 5);
+  }
+  return `rgb(${r},${g},${b})`;
+}
+
 function scoreColor(score) {
   if (score == null) return "#444";
-  const t = score / 10;
-  if (t < 0.5) return d3.interpolateRgb("#2ecc71", "#f1c40f")(t * 2);
-  return d3.interpolateRgb("#f1c40f", "#e74c3c")((t - 0.5) * 2);
+  return greenRedCSS(score / 10);
 }
 
 const isTouchDevice = () => window.matchMedia("(pointer: coarse)").matches;
@@ -624,7 +637,7 @@ function drawTreemap(data) {
     .attr("width", d => Math.max(0, d.x1 - d.x0))
     .attr("height", d => Math.max(0, d.y1 - d.y0))
     .attr("fill", d => s.color(d.data))
-    .attr("fill-opacity", 0.28)
+    .attr("fill-opacity", 0.55)
     .attr("rx", 2)
     .on("mouseover", (event, d) => {
       d3.select(event.currentTarget).attr("fill-opacity", 1);
@@ -632,7 +645,7 @@ function drawTreemap(data) {
     })
     .on("mousemove", (event) => { if (!isTouchDevice()) moveTooltip(event); })
     .on("mouseout", (event) => {
-      d3.select(event.currentTarget).attr("fill-opacity", 0.28);
+      d3.select(event.currentTarget).attr("fill-opacity", 0.55);
       if (!isTouchDevice()) hideTooltip();
     })
     .on("touchstart", (event, d) => {
