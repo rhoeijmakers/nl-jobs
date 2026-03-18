@@ -54,7 +54,7 @@
   @media (max-width: 700px) {
     /* Scrollable layout on mobile */
     body { height: auto; min-height: 100dvh; overflow-y: auto; }
-    #treemap-container { flex: none; height: 100vw; min-height: 380px; }
+    #treemap-container { flex: none; height: 100vw; min-height: 380px; width: 100vw; }
 
     /* Show full intro on mobile */
     #intro-section { padding: 12px 16px 14px; font-size: 0.82rem; }
@@ -760,6 +760,15 @@ fetch("data.json")
 window.addEventListener("resize", () => {
   if (allData.length) drawTreemap(allData);
 });
+
+// On mobile the layout may not be fully settled at first render — redraw once after paint
+if (window.innerWidth <= 700) {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if (allData.length) drawTreemap(allData);
+    });
+  });
+}
 </script>
 </body>
 </html>
