@@ -4,15 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nederlandse Arbeidsmarkt — AI Blootstelling</title>
-<meta property="og:title" content="Nederlandse Arbeidsmarkt & AI Blootstelling">
-<meta property="og:description" content="Interactieve treemap van 114 beroepsgroepen · CBS 2023 · 9.7M werkenden · AI-blootstelling gescoord door Claude">
-<meta property="og:image" content="https://rhoeijmakers.github.io/nl-jobs/preview.png">
-<meta property="og:url" content="https://rhoeijmakers.github.io/nl-jobs/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nederlandse Arbeidsmarkt & AI Blootstelling">
-<meta name="twitter:description" content="Interactieve treemap van 114 beroepsgroepen · CBS 2023 · 9.7M werkenden · AI-blootstelling gescoord door Claude">
-<meta name="twitter:image" content="https://rhoeijmakers.github.io/nl-jobs/preview.png">
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,9 +34,16 @@
   }
   #stats span b { color: #aaa; }
 
+  #intro-bar {
+    padding: 5px 16px;
+    font-size: 0.74rem; color: #555;
+    border-bottom: 1px solid #1a1a1a;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
   #treemap-container {
     position: relative; overflow: hidden;
-    width: 100%; height: calc(100dvh - 130px);
+    width: 100%; height: calc(100dvh - 180px);
   }
   #treemap-container svg { display: block; }
 
@@ -95,6 +93,41 @@
     #legend { bottom: 8px; right: 8px; padding: 6px 10px; }
     #legend .grad { width: 100px; }
   }
+
+  /* Footer bar */
+  #footer-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; height: 28px;
+    background: #0f0f13; border-top: 1px solid #1e1e1e;
+    display: flex; align-items: center; padding: 0 16px; z-index: 50;
+  }
+  #changelog-btn {
+    background: none; border: none; color: #484848;
+    font-size: 0.74rem; cursor: pointer; padding: 0;
+  }
+  #changelog-btn:hover { color: #aaa; }
+
+  /* Changelog modal — reuses .modal-overlay / .modal-box pattern */
+  #changelog-modal {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.75); align-items: center; justify-content: center;
+  }
+  #changelog-modal.open { display: flex; }
+  #changelog-panel {
+    background: #16161e; border: 1px solid #2a2a38; border-radius: 12px;
+    padding: 32px 36px; max-width: 560px; width: 90%; max-height: 80vh;
+    overflow-y: auto; position: relative; line-height: 1.65;
+    font-size: 0.85rem; color: #bbb;
+  }
+  #changelog-panel h2 { color: #fff; font-size: 1.1rem; margin-bottom: 20px; }
+  #changelog-panel h3 { color: #ddd; font-size: 0.88rem; margin: 18px 0 6px; border-top: 1px solid #2a2a38; padding-top: 14px; }
+  #changelog-panel h3:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
+  #changelog-panel ul { padding-left: 18px; }
+  #changelog-panel li { margin-bottom: 4px; }
+  #close-changelog {
+    position: absolute; top: 16px; right: 20px; background: none;
+    border: none; color: #666; font-size: 1.4rem; cursor: pointer; line-height: 1;
+  }
+  #close-changelog:hover { color: #fff; }
 
   /* About button */
   #about-btn {
@@ -152,6 +185,10 @@
   <button class="layer-btn" data-layer="wage">Uurloon (mediaan)</button>
   <button class="layer-btn" data-layer="jobs">Werkgelegenheid</button>
   <button id="about-btn">Over dit onderzoek ↗</button>
+</div>
+
+<div id="intro-bar">
+  Elke tegel is een beroepsgroep &middot; oppervlak = werkenden &middot; knoppen wisselen de kleur &middot; klik op een tegel voor details
 </div>
 
 <div id="stats">
@@ -220,6 +257,39 @@ Factoren:
     <p>Volledig reproduceerbaar: <a href="https://github.com/rhoeijmakers/nl-jobs" target="_blank">github.com/rhoeijmakers/nl-jobs</a><br>
     Gebaseerd op het concept van <a href="https://karpathy.ai/jobs/" target="_blank">Andrej Karpathy</a> /
     <a href="https://github.com/mariodian/jobs" target="_blank">mariodian/jobs</a>.</p>
+  </div>
+</div>
+
+<div id="footer-bar">
+  <button id="changelog-btn">v1.2 &middot; Wijzigingen ↗</button>
+</div>
+
+<div id="changelog-modal">
+  <div id="changelog-panel">
+    <button id="close-changelog">&times;</button>
+    <h2>Versiegeschiedenis</h2>
+
+    <h3>v1.2 — maart 2026</h3>
+    <ul>
+      <li>Categoriefout hersteld: artsen en verpleegkundigen stonden onder 'Transport'</li>
+      <li>Korte uitleg toegevoegd boven de kaart</li>
+      <li>Versiegeschiedenis toegevoegd</li>
+      <li>Open Graph-preview voor sociale media (LinkedIn, WhatsApp, X)</li>
+    </ul>
+
+    <h3>v1.1 — maart 2026</h3>
+    <ul>
+      <li>Mobiele weergave verbeterd: toelichting verschijnt als onderste balk bij tikken</li>
+      <li>Toelichting 'Over dit onderzoek' toegevoegd (methode, prompt, databronnen, beperkingen)</li>
+      <li>Categorielabels afgekapt bij smalle tegels</li>
+    </ul>
+
+    <h3>v1.0 — maart 2026</h3>
+    <ul>
+      <li>Eerste versie: Nederlandse arbeidsmarkt &amp; AI-blootstelling</li>
+      <li>114 beroepsgroepen op basis van ESCO v1.2 en CBS 2023, 9,7M werkenden</li>
+      <li>AI-blootstelling gescoord door Claude (Anthropic) op basis van beroepsomschrijvingen</li>
+    </ul>
   </div>
 </div>
 
@@ -371,7 +441,7 @@ function drawTreemap(data) {
 
   const container = document.getElementById("treemap-container");
   const W = container.clientWidth;
-  const H = container.clientHeight - 24;
+  const H = container.clientHeight - 40;
 
   d3.select("#treemap-container svg").remove();
   const svg = d3.select("#treemap-container")
@@ -469,7 +539,19 @@ const modal = document.getElementById("about-modal");
 document.getElementById("about-btn").addEventListener("click", () => modal.classList.add("open"));
 document.getElementById("close-about").addEventListener("click", () => modal.classList.remove("open"));
 modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") modal.classList.remove("open"); });
+
+// Changelog modal
+const changelogModal = document.getElementById("changelog-modal");
+document.getElementById("changelog-btn").addEventListener("click", () => changelogModal.classList.add("open"));
+document.getElementById("close-changelog").addEventListener("click", () => changelogModal.classList.remove("open"));
+changelogModal.addEventListener("click", e => { if (e.target === changelogModal) changelogModal.classList.remove("open"); });
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    modal.classList.remove("open");
+    changelogModal.classList.remove("open");
+  }
+});
 
 // Layer buttons
 document.querySelectorAll(".layer-btn").forEach(btn => {
