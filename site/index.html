@@ -214,6 +214,27 @@
   }
   #close-about:hover { color: #fff; }
 
+  /* Dashboard panels */
+  #dashboard {
+    display: flex; gap: 10px; padding: 10px 20px;
+    overflow-x: auto; border-bottom: 1px solid #1a1a1a;
+    height: 178px; flex-shrink: 0; align-items: flex-start;
+    scrollbar-width: thin; scrollbar-color: #333 transparent;
+  }
+  #dashboard::-webkit-scrollbar { height: 4px; }
+  #dashboard::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+  .dash-card {
+    flex-shrink: 0; background: #16161e; border: 1px solid #1e1e2a;
+    border-radius: 8px; padding: 9px 11px; height: 158px;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .dash-card-title {
+    font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.07em;
+    color: #444; margin-bottom: 7px; white-space: nowrap; flex-shrink: 0;
+  }
+  .dash-kpi { font-size: 1.9rem; font-weight: 700; color: #fff; line-height: 1; }
+  .dash-kpi-sub { font-size: 0.7rem; color: #555; margin-top: 5px; line-height: 1.4; }
+
   /* ── Mobile: scrollable layout ── */
   @media (max-width: 700px) {
     body { height: auto; min-height: 100dvh; overflow-y: auto; }
@@ -221,6 +242,7 @@
     #intro-section { padding: 12px 16px 14px; font-size: 0.82rem; }
     #mobile-disclaimer { display: block; padding: 10px 16px 48px; font-size: 0.75rem; color: #3a3a4a; text-align: center; border-top: 1px solid #1a1a1a; }
     #footer-bar { position: sticky; bottom: 0; }
+    #dashboard { padding: 10px 16px; }
   }
 </style>
 <!-- Privacy-friendly analytics by Plausible -->
@@ -287,6 +309,8 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
   <div class="grad" id="legend-grad"></div>
   <div class="grad-labels" id="legend-labels"></div>
 </div>
+
+<div id="dashboard"></div>
 
 <div id="treemap-container"></div>
 
@@ -622,6 +646,7 @@ function drawTreemap(data) {
 
   updateStats(data);
   updateLegend(currentLayer);
+  drawDashboard(data, currentLayer);
 
   const container = document.getElementById("treemap-container");
   const W = container.clientWidth;
@@ -721,6 +746,387 @@ function drawTreemap(data) {
       const jobs = d.data.jobs ? ` \u00B7 ${d.data.jobs}k banen` : "";
       return w < 90 ? label : label + jobs;
     });
+}
+
+// ─── Dashboard panels ─────────────────────────────────────────────────────────
+
+function createCard(container, title, minWidth) {
+  const card = document.createElement("div");
+  card.className = "dash-card";
+  if (minWidth) card.style.minWidth = minWidth + "px";
+  const titleEl = document.createElement("div");
+  titleEl.className = "dash-card-title";
+  titleEl.textContent = title;
+  card.appendChild(titleEl);
+  container.appendChild(card);
+  return card;
+}
+
+function drawDashboard(data, layer) {
+  const dash = document.getElementById("dashboard");
+  dash.innerHTML = "";
+  const leaf = data.filter(d => d.level === 4);
+  if (layer === "exposure") drawExposureDash(dash, leaf);
+  else if (layer === "wage") drawWageDash(dash, leaf);
+  else if (layer === "education") drawEducationDash(dash, leaf);
+}
+
+// ── AI Exposure tab ───────────────────────────────────────────────────────────
+
+function drawExposureDash(dash, leaf) {
+  const scored = leaf.filter(d => d.exposure != null);
+  const totalJobs = d3.sum(leaf, d => d.jobs || 0);
+
+  // Card 1: high-risk KPI
+  {
+    const highRisk = scored.filter(d => d.exposure >= 7);
+    const highJobs = d3.sum(highRisk, d => d.jobs || 0);
+    const pct = (highJobs / totalJobs * 100).toFixed(0);
+    const card = createCard(dash, "Score ≥ 7 (hoog belast)", 155);
+    const inner = document.createElement("div");
+    inner.innerHTML = `
+      <div class="dash-kpi" style="color:rgb(235,80,20)">${pct}%</div>
+      <div class="dash-kpi-sub">${(highJobs/1000).toFixed(1)}M van ${(totalJobs/1000).toFixed(1)}M werkenden</div>
+      <div class="dash-kpi-sub" style="margin-top:8px">${highRisk.length} van ${scored.length} beroepsgroepen</div>`;
+    card.appendChild(inner);
+  }
+
+  // Card 2: score histogram
+  {
+    const card = createCard(dash, "Verdeling scores", 195);
+    const svgW = 172, svgH = 100;
+    const m = { top: 6, right: 6, bottom: 20, left: 22 };
+    const buckets = d3.range(10).map(i => ({
+      bin: i,
+      count: scored.filter(d => d.exposure >= i && d.exposure < (i < 9 ? i + 1 : 11)).length
+    }));
+    const x = d3.scaleBand().domain(d3.range(10)).range([m.left, svgW - m.right]).padding(0.1);
+    const y = d3.scaleLinear().domain([0, d3.max(buckets, b => b.count)]).nice().range([svgH - m.bottom, m.top]);
+    const svg = d3.select(card).append("svg").attr("width", svgW).attr("height", svgH);
+    svg.selectAll("rect").data(buckets).join("rect")
+      .attr("x", d => x(d.bin)).attr("y", d => y(d.count))
+      .attr("width", x.bandwidth()).attr("height", d => svgH - m.bottom - y(d.count))
+      .attr("fill", d => greenRedCSS((d.bin + 0.5) / 10)).attr("opacity", 0.85);
+    svg.append("g").attr("transform", `translate(0,${svgH - m.bottom})`)
+      .call(d3.axisBottom(x).tickValues([0,5,9]).tickFormat(d => d === 9 ? "10" : String(d)).tickSize(3))
+      .call(g => g.select(".domain").attr("stroke","#333"))
+      .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","9px"))
+      .call(g => g.selectAll("line").attr("stroke","#333"));
+    svg.append("g").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(3).tickSize(2))
+      .call(g => g.select(".domain").remove())
+      .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","9px"))
+      .call(g => g.selectAll("line").attr("stroke","#2a2a35"));
+  }
+
+  // Card 3: top 5 highest scored
+  {
+    const card = createCard(dash, "Hoogst blootgesteld", 200);
+    const top5 = [...scored].sort((a, b) => b.exposure - a.exposure).slice(0, 5);
+    const list = document.createElement("div");
+    list.style.cssText = "display:flex;flex-direction:column;gap:5px;";
+    top5.forEach((d, i) => {
+      const col = greenRedCSS(d.exposure / 10);
+      const row = document.createElement("div");
+      row.style.cssText = "display:flex;align-items:center;gap:6px;";
+      row.innerHTML = `<span style="color:#444;font-size:0.7rem;width:10px">${i+1}</span>
+        <span style="color:#aaa;font-size:0.75rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.title}</span>
+        <span style="color:${col};font-size:0.75rem;font-weight:700;flex-shrink:0">${d.exposure.toFixed(1)}</span>`;
+      list.appendChild(row);
+    });
+    card.appendChild(list);
+  }
+
+  // Card 4: avg score per sector (top 8)
+  {
+    const card = createCard(dash, "Score per sector", 235);
+    const svgW = 212, svgH = 112;
+    const m = { top: 4, right: 38, bottom: 4, left: 78 };
+    const byCat = d3.group(scored, d => d.category);
+    const cats = Array.from(byCat, ([cat, occ]) => ({
+      cat: cat.replace(/beroepen$/i,"").replace(/en$/,"").trim(),
+      score: d3.mean(occ, d => d.exposure)
+    })).sort((a, b) => b.score - a.score).slice(0, 8);
+    const x = d3.scaleLinear().domain([0, 10]).range([m.left, svgW - m.right]);
+    const y = d3.scaleBand().domain(cats.map(d => d.cat)).range([m.top, svgH - m.bottom]).padding(0.25);
+    const svg = d3.select(card).append("svg").attr("width", svgW).attr("height", svgH);
+    svg.selectAll("rect").data(cats).join("rect")
+      .attr("x", m.left).attr("y", d => y(d.cat))
+      .attr("width", d => x(d.score) - m.left).attr("height", y.bandwidth())
+      .attr("fill", d => greenRedCSS(d.score / 10)).attr("opacity", 0.85);
+    svg.selectAll(".vl").data(cats).join("text").attr("class","vl")
+      .attr("x", d => x(d.score) + 3).attr("y", d => y(d.cat) + y.bandwidth()/2 + 3.5)
+      .attr("font-size","9px").attr("fill","#777").text(d => d.score.toFixed(1));
+    svg.selectAll(".cl").data(cats).join("text").attr("class","cl")
+      .attr("x", m.left - 4).attr("y", d => y(d.cat) + y.bandwidth()/2 + 3.5)
+      .attr("font-size","9px").attr("fill","#666").attr("text-anchor","end")
+      .text(d => d.cat.length > 11 ? d.cat.slice(0,10)+"…" : d.cat);
+  }
+
+  // Card 5: scatter score vs wage
+  drawScatterCard(dash, scored.filter(d => d.median_hourly_wage), "Score vs. uurloon", "score");
+}
+
+// ── Wage tab ──────────────────────────────────────────────────────────────────
+
+function drawWageDash(dash, leaf) {
+  const waged = leaf.filter(d => d.median_hourly_wage);
+  const totalJobs = d3.sum(leaf, d => d.jobs || 0);
+  const plasmaScale = d3.scaleSequential(d3.interpolatePlasma).domain([10, 50]);
+
+  // Card 1: workers by wage band
+  {
+    const card = createCard(dash, "Werkenden per loonband", 185);
+    const bands = [
+      { label: "< €15", mid: 12, jobs: d3.sum(waged.filter(d => d.median_hourly_wage < 15), d => d.jobs||0) },
+      { label: "€15–25", mid: 20, jobs: d3.sum(waged.filter(d => d.median_hourly_wage >= 15 && d.median_hourly_wage < 25), d => d.jobs||0) },
+      { label: "€25–35", mid: 30, jobs: d3.sum(waged.filter(d => d.median_hourly_wage >= 25 && d.median_hourly_wage < 35), d => d.jobs||0) },
+      { label: "> €35", mid: 45, jobs: d3.sum(waged.filter(d => d.median_hourly_wage >= 35), d => d.jobs||0) },
+    ];
+    const inner = document.createElement("div");
+    inner.style.cssText = "display:flex;flex-direction:column;gap:6px;margin-top:2px;";
+    bands.forEach(b => {
+      const pct = (b.jobs / totalJobs * 100).toFixed(0);
+      const col = plasmaScale(b.mid);
+      const row = document.createElement("div");
+      row.style.cssText = "display:flex;align-items:center;gap:8px;";
+      row.innerHTML = `<span style="color:#666;font-size:0.72rem;width:48px">${b.label}</span>
+        <div style="flex:1;background:#1e1e2a;border-radius:2px;height:8px">
+          <div style="width:${pct}%;background:${col};height:100%;border-radius:2px"></div></div>
+        <span style="color:#888;font-size:0.72rem;width:28px;text-align:right">${pct}%</span>`;
+      inner.appendChild(row);
+    });
+    card.appendChild(inner);
+  }
+
+  // Card 2: wage distribution histogram
+  {
+    const card = createCard(dash, "Loonverdeling", 195);
+    const svgW = 172, svgH = 100;
+    const m = { top: 6, right: 6, bottom: 20, left: 22 };
+    const wMin = 10, bucketSize = 5, nBuckets = 9;
+    const buckets = d3.range(nBuckets).map(i => {
+      const lo = wMin + i * bucketSize, hi = lo + bucketSize;
+      return { lo, hi, mid: (lo+hi)/2, count: waged.filter(d => d.median_hourly_wage >= lo && d.median_hourly_wage < hi).length };
+    });
+    const x = d3.scaleBand().domain(d3.range(nBuckets)).range([m.left, svgW - m.right]).padding(0.1);
+    const y = d3.scaleLinear().domain([0, d3.max(buckets, b => b.count)]).nice().range([svgH - m.bottom, m.top]);
+    const svg = d3.select(card).append("svg").attr("width", svgW).attr("height", svgH);
+    svg.selectAll("rect").data(buckets).join("rect")
+      .attr("x", (d, i) => x(i)).attr("y", d => y(d.count))
+      .attr("width", x.bandwidth()).attr("height", d => svgH - m.bottom - y(d.count))
+      .attr("fill", d => plasmaScale(d.mid)).attr("opacity", 0.85);
+    svg.append("g").attr("transform", `translate(0,${svgH - m.bottom})`)
+      .call(d3.axisBottom(x).tickValues([0,4,8]).tickFormat(i => `€${wMin + i * bucketSize}`).tickSize(3))
+      .call(g => g.select(".domain").attr("stroke","#333"))
+      .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","9px"))
+      .call(g => g.selectAll("line").attr("stroke","#333"));
+    svg.append("g").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(3).tickSize(2))
+      .call(g => g.select(".domain").remove())
+      .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","9px"))
+      .call(g => g.selectAll("line").attr("stroke","#2a2a35"));
+  }
+
+  // Card 3: avg wage by education level
+  {
+    const card = createCard(dash, "Uurloon per opleidingsniveau", 205);
+    const eduLabels = ["Elementair","MBO","HBO-ad","HBO+"];
+    const eduColors = ["#d4e6f1","#5dade2","#1a5276","#0b3d91"];
+    const svgW = 182, svgH = 100;
+    const m = { top: 6, right: 38, bottom: 4, left: 60 };
+    const byEdu = d3.group(waged, d => d.isco_skill_level);
+    const eduData = [1,2,3,4].map(lv => ({
+      level: lv, label: eduLabels[lv-1], col: eduColors[lv-1],
+      avgWage: d3.mean(byEdu.get(lv) || [], d => d.median_hourly_wage) || 0
+    })).filter(d => d.avgWage > 0);
+    const x = d3.scaleLinear().domain([0, d3.max(eduData, d => d.avgWage)*1.1]).range([m.left, svgW - m.right]);
+    const y = d3.scaleBand().domain([1,2,3,4]).range([m.top, svgH - m.bottom]).padding(0.25);
+    const svg = d3.select(card).append("svg").attr("width", svgW).attr("height", svgH);
+    svg.selectAll("rect").data(eduData).join("rect")
+      .attr("x", m.left).attr("y", d => y(d.level))
+      .attr("width", d => x(d.avgWage) - m.left).attr("height", y.bandwidth())
+      .attr("fill", d => d.col).attr("opacity", 0.85);
+    svg.selectAll(".vl").data(eduData).join("text").attr("class","vl")
+      .attr("x", d => x(d.avgWage)+3).attr("y", d => y(d.level)+y.bandwidth()/2+3.5)
+      .attr("font-size","9px").attr("fill","#777").text(d => `€${d.avgWage.toFixed(0)}`);
+    svg.selectAll(".cl").data(eduData).join("text").attr("class","cl")
+      .attr("x", m.left-4).attr("y", d => y(d.level)+y.bandwidth()/2+3.5)
+      .attr("font-size","9px").attr("fill","#888").attr("text-anchor","end")
+      .text(d => d.label);
+  }
+
+  // Card 4: top 5 highest wages
+  {
+    const card = createCard(dash, "Hoogst betaald", 195);
+    const top5 = [...waged].sort((a, b) => b.median_hourly_wage - a.median_hourly_wage).slice(0, 5);
+    const list = document.createElement("div");
+    list.style.cssText = "display:flex;flex-direction:column;gap:5px;";
+    top5.forEach((d, i) => {
+      const col = plasmaScale(d.median_hourly_wage);
+      const row = document.createElement("div");
+      row.style.cssText = "display:flex;align-items:center;gap:6px;";
+      row.innerHTML = `<span style="color:#444;font-size:0.7rem;width:10px">${i+1}</span>
+        <span style="color:#aaa;font-size:0.75rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.title}</span>
+        <span style="color:${col};font-size:0.75rem;font-weight:700;flex-shrink:0">€${d.median_hourly_wage}</span>`;
+      list.appendChild(row);
+    });
+    card.appendChild(list);
+  }
+
+  // Card 5: scatter wage vs score
+  drawScatterCard(dash, waged.filter(d => d.exposure != null), "Score vs. uurloon", "wage");
+}
+
+// ── Education tab ─────────────────────────────────────────────────────────────
+
+function drawEducationDash(dash, leaf) {
+  const EDU_LABELS = { 1:"Elementair", 2:"MBO", 3:"HBO-ad", 4:"HBO+" };
+  const EDU_COLORS = { 1:"#d4e6f1", 2:"#5dade2", 3:"#1a5276", 4:"#0b3d91" };
+  const totalJobs = d3.sum(leaf, d => d.jobs || 0);
+  const byEduAll = d3.group(leaf, d => d.isco_skill_level);
+
+  // Card 1: workers by education level
+  {
+    const card = createCard(dash, "Werkenden per niveau", 185);
+    const inner = document.createElement("div");
+    inner.style.cssText = "display:flex;flex-direction:column;gap:6px;margin-top:2px;";
+    [1,2,3,4].forEach(lv => {
+      const jobs = d3.sum(byEduAll.get(lv) || [], d => d.jobs||0);
+      const pct = (jobs / totalJobs * 100).toFixed(0);
+      const row = document.createElement("div");
+      row.style.cssText = "display:flex;align-items:center;gap:8px;";
+      row.innerHTML = `<span style="color:#666;font-size:0.72rem;width:52px">${EDU_LABELS[lv]}</span>
+        <div style="flex:1;background:#1e1e2a;border-radius:2px;height:8px">
+          <div style="width:${pct}%;background:${EDU_COLORS[lv]};height:100%;border-radius:2px"></div></div>
+        <span style="color:#888;font-size:0.72rem;width:28px;text-align:right">${pct}%</span>`;
+      inner.appendChild(row);
+    });
+    card.appendChild(inner);
+  }
+
+  // Card 2: AI exposure per education level
+  {
+    const card = createCard(dash, "AI-score per niveau", 205);
+    const scored = leaf.filter(d => d.exposure != null);
+    const byEdu = d3.group(scored, d => d.isco_skill_level);
+    const svgW = 182, svgH = 100;
+    const m = { top: 6, right: 38, bottom: 4, left: 60 };
+    const eduData = [1,2,3,4].map(lv => ({
+      level: lv, label: EDU_LABELS[lv], col: EDU_COLORS[lv],
+      avgScore: d3.mean(byEdu.get(lv) || [], d => d.exposure) || 0
+    })).filter(d => (byEdu.get(d.level) || []).length > 0);
+    const x = d3.scaleLinear().domain([0,10]).range([m.left, svgW - m.right]);
+    const y = d3.scaleBand().domain([1,2,3,4]).range([m.top, svgH - m.bottom]).padding(0.25);
+    const svg = d3.select(card).append("svg").attr("width", svgW).attr("height", svgH);
+    svg.selectAll("rect").data(eduData).join("rect")
+      .attr("x", m.left).attr("y", d => y(d.level))
+      .attr("width", d => x(d.avgScore) - m.left).attr("height", y.bandwidth())
+      .attr("fill", d => greenRedCSS(d.avgScore / 10)).attr("opacity", 0.85);
+    svg.selectAll(".vl").data(eduData).join("text").attr("class","vl")
+      .attr("x", d => x(d.avgScore)+3).attr("y", d => y(d.level)+y.bandwidth()/2+3.5)
+      .attr("font-size","9px").attr("fill","#777").text(d => d.avgScore.toFixed(1));
+    svg.selectAll(".cl").data(eduData).join("text").attr("class","cl")
+      .attr("x", m.left-4).attr("y", d => y(d.level)+y.bandwidth()/2+3.5)
+      .attr("font-size","9px").attr("fill", d => d.col).attr("text-anchor","end")
+      .text(d => d.label);
+  }
+
+  // Card 3: wage per education level
+  {
+    const card = createCard(dash, "Uurloon per niveau", 205);
+    const waged = leaf.filter(d => d.median_hourly_wage);
+    const byEdu = d3.group(waged, d => d.isco_skill_level);
+    const svgW = 182, svgH = 100;
+    const m = { top: 6, right: 38, bottom: 4, left: 60 };
+    const eduData = [1,2,3,4].map(lv => ({
+      level: lv, label: EDU_LABELS[lv], col: EDU_COLORS[lv],
+      avgWage: d3.mean(byEdu.get(lv) || [], d => d.median_hourly_wage) || 0
+    })).filter(d => d.avgWage > 0);
+    const x = d3.scaleLinear().domain([0, d3.max(eduData, d => d.avgWage)*1.1]).range([m.left, svgW - m.right]);
+    const y = d3.scaleBand().domain([1,2,3,4]).range([m.top, svgH - m.bottom]).padding(0.25);
+    const svg = d3.select(card).append("svg").attr("width", svgW).attr("height", svgH);
+    svg.selectAll("rect").data(eduData).join("rect")
+      .attr("x", m.left).attr("y", d => y(d.level))
+      .attr("width", d => x(d.avgWage) - m.left).attr("height", y.bandwidth())
+      .attr("fill", d => d.col).attr("opacity", 0.9);
+    svg.selectAll(".vl").data(eduData).join("text").attr("class","vl")
+      .attr("x", d => x(d.avgWage)+3).attr("y", d => y(d.level)+y.bandwidth()/2+3.5)
+      .attr("font-size","9px").attr("fill","#777").text(d => `€${d.avgWage.toFixed(0)}`);
+    svg.selectAll(".cl").data(eduData).join("text").attr("class","cl")
+      .attr("x", m.left-4).attr("y", d => y(d.level)+y.bandwidth()/2+3.5)
+      .attr("font-size","9px").attr("fill", d => d.col).attr("text-anchor","end")
+      .text(d => d.label);
+  }
+
+  // Card 4: occupation count per level
+  {
+    const card = createCard(dash, "Beroepsgroepen per niveau", 185);
+    const inner = document.createElement("div");
+    inner.style.cssText = "display:flex;gap:8px;margin-top:4px;";
+    [1,2,3,4].forEach(lv => {
+      const count = (byEduAll.get(lv) || []).length;
+      const box = document.createElement("div");
+      box.style.cssText = `flex:1;background:#1c1c26;border:1px solid ${EDU_COLORS[lv]}44;border-radius:6px;padding:6px 4px;text-align:center;`;
+      box.innerHTML = `<div style="font-size:1.4rem;font-weight:700;color:${EDU_COLORS[lv]}">${count}</div>
+        <div style="font-size:0.65rem;color:#555;margin-top:2px">${EDU_LABELS[lv]}</div>`;
+      inner.appendChild(box);
+    });
+    card.appendChild(inner);
+  }
+
+  // Card 5: scatter colored by education level
+  drawScatterCard(dash, leaf.filter(d => d.exposure != null && d.median_hourly_wage), "Score vs. uurloon", "education");
+}
+
+// ── Shared: scatter plot ──────────────────────────────────────────────────────
+
+function drawScatterCard(dash, data, title, colorMode) {
+  const card = createCard(dash, title, 225);
+  const svgW = 202, svgH = 108;
+  const m = { top: 8, right: 12, bottom: 24, left: 34 };
+  const plasmaScale = d3.scaleSequential(d3.interpolatePlasma).domain([10, 50]);
+  const EDU_COLORS = { 1:"#d4e6f1", 2:"#5dade2", 3:"#1a5276", 4:"#0b3d91" };
+
+  const x = d3.scaleLinear()
+    .domain([d3.min(data, d => d.median_hourly_wage)*0.92, d3.max(data, d => d.median_hourly_wage)*1.06])
+    .range([m.left, svgW - m.right]);
+  const y = d3.scaleLinear().domain([0, 10]).range([svgH - m.bottom, m.top]);
+  const rScale = d3.scaleSqrt().domain([0, d3.max(data, d => d.jobs||0)]).range([2, 8]);
+
+  const svg = d3.select(card).append("svg").attr("width", svgW).attr("height", svgH);
+
+  // grid
+  svg.append("g").attr("transform", `translate(${m.left},0)`)
+    .call(d3.axisLeft(y).ticks(4).tickSize(-(svgW - m.left - m.right)))
+    .call(g => g.select(".domain").remove())
+    .call(g => g.selectAll("line").attr("stroke","#1e1e2a").attr("stroke-dasharray","2,2"))
+    .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","8px"));
+
+  svg.append("g").attr("transform", `translate(0,${svgH - m.bottom})`)
+    .call(d3.axisBottom(x).ticks(4).tickFormat(d => `€${d}`).tickSize(3))
+    .call(g => g.select(".domain").attr("stroke","#333"))
+    .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","8px"))
+    .call(g => g.selectAll("line").attr("stroke","#333"));
+
+  // axis labels
+  svg.append("text").attr("x", svgW/2).attr("y", svgH - 5)
+    .attr("text-anchor","middle").attr("font-size","8px").attr("fill","#444")
+    .text("Uurloon (€)");
+  svg.append("text").attr("transform","rotate(-90)").attr("x", -(svgH/2)).attr("y", 10)
+    .attr("text-anchor","middle").attr("font-size","8px").attr("fill","#444")
+    .text("AI score");
+
+  // dots
+  svg.selectAll("circle").data(data).join("circle")
+    .attr("cx", d => x(d.median_hourly_wage)).attr("cy", d => y(d.exposure))
+    .attr("r", d => rScale(d.jobs||0))
+    .attr("fill", d => {
+      if (colorMode === "score") return greenRedCSS(d.exposure / 10);
+      if (colorMode === "wage") return plasmaScale(d.median_hourly_wage);
+      return EDU_COLORS[d.isco_skill_level] || "#555";
+    })
+    .attr("opacity", 0.72).attr("stroke","#0f0f13").attr("stroke-width", 0.5);
 }
 
 // Dismiss touch tooltip by tapping the SVG background
