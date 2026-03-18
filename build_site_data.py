@@ -50,6 +50,7 @@ for code, occ in occupations.items():
         "annual_wage": wage_val,
         "exposure": score_data.get("score"),
         "exposure_rationale": score_data.get("rationale", ""),
+        "isco_skill_level": int(occ["isco_skill_level"]) if occ.get("isco_skill_level") else None,
     }
     output.append(entry)
 

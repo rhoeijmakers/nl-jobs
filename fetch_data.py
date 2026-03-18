@@ -1,7 +1,7 @@
 """
 Fetch CBS occupation data: employment counts and hourly wages.
 Outputs occupations.csv with columns:
-  code, title, level, category, jobs_x1000, median_hourly_wage, annual_wage_est
+  code, title, level, category, jobs_x1000, median_hourly_wage, annual_wage_est, isco_skill_level
 """
 
 import csv
@@ -47,6 +47,25 @@ def parse_code_title(beroep: str):
     if len(parts) == 2:
         return parts[0], parts[1]
     return "", beroep
+
+# ISCO-08 skill level per BRC 2-digit category (deterministic mapping)
+ISCO_SKILL_LEVEL = {
+    "01": 4,  # Pedagogische beroepen (HBO/WO)
+    "02": 3,  # Creatieve en taalkundige beroepen (MBO/HBO)
+    "03": 3,  # Commerciële beroepen
+    "04": 3,  # Bedrijfseconomische en administratieve beroepen
+    "05": 4,  # Managers (HBO/WO)
+    "06": 4,  # Openbaar bestuur, veiligheid en juridische beroepen
+    "07": 3,  # Technische beroepen
+    "08": 4,  # ICT-beroepen (HBO/WO)
+    "09": 2,  # Agrarische beroepen (MBO)
+    "10": 4,  # Medische en paramedische beroepen
+    "11": 2,  # Verzorgende en dienstverlenende beroepen
+    "12": 2,  # Transport en logistiek beroepen
+    "13": 2,  # Bouwberoepen
+    "14": 2,  # Productie en installatieberoepen
+    "15": 2,  # Overige beroepen
+}
 
 # BRC 2014 top-level categories (2-digit codes)
 # We infer category from the first 2 characters of the code
@@ -97,6 +116,7 @@ for beroep, jobs in emp.items():
         "jobs_x1000": jobs,
         "median_hourly_wage": hourly,
         "annual_wage_est": annual,
+        "isco_skill_level": ISCO_SKILL_LEVEL.get(cat_code),
     })
 
 # Fill missing wages using parent group (3-digit → 2-digit fallback)
