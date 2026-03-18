@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="5" fill="#0f0f13"/>
+  <!-- Large green bubble — low AI exposure, many workers -->
+  <circle cx="9" cy="22" r="7.5" fill="#1eb428"/>
+  <!-- Medium amber bubble — mid AI exposure -->
+  <circle cx="20" cy="15" r="5" fill="#e1a115"/>
+  <!-- Small red bubble — high AI exposure, fewer workers -->
+  <circle cx="27" cy="7" r="3.5" fill="#ff1e0f"/>
+</svg>
