@@ -2012,7 +2012,7 @@
     "jobs": 99.0,
     "median_hourly_wage": 17.7,
     "annual_wage": 33134,
-    "exposure": 1,
-    "exposure_rationale": "Kraamverzorgenden voeren zeer fysiek, praktisch werk uit dat constante aanwezigheid in de werkelijkheid vereist: assistentie bij bevallingen, monitoren van vitale functies, directe patiëntenzorg en het hanteren van spoedgevallen. Dit beroep vereist zintuiglijk oordeel, fysiek contact, emotionele aanwezigheid en onmiddellijke responsiviteit op patiënten, wat niet kan worden geautomatiseerd of op afstand kan worden uitgevoerd door huidige of nabije toekomstige AI-technologie."
+    "exposure": 2,
+    "exposure_rationale": "Overige bouwberoepen omvatten uiteenlopend handmatig en fysiek werk op bouwlocaties — zoals sjouwers, schoonmakers van bouwplaatsen en hulparbeiders. Deze werkzaamheden vereisen constante fysieke aanwezigheid, handvaardigheid en situationele beoordelingen op locatie. AI heeft beperkte impact op dit type werk; automatisering via robots is denkbaar op lange termijn, maar vereist nog ingrijpende technologische vooruitgang voor ongestructureerde buitenomgevingen."
   }
 ]
