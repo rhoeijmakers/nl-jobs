@@ -2,11 +2,11 @@
 
 An interactive treemap visualizing how exposed Dutch occupations are to AI — adapted from [mariodian/jobs](https://github.com/mariodian/jobs) (originally by Andrej Karpathy) for the Netherlands using [ESCO](https://esco.ec.europa.eu/) occupation data.
 
-**Live demo:** [rhoeijmakers.github.io/nl-jobs](https://rhoeijmakers.github.io/nl-jobs/)
+**Live demo:** [jobs.hoeijmakers.net](https://jobs.hoeijmakers.net/)
 
 ## What's here
 
-The [ESCO classification](https://esco.ec.europa.eu/en/classification/occupation_main) covers **168 Dutch occupational groups** across all sectors. Each rectangle in the treemap is sized by total employment and coloured by AI exposure score (1–10), scored by Claude (Anthropic).
+The [ESCO classification](https://esco.ec.europa.eu/en/classification/occupation_main) covers **114 Dutch occupational groups** across all sectors. Each rectangle in the treemap is sized by total employment and coloured by AI exposure score (1–10), scored by Claude (Anthropic).
 
 ## Pipeline
 
