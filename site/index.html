@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nederlandse Arbeidsmarkt — AI Blootstelling</title>
+<meta name="description" content="Interactieve treemap van 114 beroepsgroepen en hun AI-blootstelling, op basis van ESCO en CBS-data 2023.">
+<meta property="og:title" content="Nederlandse Arbeidsmarkt & AI Blootstelling">
+<meta property="og:description" content="114 beroepsgroepen · 9,7M werkenden · AI-blootstelling gescoord door Claude op ESCO-omschrijvingen">
+<meta property="og:image" content="https://rhoeijmakers.github.io/nl-jobs/preview.png">
+<meta property="og:url" content="https://rhoeijmakers.github.io/nl-jobs/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rhoeijmakers.github.io/nl-jobs/preview.png">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0f0f13; color: #e0e0e0; display: flex; flex-direction: column; height: 100dvh; overflow: hidden; }
+  #wrapper { max-width: 1400px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; flex: 1; min-height: 0; }
+
+  header { padding: 14px 20px 10px; border-bottom: 1px solid #222; }
+  header h1 { font-size: 1.2rem; font-weight: 600; color: #fff; }
+  header p { font-size: 0.78rem; color: #888; margin-top: 3px; }
+
+  #controls {
+    display: flex; gap: 8px; align-items: center;
+    padding: 8px 16px; border-bottom: 1px solid #1a1a1a;
+    overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  #controls::-webkit-scrollbar { display: none; }
+  .layer-btn {
+    padding: 5px 13px; border-radius: 20px; border: 1px solid #444;
+    background: #1c1c24; color: #aaa; cursor: pointer; font-size: 0.78rem;
+    transition: all 0.15s; white-space: nowrap; flex-shrink: 0;
+  }
+  .layer-btn.active { background: #3a6cff; border-color: #3a6cff; color: #fff; }
+  .layer-btn:hover:not(.active) { border-color: #666; color: #ddd; }
+
+  #stats {
+    padding: 8px 20px 10px;
+    display: flex; gap: 32px; border-bottom: 1px solid #1a1a1a;
+    flex-wrap: wrap;
+  }
+  .stat-block { display: flex; flex-direction: column; }
+  .stat-val { font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1.1; }
+  .stat-lbl { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-top: 2px; }
+
+  #intro-section {
+    padding: 18px 24px 16px;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 0.875rem; line-height: 1.65; color: #888;
+    max-width: 960px;
+  }
+  #intro-section p { margin-bottom: 0; }
+  #intro-section a { color: #5b8fff; text-decoration: none; }
+  #intro-section a:hover { text-decoration: underline; }
+  #intro-section details { margin-top: 10px; }
+  #intro-section summary {
+    color: #5b8fff; cursor: pointer; font-size: 0.83rem;
+    list-style: none; display: inline-flex; align-items: center; gap: 6px;
+  }
+  #intro-section summary::-webkit-details-marker { display: none; }
+  #intro-section summary::before { content: "▶"; font-size: 0.6rem; transition: transform 0.15s; }
+  #intro-section details[open] summary::before { transform: rotate(90deg); }
+  #intro-section summary:hover { color: #8abaff; }
+  #intro-section .prompt-box {
+    background: #0d0d14; border: 1px solid #2a2a38; border-radius: 6px;
+    padding: 12px 14px; font-family: monospace; font-size: 0.78rem;
+    color: #8a9; white-space: pre-wrap; margin: 10px 0 4px;
+  }
+  #intro-section .caveat {
+    font-size: 0.8rem; color: #666; margin-top: 8px;
+    border-left: 2px solid #444; padding-left: 10px;
+  }
+
+  #treemap-container {
+    position: relative; overflow: hidden;
+    width: 100%; flex: 1; min-height: 80px;
+  }
+  #treemap-container svg { display: block; }
+
+  .node rect { stroke: #0f0f13; }
+  .node text { pointer-events: none; }
+
+  /* Tooltip — bottom sheet on mobile, floating on desktop */
+  #tooltip {
+    position: fixed; display: none; z-index: 100;
+    background: rgba(15,15,20,0.97); border: 1px solid #333;
+    border-radius: 8px; padding: 12px 16px; max-width: 340px;
+    font-size: 0.82rem; line-height: 1.5; pointer-events: none;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  }
+  #tooltip h3 { font-size: 0.95rem; color: #fff; margin-bottom: 6px; }
+  #tooltip .meta { color: #888; margin-bottom: 6px; }
+  #tooltip .meta b { color: #ccc; }
+  #tooltip .rationale { color: #aaa; font-style: italic; font-size: 0.78rem; }
+  #tooltip .score-badge {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;
+  }
+  #tooltip .close-tip {
+    display: none; float: right; background: none; border: none;
+    color: #666; font-size: 1.2rem; cursor: pointer; line-height: 1; margin: -4px -4px 0 8px;
+  }
+  @media (pointer: coarse) {
+    /* Touch device: show as bottom sheet */
+    #tooltip {
+      bottom: 0; left: 0; right: 0; top: auto;
+      max-width: 100%; border-radius: 16px 16px 0 0;
+      border-bottom: none; pointer-events: auto;
+      max-height: 55vh; overflow-y: auto;
+    }
+    #tooltip .close-tip { display: block; }
+  }
+
+  /* Legend — inline above treemap */
+  #legend {
+    display: flex; flex-direction: row; align-items: center; gap: 12px;
+    padding: 7px 20px 8px; border-bottom: 1px solid #1a1a1a;
+    font-size: 0.75rem;
+  }
+  #legend-title { color: #999; white-space: nowrap; margin-bottom: 0; }
+  #legend .grad { width: 120px; height: 8px; border-radius: 3px; }
+  #legend .grad-labels { display: flex; justify-content: space-between; color: #555; font-size: 0.68rem; width: 120px; }
+
+  /* Mobile disclaimer — hidden on desktop */
+  #mobile-disclaimer {
+    display: none;
+  }
+
+  /* Footer bar */
+  #footer-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; height: 28px;
+    background: #0f0f13; border-top: 1px solid #1e1e1e;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 16px; z-index: 50;
+    white-space: nowrap; overflow: hidden;
+  }
+  #footer-credit {
+    font-size: 0.72rem; color: #404040; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  #footer-credit a { color: #404040; text-decoration: none; }
+  #footer-credit a:hover { color: #aaa; }
+  #changelog-btn {
+    background: none; border: none; color: #484848;
+    font-size: 0.74rem; cursor: pointer; padding: 0;
+  }
+  #changelog-btn:hover { color: #aaa; }
+
+  /* Changelog modal — reuses .modal-overlay / .modal-box pattern */
+  #changelog-modal {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.75); align-items: center; justify-content: center;
+  }
+  #changelog-modal.open { display: flex; }
+  #changelog-panel {
+    background: #16161e; border: 1px solid #2a2a38; border-radius: 12px;
+    padding: 32px 36px; max-width: 560px; width: 90%; max-height: 80vh;
+    overflow-y: auto; position: relative; line-height: 1.65;
+    font-size: 0.85rem; color: #bbb;
+  }
+  #changelog-panel h2 { color: #fff; font-size: 1.1rem; margin-bottom: 20px; }
+  #changelog-panel h3 { color: #ddd; font-size: 0.88rem; margin: 18px 0 6px; border-top: 1px solid #2a2a38; padding-top: 14px; }
+  #changelog-panel h3:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
+  #changelog-panel ul { padding-left: 18px; }
+  #changelog-panel li { margin-bottom: 4px; }
+  #close-changelog {
+    position: absolute; top: 16px; right: 20px; background: none;
+    border: none; color: #666; font-size: 1.4rem; cursor: pointer; line-height: 1;
+  }
+  #close-changelog:hover { color: #fff; }
+
+  /* Modal overlay */
+  #about-modal {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.75); align-items: center; justify-content: center;
+  }
+  #about-modal.open { display: flex; }
+  #about-panel {
+    background: #16161e; border: 1px solid #2a2a38; border-radius: 12px;
+    padding: 32px 36px; max-width: 640px; width: 90%; max-height: 80vh;
+    overflow-y: auto; position: relative; line-height: 1.65;
+    font-size: 0.85rem; color: #bbb;
+  }
+  #about-panel h2 { color: #fff; font-size: 1.1rem; margin-bottom: 16px; }
+  #about-panel h3 { color: #ddd; font-size: 0.9rem; margin: 20px 0 8px; }
+  #about-panel p { margin-bottom: 10px; }
+  #about-panel ul { padding-left: 18px; margin-bottom: 10px; }
+  #about-panel li { margin-bottom: 5px; }
+  #about-panel a { color: #5b8fff; text-decoration: none; }
+  #about-panel a:hover { text-decoration: underline; }
+  #about-panel .prompt-box {
+    background: #0d0d14; border: 1px solid #2a2a38; border-radius: 6px;
+    padding: 12px 14px; font-family: monospace; font-size: 0.78rem;
+    color: #8a9; white-space: pre-wrap; margin: 8px 0;
+  }
+  #about-panel .caveat {
+    background: #1e1a10; border-left: 3px solid #f1c40f;
+    padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0;
+  }
+  #about-panel details { margin: 12px 0; }
+  #about-panel summary {
+    color: #5b8fff; cursor: pointer; font-size: 0.83rem;
+    list-style: none; display: inline-flex; align-items: center; gap: 6px;
+  }
+  #about-panel summary::-webkit-details-marker { display: none; }
+  #about-panel summary::before { content: "▶"; font-size: 0.6rem; transition: transform 0.15s; }
+  #about-panel details[open] summary::before { transform: rotate(90deg); }
+  #about-panel summary:hover { color: #8abaff; }
+  #about-panel .divider { border: none; border-top: 1px solid #2a2a38; margin: 18px 0; }
+  #close-about {
+    position: absolute; top: 16px; right: 20px; background: none;
+    border: none; color: #666; font-size: 1.4rem; cursor: pointer; line-height: 1;
+  }
+  #close-about:hover { color: #fff; }
+
+  /* ── Mobile: scrollable layout ── */
+  @media (max-width: 700px) {
+    body { height: auto; min-height: 100dvh; overflow-y: auto; }
+    #treemap-container { flex: none; height: 100vw; min-height: 300px; }
+    #intro-section { padding: 12px 16px 14px; font-size: 0.82rem; }
+    #mobile-disclaimer { display: block; padding: 10px 16px 48px; font-size: 0.75rem; color: #3a3a4a; text-align: center; border-top: 1px solid #1a1a1a; }
+    #footer-bar { position: sticky; bottom: 0; }
+  }
+</style>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-srZ-rvroOrpb6c4rtyLWV.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+</head>
+<body>
+
+<div id="wrapper">
+
+<header>
+  <h1>Nederlandse Arbeidsmarkt &amp; AI Blootstelling</h1>
+  <p>CBS 2023 &middot; <a href="https://github.com/rhoeijmakers/nl-jobs" style="color:#555;text-decoration:none;" target="_blank">GitHub ↗</a></p>
+</header>
+
+<div id="intro-section">
+  <p>Dit is een onderzoeksvisualisatie van <strong style="color:#ccc;">114 beroepsgroepen</strong> uit de
+  <a href="https://esco.ec.europa.eu/nl/classification/occupation_main" target="_blank">ESCO-beroepsclassificatie</a>
+  (Europese Commissie), goed voor <strong style="color:#ccc;">9,7 miljoen banen</strong> in Nederland
+  (<a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85276NED" target="_blank">CBS 2023</a>).
+  De oppervlakte van elke tegel is evenredig met het aantal werkenden; de kleur toont AI-blootstelling (0–10)
+  of mediaan uurloon — schakel via de knoppen onderaan.
+  Zweef of tik op een tegel voor naam, score en toelichting.
+  Dit is geen rapport of economische publicatie — het is een hulpmiddel om arbeidsmarktdata visueel te verkennen.</p>
+
+  <details>
+    <summary>Bekijk de gebruikte scoringsprompt (voorbeeld)</summary>
+    <div class="prompt-box">Beoordeel de AI-blootstelling van dit beroep op een schaal van 0–10.
+
+Factoren:
+- Zijn de werkproducten fundamenteel digitaal?
+- Kan het werk op afstand/online worden gedaan?
+- Betreft het creatieve of originele contentcreatie?
+- Omvat het patroonherkenning, data-analyse of tekstverwerking?
+- Is fysieke aanwezigheid, manuele behendigheid of zintuiglijk
+  oordeel vereist?
+
+Geef een score en een korte toelichting van 2-3 zinnen.</div>
+    <p class="caveat">Een hoge score betekent niet dat een beroep verdwijnt — softwareontwikkelaars scoren 8/10
+    omdat AI hun werk ingrijpend verandert, maar de vraag kan juist groeien als elke ontwikkelaar productiever wordt.
+    De scores zijn ruwe schattingen van een taalmodel en houden geen rekening met vraagveranderingen of regelgeving.</p>
+  </details>
+  <p style="margin-top:12px;font-size:0.78rem;color:#444;">
+    Gebaseerd op <a href="https://karpathy.ai/jobs/" target="_blank">karpathy.ai/jobs</a> van
+    <a href="https://karpathy.ai" target="_blank">Andrej Karpathy</a> &middot;
+    <a href="https://github.com/rhoeijmakers/nl-jobs" target="_blank">GitHub ↗</a>
+  </p>
+</div>
+
+<div id="controls">
+  <span style="font-size:0.8rem;color:#555;margin-right:4px;">Kleur:</span>
+  <button class="layer-btn active" data-layer="exposure">AI Blootstelling</button>
+  <button class="layer-btn" data-layer="wage">Uurloon (mediaan)</button>
+</div>
+
+<div id="stats"></div>
+
+<div id="legend">
+  <div id="legend-title" style="color:#999;margin-bottom:4px;"></div>
+  <div class="grad" id="legend-grad"></div>
+  <div class="grad-labels" id="legend-labels"></div>
+</div>
+
+<div id="treemap-container"></div>
+
+<div id="mobile-disclaimer">
+  Voor de beste ervaring: gebruik een desktopbrowser — de kaart is interactiever op een groter scherm.
+</div>
+
+</div><!-- /#wrapper -->
+
+<div id="tooltip"></div>
+
+<div id="about-modal">
+  <div id="about-panel">
+    <button id="close-about">&times;</button>
+    <h2>Over dit onderzoek</h2>
+
+    <p>Dit is een onderzoeksvisualisatie van 114 beroepsgroepen uit de
+    <a href="https://esco.ec.europa.eu/nl/classification/occupation_main" target="_blank">ESCO-beroepsclassificatie</a>
+    (Europese Commissie), goed voor 9,7 miljoen banen in de Nederlandse economie
+    op basis van <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85276NED" target="_blank">CBS-data 2023</a>.
+    De oppervlakte van elke tegel is evenredig met het aantal werkenden.
+    De kleur toont de geselecteerde maatstaf — wissel tussen AI-blootstelling en mediaan uurloon
+    (<a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85517NED" target="_blank">CBS 2023</a>).
+    Zweef of klik op een tegel voor details.
+    Dit is geen rapport, geen onderzoekspaper en geen serieuze economische publicatie —
+    het is een hulpmiddel om arbeidsmarktdata visueel te verkennen.</p>
+
+    <hr class="divider">
+
+    <p><strong>Door AI gescoord:</strong> De
+    <a href="https://github.com/rhoeijmakers/nl-jobs" target="_blank">broncode</a>
+    bevat scrapers en een scoringspipeline waarmee je via een prompt aan
+    Claude (Anthropic) elke beroepsgroep een score kunt laten geven.
+    Je schrijft een prompt, Claude scoort elke beroepsgroep, en de treemap kleurt dienovereenkomstig.
+    De optie <em>AI Blootstelling</em> is één voorbeeld — het schat in hoeverre huidige AI
+    (die primair digitaal werkt) elk beroep zal transformeren.
+    Maar je kunt een andere prompt schrijven voor elke vraag —
+    bijv. blootstelling aan humanoid robotics, risico op offshoring, impact van de energietransitie —
+    en de pipeline opnieuw draaien voor een andere kleurlaag.</p>
+
+    <details>
+      <summary>Bekijk de gebruikte scoringsprompt (voorbeeld)</summary>
+      <div class="prompt-box" style="margin-top:10px">Beoordeel de AI-blootstelling van dit beroep op een schaal van 0–10.
+
+Factoren:
+- Zijn de werkproducten fundamenteel digitaal?
+- Kan het werk op afstand/online worden gedaan?
+- Betreft het creatieve of originele contentcreatie?
+- Omvat het patroonherkenning, data-analyse of tekstverwerking?
+- Is fysieke aanwezigheid, manuele behendigheid of zintuiglijk
+  oordeel vereist?
+
+Geef een score en een korte toelichting van 2-3 zinnen.</div>
+    </details>
+
+    <hr class="divider">
+
+    <div class="caveat">
+      <strong>Kanttekening bij AI-blootstellingsscores:</strong> Dit zijn ruwe schattingen van een
+      taalmodel, geen rigoureuze voorspellingen. Een hoge score betekent <em>niet</em> dat een beroep
+      verdwijnt. Softwareontwikkelaars scoren 8/10 omdat AI hun werk ingrijpend verandert —
+      maar de vraag naar ontwikkelaars kan juist groeien als elke ontwikkelaar productiever wordt.
+      De score houdt geen rekening met vraagveranderingen, latente vraag, regelgeving of
+      sociale voorkeur voor menselijke arbeid. Veel beroepen met een hoge score zullen
+      <em>veranderen</em>, niet verdwijnen.
+    </div>
+
+    <hr class="divider">
+
+    <p style="font-size:0.78rem;color:#666;">
+      Broncode: <a href="https://github.com/rhoeijmakers/nl-jobs" target="_blank">github.com/rhoeijmakers/nl-jobs</a> ·
+      Gebaseerd op het concept van <a href="https://karpathy.ai/jobs/" target="_blank">Andrej Karpathy</a> /
+      <a href="https://github.com/mariodian/jobs" target="_blank">mariodian/jobs</a>
+    </p>
+  </div>
+</div>
+
+<div id="footer-bar">
+  <button id="changelog-btn">v1.9 &middot; Wijzigingen ↗</button>
+  <span id="footer-credit">Gemaakt door <a href="https://schmuki.nl" target="_blank">Schmuki</a></span>
+</div>
+
+<div id="changelog-modal">
+  <div id="changelog-panel">
+    <button id="close-changelog">&times;</button>
+    <h2>Versiegeschiedenis</h2>
+
+    <h3>v1.9 — maart 2026</h3>
+    <ul>
+      <li>Treemap hoogte op mobiel vergroot naar 100vw (was 56vw)</li>
+    </ul>
+
+    <h3>v1.8 — maart 2026</h3>
+    <ul>
+      <li>Mobiel: pagina nu scrollbaar, introductie volledig zichtbaar</li>
+      <li>Legenda inline geplaatst (niet meer zwevend over de kaart) op mobiel</li>
+      <li>Disclaimer toegevoegd onder de kaart op mobiele weergave</li>
+      <li>Kleurschaal aangepast: hogere scores nu duidelijker rood (dichter bij karpathy.ai/jobs)</li>
+    </ul>
+
+    <h3>v1.7 — maart 2026</h3>
+    <ul>
+      <li>Mobiele weergave verbeterd: footer wrapping opgelost, legenda correct gepositioneerd</li>
+      <li>Treemap hoogte dynamisch via flex layout (stabiel op alle schermformaten)</li>
+      <li>Introductietekst ingekort op kleine schermen zodat de kaart meer ruimte krijgt</li>
+    </ul>
+
+    <h3>v1.6 — maart 2026</h3>
+    <ul>
+      <li>Toelichtingen per beroep vertaald van Engels naar Nederlands</li>
+      <li>Credit naar Andrej Karpathy toegevoegd in intro en footer</li>
+    </ul>
+
+    <h3>v1.5 — maart 2026</h3>
+    <ul>
+      <li>Introductietekst zichtbaar op de hoofdpagina (niet meer achter een knop)</li>
+      <li>Scoringsprompt uitklapbaar direct onder de introductie</li>
+      <li>Nieuwe OG-preview afbeelding bijgewerkt</li>
+    </ul>
+
+    <h3>v1.4 — maart 2026</h3>
+    <ul>
+      <li>Toelichting 'Over dit onderzoek' herschreven in karpathy-stijl</li>
+      <li>Scoringsprompt zichtbaar als uitklapbare sectie</li>
+      <li>Tegellabels tonen score én aantal banen (bijv. 8/10 · 287k banen)</li>
+      <li>Knop 'Werkgelegenheid' verwijderd</li>
+      <li>Plausible analytics toegevoegd</li>
+    </ul>
+
+    <h3>v1.3 — maart 2026</h3>
+    <ul>
+      <li>Tegels beginnen donker; volle kleur verschijnt bij hoveren (zoals karpathy.ai/jobs)</li>
+      <li>Dashboard-stijl stats: grote vetgedrukte cijfers met uppercase labels</li>
+      <li>Subtitel vereenvoudigd, introbar in onderzoeksstijl</li>
+    </ul>
+
+    <h3>v1.2 — maart 2026</h3>
+    <ul>
+      <li>Categoriefout hersteld: artsen en verpleegkundigen stonden onder 'Transport'</li>
+      <li>Korte uitleg toegevoegd boven de kaart</li>
+      <li>Versiegeschiedenis toegevoegd</li>
+      <li>Open Graph-preview voor sociale media (LinkedIn, WhatsApp, X)</li>
+    </ul>
+
+    <h3>v1.1 — maart 2026</h3>
+    <ul>
+      <li>Mobiele weergave verbeterd: toelichting verschijnt als onderste balk bij tikken</li>
+      <li>Toelichting 'Over dit onderzoek' toegevoegd (methode, prompt, databronnen, beperkingen)</li>
+      <li>Categorielabels afgekapt bij smalle tegels</li>
+    </ul>
+
+    <h3>v1.0 — maart 2026</h3>
+    <ul>
+      <li>Eerste versie: Nederlandse arbeidsmarkt &amp; AI-blootstelling</li>
+      <li>114 beroepsgroepen op basis van ESCO v1.2 en CBS 2023, 9,7M werkenden</li>
+      <li>AI-blootstelling gescoord door Claude (Anthropic) op basis van beroepsomschrijvingen</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+let currentLayer = "exposure";
+let allData = [];
+
+// Color scales
+const scales = {
+  exposure: {
+    color: d => {
+      if (d.exposure == null) return "#2a2a35";
+      return greenRedCSS(d.exposure / 10);
+    },
+    label: d => d.exposure != null ? d.exposure.toFixed(1) : "?",
+    legendTitle: "AI Blootstelling (0–10)",
+    legendLabels: ["0 (laag)", "5", "10 (hoog)"],
+    legendGrad: "linear-gradient(to right, rgb(30,180,40), rgb(230,160,20), rgb(255,15,15))",
+  },
+  wage: {
+    color: d => {
+      if (!d.median_hourly_wage) return "#2a2a35";
+      const scale = d3.scaleSequential(d3.interpolatePlasma).domain([10, 50]);
+      return scale(d.median_hourly_wage);
+    },
+    label: d => d.median_hourly_wage ? `€${d.median_hourly_wage}` : "?",
+    legendTitle: "Mediaan uurloon",
+    legendLabels: ["€10", "€30", "€50+"],
+    legendGrad: "linear-gradient(to right, #0d0887, #7e03a8, #cc4778, #f89441, #f0f921)",
+  },
+};
+
+// Karpathy-style green→amber→red with contrast boost (pow 0.55)
+function greenRedCSS(t) {
+  t = Math.pow(Math.max(0, Math.min(1, t)), 0.55);
+  let r, g, b;
+  if (t < 0.5) {
+    const s = t / 0.5;
+    r = Math.round(30 + s * 200);
+    g = Math.round(180 - s * 20);
+    b = Math.round(40 - s * 20);
+  } else {
+    const s = (t - 0.5) / 0.5;
+    r = Math.round(230 + s * 25);
+    g = Math.round(160 - s * 130);
+    b = Math.round(20 - s * 5);
+  }
+  return `rgb(${r},${g},${b})`;
+}
+
+function scoreColor(score) {
+  if (score == null) return "#444";
+  return greenRedCSS(score / 10);
+}
+
+const isTouchDevice = () => window.matchMedia("(pointer: coarse)").matches;
+
+function buildTooltipHTML(d) {
+  const sc = d.exposure;
+  let html = `<button class="close-tip" onclick="hideTooltip()">×</button>`;
+  html += `<h3>${d.code} — ${d.title}</h3>`;
+  html += `<div class="meta"><b>Categorie:</b> ${d.category}</div>`;
+  if (sc != null) {
+    const col = scoreColor(sc);
+    html += `<span class="score-badge" style="background:${col}22;color:${col};border:1px solid ${col}55">AI: ${sc.toFixed(1)}/10</span><br>`;
+  }
+  html += `<div class="meta">`;
+  if (d.jobs) html += `<b>Werkenden:</b> ${d.jobs}k (${(d.jobs/1000).toFixed(2)}M)<br>`;
+  if (d.median_hourly_wage) html += `<b>Mediaan uurloon:</b> €${d.median_hourly_wage}/u<br>`;
+  if (d.annual_wage) html += `<b>Geschat jaarsalaris:</b> €${d.annual_wage.toLocaleString("nl-NL")}<br>`;
+  html += `</div>`;
+  if (d.exposure_rationale) html += `<div class="rationale">${d.exposure_rationale}</div>`;
+  return html;
+}
+
+function showTooltip(event, d) {
+  const tooltip = document.getElementById("tooltip");
+  tooltip.innerHTML = buildTooltipHTML(d);
+  if (isTouchDevice()) {
+    // Clear any desktop inline positioning so CSS bottom-sheet takes over
+    tooltip.style.left = "";
+    tooltip.style.top = "";
+    tooltip.style.right = "";
+    tooltip.style.bottom = "";
+  } else {
+    moveTooltip(event);
+  }
+  tooltip.style.display = "block";
+}
+
+function hideTooltip() {
+  document.getElementById("tooltip").style.display = "none";
+}
+
+function moveTooltip(event) {
+  const tooltip = document.getElementById("tooltip");
+  const x = event.clientX + 14;
+  const y = event.clientY + 14;
+  const tw = tooltip.offsetWidth;
+  const th = tooltip.offsetHeight;
+  tooltip.style.left = (x + tw > window.innerWidth ? x - tw - 28 : x) + "px";
+  tooltip.style.top = (y + th > window.innerHeight ? y - th - 28 : y) + "px";
+}
+
+function updateLegend(layer) {
+  const s = scales[layer];
+  document.getElementById("legend-title").textContent = s.legendTitle;
+  document.getElementById("legend-grad").style.background = s.legendGrad;
+  const labels = document.getElementById("legend-labels");
+  labels.innerHTML = s.legendLabels.map(l => `<span>${l}</span>`).join("");
+}
+
+function updateStats(data) {
+  const leaf = data.filter(d => d.level === 4);
+  const scored = leaf.filter(d => d.exposure != null);
+  const totalJobs = d3.sum(leaf, d => d.jobs || 0);
+  const avgExposure = scored.length ? d3.mean(scored, d => d.exposure) : null;
+  const avgColor = avgExposure != null ? scoreColor(avgExposure) : "#aaa";
+
+  document.getElementById("stats").innerHTML = `
+    <div class="stat-block">
+      <div class="stat-val">${leaf.length}</div>
+      <div class="stat-lbl">Beroepsgroepen</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-val" style="color:${avgColor}">${avgExposure != null ? avgExposure.toFixed(1) + "/10" : "—"}</div>
+      <div class="stat-lbl">Gem. AI-blootstelling</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-val">${(totalJobs/1000).toFixed(1)}M</div>
+      <div class="stat-lbl">Werkenden</div>
+    </div>
+  `;
+}
+
+function drawTreemap(data) {
+  allData = data;
+
+  // Build hierarchy: category (cat_code) → leaf occupations (level 4)
+  // Use only level-2 (major group) and level-4 (unit group) for clean display
+  const leafs = data.filter(d => d.level === 4);
+  const cats = [...new Set(leafs.map(d => d.cat_code))];
+
+  const root_obj = {
+    name: "root",
+    children: cats.map(cat => {
+      const children = leafs.filter(d => d.cat_code === cat);
+      const catName = children[0]?.category || cat;
+      return { name: catName, cat, children };
+    }),
+  };
+
+  updateStats(data);
+  updateLegend(currentLayer);
+
+  const container = document.getElementById("treemap-container");
+  const W = container.clientWidth;
+  const H = container.clientHeight - 40;
+
+  d3.select("#treemap-container svg").remove();
+  const svg = d3.select("#treemap-container")
+    .append("svg")
+    .attr("width", W)
+    .attr("height", H);
+
+  const hierarchy = d3.hierarchy(root_obj)
+    .sum(d => d.jobs || 0)
+    .sort((a, b) => b.value - a.value);
+
+  d3.treemap()
+    .size([W, H])
+    .paddingOuter(3)
+    .paddingTop(18)
+    .paddingInner(1)
+    .round(true)(hierarchy);
+
+  // Category group labels — clip to available width
+  const groups = hierarchy.children || [];
+  svg.selectAll(".group-label")
+    .data(groups)
+    .join("text")
+    .attr("class", "group-label")
+    .attr("x", d => d.x0 + 5)
+    .attr("y", d => d.y0 + 14)
+    .attr("font-size", "11px")
+    .attr("font-weight", "600")
+    .attr("fill", "#aaa")
+    .attr("pointer-events", "none")
+    .text(d => {
+      const w = d.x1 - d.x0;
+      const name = d.data.name;
+      if (w < 60) return "";
+      const maxChars = Math.floor(w / 7);
+      return name.length > maxChars ? name.slice(0, maxChars - 1) + "…" : name;
+    });
+
+  // Leaf nodes
+  const s = scales[currentLayer];
+  const nodes = svg.selectAll(".node")
+    .data(hierarchy.leaves())
+    .join("g")
+    .attr("class", "node")
+    .attr("transform", d => `translate(${d.x0},${d.y0})`);
+
+  nodes.append("rect")
+    .attr("width", d => Math.max(0, d.x1 - d.x0))
+    .attr("height", d => Math.max(0, d.y1 - d.y0))
+    .attr("fill", d => s.color(d.data))
+    .attr("fill-opacity", 0.72)
+    .attr("rx", 2)
+    .on("mouseover", (event, d) => {
+      d3.select(event.currentTarget).attr("fill-opacity", 1);
+      if (!isTouchDevice()) showTooltip(event, d.data);
+    })
+    .on("mousemove", (event) => { if (!isTouchDevice()) moveTooltip(event); })
+    .on("mouseout", (event) => {
+      d3.select(event.currentTarget).attr("fill-opacity", 0.72);
+      if (!isTouchDevice()) hideTooltip();
+    })
+    .on("touchstart", (event, d) => {
+      event.preventDefault();
+      showTooltip(event.touches[0], d.data);
+    }, { passive: false })
+    .on("click", (event, d) => {
+      if (isTouchDevice()) showTooltip(event, d.data);
+    });
+
+  nodes.append("text")
+    .attr("x", 4)
+    .attr("y", 13)
+    .attr("font-size", "10px")
+    .attr("fill", "rgba(255,255,255,0.8)")
+    .text(d => {
+      const w = d.x1 - d.x0;
+      const title = d.data.title;
+      if (w < 40) return "";
+      if (w < 80) return title.slice(0, 6) + "…";
+      return title.slice(0, Math.floor(w / 7));
+    });
+
+  nodes.append("text")
+    .attr("x", 4)
+    .attr("y", 26)
+    .attr("font-size", "9px")
+    .attr("fill", "rgba(255,255,255,0.5)")
+    .text(d => {
+      const w = d.x1 - d.x0;
+      const h = d.y1 - d.y0;
+      if (w < 50 || h < 30) return "";
+      const score = d.data.exposure != null ? `${Math.round(d.data.exposure)}/10` : "?";
+      const jobs = d.data.jobs ? ` \u00B7 ${d.data.jobs}k banen` : "";
+      return w < 90 ? score : score + jobs;
+    });
+}
+
+// Dismiss touch tooltip by tapping the SVG background
+document.getElementById("treemap-container").addEventListener("touchstart", e => {
+  if (e.target.tagName === "svg" || e.target.tagName === "SVG") hideTooltip();
+});
+
+// About modal
+const modal = document.getElementById("about-modal");
+document.getElementById("close-about").addEventListener("click", () => modal.classList.remove("open"));
+modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
+
+// Changelog modal
+const changelogModal = document.getElementById("changelog-modal");
+document.getElementById("changelog-btn").addEventListener("click", () => changelogModal.classList.add("open"));
+document.getElementById("close-changelog").addEventListener("click", () => changelogModal.classList.remove("open"));
+changelogModal.addEventListener("click", e => { if (e.target === changelogModal) changelogModal.classList.remove("open"); });
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    modal.classList.remove("open");
+    changelogModal.classList.remove("open");
+  }
+});
+
+// Layer buttons
+document.querySelectorAll(".layer-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".layer-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentLayer = btn.dataset.layer;
+    drawTreemap(allData);
+  });
+});
+
+// Load data
+fetch("data.json")
+  .then(r => r.json())
+  .then(data => drawTreemap(data))
+  .catch(err => {
+    document.getElementById("treemap-container").innerHTML =
+      `<p style="padding:40px;color:#e74c3c;">Kon data.json niet laden: ${err.message}<br>Zorg dat build_site_data.py is uitgevoerd.</p>`;
+  });
+
+window.addEventListener("resize", () => {
+  if (allData.length) drawTreemap(allData);
+});
+
+// On mobile the layout may not be fully settled at first render — redraw once after paint
+if (window.innerWidth <= 700) {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if (allData.length) drawTreemap(allData);
+    });
+  });
+}
+</script>
+</body>
+</html>

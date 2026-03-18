@@ -1,0 +1,674 @@
+{
+  "01": {
+    "score": 6,
+    "rationale": "Teaching higher education pedagogy involves significant digital work products (lecture materials, course content, assessments) that AI can help generate or enhance, and many tasks like content summarization, feedback generation, and curriculum design are increasingly automatable. However, the core work requires substantial human judgment, interpersonal interaction, mentoring, and live instruction that cannot be fully replaced by current AI, preventing a higher score. The occupation is moderately-to-highly exposed to AI augmentation rather than replacement."
+  },
+  "011": {
+    "score": 6,
+    "rationale": "Docenten in art history at higher education have moderately-to-high AI exposure. While teaching requires interpersonal interaction, mentoring, and nuanced judgment that AI cannot fully replace, significant portions of their work—course preparation, content creation, research synthesis, curriculum development, and administrative tasks—are increasingly automatable or augmentable by AI tools (LLMs for lecture drafting, content summarization; computer vision for art analysis). However, the creative, evaluative, and human-centered aspects of teaching and the need for real-time classroom presence limit complete automation."
+  },
+  "0111": {
+    "score": 6,
+    "rationale": "This occupation involves substantial digital work products (lecture preparation, academic writing, research publication, student assessment) that AI can increasingly support through content generation, data analysis, and administrative tasks. However, the core work—live teaching, mentoring relationships, original theological research, and nuanced student feedback—requires human expertise, judgment, and interpersonal presence that AI cannot fully replace, positioning it in the high-exposure but not very-high category."
+  },
+  "0112": {
+    "score": 5,
+    "rationale": "ICT teachers have moderate AI exposure. While lesson preparation, curriculum design, and some content delivery can be augmented by AI tools (generating course materials, creating assignments, analyzing student performance data), the core work requires significant human judgment, interpersonal interaction, classroom management, mentorship, and real-time adaptation to student needs. Physical presence in the classroom and face-to-face instruction remain essential, limiting full automation."
+  },
+  "0113": {
+    "score": 3,
+    "rationale": "Drama teaching requires significant in-person, real-time interaction with students including performance guidance, physical demonstrations, and nuanced behavioral feedback that AI cannot adequately replicate. While lesson planning, script analysis, and some assessment tasks could be partially supported by AI tools, the core work demands live classroom presence, interpersonal judgment, emotional intelligence, and the ability to respond dynamically to student needs and safety concerns in a physical space."
+  },
+  "0114": {
+    "score": 3,
+    "rationale": "Primary school teaching requires substantial in-person presence, real-time interaction with students, physical classroom management, and nuanced judgment in child development and behavioral guidance. While lesson planning and some administrative tasks can be digitized or assisted by AI tools, the core work fundamentally depends on direct human engagement, emotional intelligence, and physical proximity to children that current AI cannot replicate."
+  },
+  "0115": {
+    "score": 6,
+    "rationale": "Groupage-expediteurs work primarily with digital documentation (bills of lading, customs permits, freight reports, tariff analysis) and can perform most tasks remotely through logistics software systems. However, the role requires ongoing human judgment in client communication, negotiation of logistics services, and compliance with evolving customs regulations, preventing a higher score. The work involves significant pattern recognition and data processing but maintains important interpersonal and regulatory oversight components."
+  },
+  "012": {
+    "score": 2,
+    "rationale": "Sportinstructeurs require constant physical presence, real-world interaction with clients, and hands-on demonstration of movements and techniques that cannot be effectively delivered remotely or by AI. While AI could assist with minor tasks like workout planning or performance analysis, the core work—teaching motor skills, providing real-time feedback on body positioning, motivating participants, and ensuring safety—fundamentally depends on human judgment, physical presence, and interpersonal connection."
+  },
+  "0121": {
+    "score": 2,
+    "rationale": "This occupation involves direct physical and emotional care requiring constant in-person presence, hands-on clinical skills, and human judgment in high-stakes situations. While some administrative and educational components could be digitized, the core work—assisting with childbirth, monitoring vital signs, providing emotional support, and caring for newborns—demands physical presence, tactile skill, and real-time clinical decision-making that AI cannot replicate."
+  },
+  "013": {
+    "score": 3,
+    "rationale": "While some administrative tasks like budgeting, scheduling, and reporting can be partially automated by AI tools, the core responsibilities of this occupation—supervising childcare staff, safeguarding children, managing interpersonal dynamics, and providing strategic leadership in social services—require constant human presence, emotional intelligence, and real-world judgment. The work is fundamentally about human supervision and care coordination that cannot be delegated to AI systems."
+  },
+  "0131": {
+    "score": 3,
+    "rationale": "Childcare facility managers require significant in-person presence for staff supervision, child interaction, and facility management, which are difficult to automate. While some administrative tasks (budgeting, reporting, scheduling) can be assisted by AI tools, the core work depends on human judgment in child welfare, staff leadership, and real-time decision-making in a physical environment. The occupation has low exposure because it fundamentally requires human presence and emotional intelligence that current AI cannot replace."
+  },
+  "02": {
+    "score": 6,
+    "rationale": "Linguists work primarily with digital text, data analysis, and knowledge-based research that can be conducted remotely. AI tools (LLMs, NLP systems) are increasingly capable of performing pattern recognition, semantic analysis, and data processing tasks that are core to linguistic research. However, the occupation retains significant human elements in original research design, theoretical innovation, and interpretation of linguistic phenomena that require domain expertise and creative synthesis."
+  },
+  "021": {
+    "score": 1,
+    "rationale": "Artistic modeling is fundamentally dependent on physical presence and human embodiment—the core work product is the artist's direct observation and reference of a live human body in specific poses. While AI can generate images or assist in artistic inspiration, it cannot replace the physical presence, real-time adaptability, and human judgment required for professional artistic modeling. This occupation requires constant real-world presence and relies on physical attributes and presence that AI cannot provide."
+  },
+  "0211": {
+    "score": 5,
+    "rationale": "Conservators have moderate AI exposure. While some tasks like database management, condition assessment documentation, and information structuring can be enhanced by AI tools (pattern recognition for deterioration analysis, automated cataloging), the core work requires significant hands-on expertise, physical presence, sensory judgment, and creative problem-solving in restoration and conservation that AI cannot fully replicate. The occupation blends digital and physical/manual components roughly equally."
+  },
+  "0212": {
+    "score": 6,
+    "rationale": "Linguists produce primarily digital work products (research papers, datasets, analyses) that can be conducted remotely, and many core tasks like data analysis, pattern recognition in language, and text processing are increasingly automatable by AI. However, the occupation retains human value in novel research design, theoretical interpretation, interdisciplinary synthesis, and academic judgment that current AI cannot fully replicate, preventing a higher score."
+  },
+  "0213": {
+    "score": 7,
+    "rationale": "Economic journalists' work is fundamentally digital and involves significant text processing, data analysis, and content generation—all areas where AI tools are already being deployed effectively. While the occupation requires investigative judgment, interview skills, and original analysis that provide some human-irreplaceable value, AI can now assist substantially with research, fact-checking, initial drafting, headline generation, and content optimization. The core creative and ethical decision-making aspects remain important, but the routine and analytical components of the role are increasingly exposed to AI transformation."
+  },
+  "0214": {
+    "score": 1,
+    "rationale": "Artistic models rely fundamentally on physical presence, bodily movement, and real-time posing as their core work output. While AI can generate images of human figures, it cannot replace the live human model's physical presence, real-time adaptation to artist feedback, or the authentic human form that serves as the creative reference. This occupation requires constant real-world presence and manual/physical performance that AI tools cannot substitute."
+  },
+  "0215": {
+    "score": 3,
+    "rationale": "Performance art is fundamentally dependent on live physical presence, real-time interaction with audiences, and embodied creative expression that cannot be automated or replaced by AI. While some peripheral tasks like administrative work, budget planning, or artistic research could be digitally enhanced, the core work—creating and executing performances—requires human creative vision, physical presence, and genuine audience engagement that AI cannot replicate."
+  },
+  "022": {
+    "score": 4,
+    "rationale": "Cultural programmers combine significant digital and non-digital work. While tasks like trend analysis, financial monitoring, and program management can be partially automated or enhanced by AI tools for data analysis and recommendations, the core competencies—artistic judgment, relationship-building with artists/agents, creative curation, and negotiation—require human expertise and subjective decision-making. The role is moderately exposed to AI augmentation but not replacement, as authentic artistic vision and interpersonal interaction remain irreplaceable."
+  },
+  "0221": {
+    "score": 7,
+    "rationale": "Graphic design work is highly digital and already being transformed by AI tools like generative image models, AI-assisted design software, and layout automation. While the occupation requires creative judgment and client interaction, many routine tasks—image manipulation, layout suggestions, asset generation, and style application—are increasingly automatable by AI. However, strategic creative direction, complex conceptualization, and nuanced client communication still require human expertise."
+  },
+  "0222": {
+    "score": 6,
+    "rationale": "Photography has high AI exposure due to digital work products, remote capability, and emerging AI tools for image generation, editing, and composition assistance. However, the creative vision, client interaction, lighting setup, and artistic direction remain fundamentally human-dependent skills that AI cannot fully replace. The occupation sits at the boundary where AI enhances productivity but does not eliminate the need for human photographers, particularly for custom, professional, and artistic work."
+  },
+  "03": {
+    "score": 6,
+    "rationale": "Commerciële directeuren work primarily with digital tools and data (sales analytics, CRM systems, pricing models, contract management), and many routine tasks like data analysis, reporting, and basic strategic planning can be automated or augmented by AI. However, the role requires significant human judgment for relationship management, negotiation, team leadership, and strategic decision-making that depend on nuanced understanding of market dynamics and organizational context, which remain difficult for AI to fully replace."
+  },
+  "031": {
+    "score": 7,
+    "rationale": "Marketing and PR advisors work primarily with digital products (content, strategies, social media, presentations) that can be generated or optimized by AI tools like LLMs for copywriting, messaging, and campaign ideation. However, the role retains significant human value in strategic judgment, client relationship management, crisis response, and understanding nuanced organizational context that requires creative human insight and stakeholder negotiation skills."
+  },
+  "0311": {
+    "score": 7,
+    "rationale": "Public relations work involves substantial digital content creation, strategic communication planning, and media management—all areas where AI tools (content generation, sentiment analysis, media monitoring) are increasingly capable. However, the occupation retains significant human requirements for relationship-building, stakeholder management, crisis communication judgment, and authentic brand representation that currently require nuanced human understanding and real-world interaction."
+  },
+  "032": {
+    "score": 7,
+    "rationale": "Purchasing and procurement work is highly digital and involves substantial routine tasks that AI can support or automate: price analysis, supplier identification, market trend analysis, contract comparison, and procurement procedure management. However, the role retains important human elements including supplier relationship management, negotiation, strategic decision-making, and compliance judgment that require contextual understanding and interpersonal skills."
+  },
+  "0321": {
+    "score": 7,
+    "rationale": "Procurement and purchasing roles have high AI exposure due to their fundamentally digital work products (purchase orders, contracts, supplier databases, price analysis) and routine, pattern-based tasks like supplier comparison, price trend analysis, and compliance verification. However, the occupation retains some human-dependent elements including relationship management with suppliers/customers, complex negotiations, and strategic decision-making that require contextual judgment and interpersonal skills that AI cannot fully replicate."
+  },
+  "033": {
+    "score": 6,
+    "rationale": "Technical sales roles have high AI exposure due to their primarily digital and knowledge-based nature. Core tasks like customer relationship management, sales data tracking, price quote responses, and technical communication can be substantially automated or augmented by AI tools (LLMs for technical explanations, CRM automation, data analysis). However, relationship building, complex technical consultation, and closing sales still require human judgment, emotional intelligence, and face-to-face negotiation skills, preventing a higher score."
+  },
+  "0331": {
+    "score": 6,
+    "rationale": "Detailhandelaars have significant exposure to AI transformation because many core tasks are digital and automatable: price strategy optimization, customer needs analysis, sales data analytics, inventory management, and marketing planning can all be substantially assisted or automated by AI tools. However, the occupation retains moderate human necessity due to in-store customer interaction, staff management requiring interpersonal judgment, supplier relationship negotiation, and strategic decision-making that benefits from contextual human understanding. The blend of backend digital work (highly exposed to AI) and frontline customer-facing work (less exposed) places this occupation in the high exposure category."
+  },
+  "0332": {
+    "score": 6,
+    "rationale": "This retail checkout manager role has significant AI exposure due to its substantial digital and administrative components: transaction monitoring, financial reporting, inventory management, and IT system usage can be increasingly automated or AI-assisted. However, the occupation retains moderate human necessity in personnel leadership, real-time problem-solving, customer service, and loss prevention—tasks requiring judgment and interpersonal skills that remain difficult to fully automate. The mix of digital/administrative work (high AI exposure) with supervisory and customer-facing duties (lower exposure) places it in the high exposure category."
+  },
+  "0333": {
+    "score": 7,
+    "rationale": "Kassamedewerkers' core functions—payment processing, receipt generation, and change calculation—are highly automatable through self-checkout systems, mobile payments, and digital point-of-sale technologies already deployed widely. However, the role retains human value in customer service, fraud detection, and handling exceptions that require judgment, preventing it from reaching the 8-9 range. Physical presence at a register and interpersonal skills remain partially irreplaceable in current retail environments, though automation continues to reduce demand for this occupation."
+  },
+  "0334": {
+    "score": 8,
+    "rationale": "Call center work is highly exposed to AI automation through chatbots, voice assistants, and large language models that can handle customer inquiries, provide information, and manage routine interactions at scale. Most core tasks—answering questions, providing product information, data entry, and customer communication—are digital and repetitive, with AI already capable of performing them with minimal human oversight. However, some complex customer service scenarios requiring empathy, nuanced problem-solving, or escalation still benefit from human involvement, preventing a perfect 10 score."
+  },
+  "04": {
+    "score": 8,
+    "rationale": "This occupation is heavily focused on digital administrative tasks including member database management, document processing, payment handling, and routine office activities—all work products are fundamentally digital and can be performed remotely. Large language models can automate significant portions of member communications, routine inquiries, and data entry, while computer vision and RPA tools can handle document processing and file management. The core work is pattern-based and rule-driven with minimal requirement for independent judgment, making it highly susceptible to AI automation."
+  },
+  "041": {
+    "score": 6,
+    "rationale": "This occupation involves significant digital and knowledge-based work that AI can assist with: curriculum development, content creation, assessment design, and student progress tracking are increasingly automatable or AI-augmentable. However, the core teaching function requires substantial human judgment, interpersonal skills, student mentoring, and classroom presence, which limits full automation. The practical nature of vocational business education and the need for personalized student guidance prevent it from reaching higher exposure levels."
+  },
+  "0411": {
+    "score": 8,
+    "rationale": "Accounting work is almost entirely digital, involving routine pattern recognition, data analysis, and text processing of financial records. AI tools can automate substantial portions of bookkeeping, tax form preparation, financial statement analysis, and compliance checking. While some advisory and judgment-intensive tasks remain, the core technical work is highly automatable and increasingly being transformed by AI systems."
+  },
+  "0412": {
+    "score": 8,
+    "rationale": "Asset managers' work is predominantly digital, involving data analysis, pattern recognition in financial markets, and portfolio management through software systems. However, the role retains some human judgment in client relationship management, complex risk assessment, and strategic decision-making that currently requires human oversight, preventing a maximum score. AI tools are already transforming much of the analytical and monitoring tasks, but client advisory and trust-based relationships still require human involvement."
+  },
+  "0413": {
+    "score": 6,
+    "rationale": "This occupation involves primarily digital work products (lesson planning, content creation, assessments, student management) that can be done remotely and are increasingly being transformed by AI tools for content generation, grading automation, and personalized learning platforms. However, the core requirement for human interaction, mentorship, real-time student engagement, and adaptive teaching based on individual student needs provides significant non-automatable elements that prevent a higher score."
+  },
+  "0414": {
+    "score": 6,
+    "rationale": "Policy advisors for environmental management work primarily with digital tools, data analysis, and document-based policy development, making their work highly automatable by AI systems for research, analysis, and initial policy drafting. However, the role requires significant stakeholder engagement, political negotiation, strategic judgment, and accountability that cannot be fully delegated to AI, keeping it below the highest exposure categories. The combination of routine analytical tasks (which AI can accelerate) with essential human judgment in policy formulation places this occupation in the high exposure range."
+  },
+  "0415": {
+    "score": 4,
+    "rationale": "This occupation involves a mix of automatable and non-automatable tasks. Routine elements like order processing, inventory management, cash handling, and product display can be partially automated or handled by AI systems. However, the core work—evaluating secondhand goods condition, assessing potential value, building customer relationships, and active sales techniques—requires human judgment, sensory assessment, and interpersonal skills that remain difficult to fully automate. Physical presence in a retail setting and the need to handle merchandise also limits exposure."
+  },
+  "042": {
+    "score": 6,
+    "rationale": "This occupation involves significant digital components including lesson preparation, student assessment, curriculum development, and documentation management—all areas where AI can provide substantial assistance. However, the core work requires interpersonal skills, pedagogical judgment, student mentoring, and adaptive teaching based on individual learner needs, which remain difficult for AI to fully replace. The occupation is moderately exposed to AI transformation through tools that can support content generation and assessment, but human educators remain essential for effective vocational instruction."
+  },
+  "0421": {
+    "score": 8,
+    "rationale": "Bookkeeping work is almost entirely digital and involves highly routine, pattern-based tasks such as transaction recording, categorization, and reconciliation that AI and accounting software can automate substantially. While judgment is required for complex transactions and regulatory compliance, modern AI tools (LLMs and specialized accounting AI) can handle most core bookkeeping functions with minimal human oversight, making this occupation highly exposed to automation."
+  },
+  "0422": {
+    "score": 6,
+    "rationale": "This occupation involves significant digital and knowledge-based tasks (client relationship management, business planning, data analysis, personnel oversight) that AI can increasingly support or automate. However, it requires substantial human judgment for personnel leadership, complex problem-solving, and client relationship management that demand interpersonal skills and contextual understanding that current AI cannot fully replace. The role combines administrative/analytical work (high AI exposure) with management and client-facing responsibilities (lower AI exposure), placing it in the high exposure category."
+  },
+  "0423": {
+    "score": 7,
+    "rationale": "Directiesecretaresses (executive secretaries) perform highly digital work including email management, scheduling, document preparation, and administrative coordination that can be substantially automated by AI tools like LLMs for drafting, organization, and scheduling assistance. However, the role retains value through interpersonal judgment, executive relationship management, and nuanced decision-making that require human oversight, preventing it from reaching the highest exposure categories."
+  },
+  "043": {
+    "score": 8,
+    "rationale": "Administrative staff work involves primarily digital tasks that are routine and repetitive: document processing, data entry, spreadsheet management, email correspondence, filing, and scheduling. These core functions are highly automatable through AI systems, RPA, and intelligent document processing tools. While some customer-facing interaction and judgment remain, the majority of work products are digital and can be increasingly handled by AI with minimal human oversight."
+  },
+  "0431": {
+    "score": 8,
+    "rationale": "Administrative tax workers perform highly digital tasks centered on data entry, document processing, financial calculations, and information analysis—all core competencies of AI systems. The work involves pattern recognition in financial documents, spreadsheet manipulation, rule-based tax calculations, and fraud detection, which are readily automatable through large language models, computer vision, and machine learning. However, the role retains some human judgment in complex interpretations and client advisory functions, preventing a maximum score."
+  },
+  "0432": {
+    "score": 8,
+    "rationale": "Secretarial work is predominantly digital, involving email management, scheduling, document preparation, and data entry—all tasks where AI excels through automation, large language models, and calendar optimization tools. The work can be performed remotely and involves mostly routine, pattern-based tasks with limited requirement for physical presence or sensory judgment. While some interpersonal skills remain valuable, AI is already significantly automating core secretarial functions."
+  },
+  "0433": {
+    "score": 8,
+    "rationale": "Receptionisten and telefonisten work primarily with digital systems and phone technology, handling routine tasks like answering calls, transferring calls, and managing customer inquiries that are highly automatable through AI-powered chatbots, IVR systems, and virtual assistants. Most of their core functions—call routing, basic customer service, appointment scheduling—can be automated or significantly reduced by modern AI technology, though some human judgment may still be needed for complex customer service situations."
+  },
+  "0434": {
+    "score": 8,
+    "rationale": "Boekhoudkundig medewerkers perform highly digital, routine work involving data entry, transaction processing, and pattern recognition in financial records—all tasks where AI and automation excel. The work is entirely computer-based and involves standardized processes like invoice creation, reconciliation, and compliance checking that modern accounting software and AI can increasingly automate with minimal human oversight. While some judgment regarding complex exceptions or regulatory interpretation remains, the vast majority of routine daily tasks are vulnerable to AI automation."
+  },
+  "0435": {
+    "score": 7,
+    "rationale": "Logistics engineers work primarily with digital systems, data analysis, optimization algorithms, and supply chain management software—all areas where AI is making significant advances. The core tasks of designing transportation systems, analyzing networks, and optimizing routes are highly amenable to AI tools like machine learning and optimization algorithms. However, the role retains some non-automatable elements such as stakeholder communication, complex decision-making under uncertainty, and implementing solutions in real-world contexts that prevent a higher score."
+  },
+  "05": {
+    "score": 6,
+    "rationale": "Computer shop managers perform many digitizable tasks including budget management, sales analytics, inventory tracking, and staff scheduling that AI can increasingly automate or support. However, the role requires significant in-person leadership, supplier relationship management, customer interaction, and real-world store operations that currently demand human presence and judgment, preventing a higher exposure score."
+  },
+  "051": {
+    "score": 6,
+    "rationale": "Airport general directors engage in strategic decision-making, stakeholder management, and report writing—tasks where AI can assist significantly with data analysis, document generation, and risk assessment. However, the role requires substantial human judgment in complex operational decisions, physical site presence, and stakeholder relationships that cannot be fully automated. The occupation shows high exposure to AI tools for augmentation but remains fundamentally dependent on human leadership and contextual decision-making."
+  },
+  "0511": {
+    "score": 6,
+    "rationale": "Airport general directors engage in strategic decision-making, stakeholder management, and oversight that require human judgment and contextual understanding of complex operational environments. However, significant portions of their work—data analysis, report writing, policy coordination, and information processing from management teams—are increasingly automatable by AI tools, and many tasks can be performed digitally. The role combines leadership judgment with analytical and administrative tasks that AI can substantially support."
+  },
+  "052": {
+    "score": 6,
+    "rationale": "Office managers perform primarily digital and routine administrative tasks (correspondence review, archiving systems, expense approvals, staff scheduling) that are increasingly automatable through AI-powered workflow systems, document management, and analytics tools. However, the role retains significant human elements including personnel management, process improvement judgment, and interpersonal communication that require contextual understanding and leadership skills, preventing a higher exposure score."
+  },
+  "0521": {
+    "score": 6,
+    "rationale": "This occupation involves primarily digital and knowledge-based tasks (strategic planning, contract management, budget administration, client communication) that can increasingly be supported or partially automated by AI tools for document analysis, administrative processing, and decision support. However, it requires significant human judgment in client relationship management, strategic decision-making, and negotiation that cannot be fully automated, preventing a higher score."
+  },
+  "0522": {
+    "score": 6,
+    "rationale": "Sales and marketing managers work primarily with digital tools and data analysis (CRM systems, analytics platforms, reporting), making their work highly susceptible to AI-driven automation of routine tasks like report generation, market analysis, and campaign planning. However, the role requires significant human judgment in strategic decision-making, team leadership, relationship management, and creative strategy adaptation that AI cannot fully replace, keeping it in the high exposure category rather than very high."
+  },
+  "053": {
+    "score": 6,
+    "rationale": "Energy production facility managers perform substantial digital and data-driven work including energy market analysis, price forecasting, system monitoring, and policy compliance that AI can increasingly support. However, the role requires significant human oversight of complex physical infrastructure, real-time decision-making in emergency situations, and personnel management that cannot be fully automated, limiting exposure to high rather than very high levels."
+  },
+  "0531": {
+    "score": 5,
+    "rationale": "Production managers have moderate AI exposure. While planning, scheduling, budgeting, and quality monitoring tasks can increasingly be automated or AI-assisted through predictive analytics and data analysis tools, the role requires significant human judgment in personnel leadership, real-time problem-solving on the production floor, and strategic decision-making. The work involves both digital analysis (planning, budgets, quality criteria) and physical/on-site presence (floor supervision, personnel management), creating a mixed profile."
+  },
+  "0532": {
+    "score": 6,
+    "rationale": "Logistics and auto garage managers have significant exposure to AI through digital tools for scheduling, inventory management, financial analysis, and customer relationship management. However, their role requires substantial in-person supervision of technicians, direct customer interaction, and contextual decision-making that remains difficult to fully automate. AI will augment but not replace core responsibilities."
+  },
+  "0533": {
+    "score": 6,
+    "rationale": "Quality managers ICT work primarily with digital systems, data analysis, and documentation—all fundamentally digital work products that can be done remotely. AI tools can increasingly assist with automated testing, data analysis, anomaly detection in quality metrics, and documentation generation. However, the role requires significant human judgment in strategic planning, risk assessment, policy implementation, and oversight responsibilities that remain difficult for AI to fully autonomize without human leadership and accountability."
+  },
+  "0534": {
+    "score": 6,
+    "rationale": "Healthcare facility managers work primarily with digital systems (budgets, records, compliance tracking, strategic planning) and administrative tasks that are increasingly automatable through AI-driven analytics, scheduling, and reporting tools. However, the role requires significant human judgment in staff leadership, patient care oversight, crisis response, and stakeholder communication that cannot be fully automated, preventing a higher score."
+  },
+  "0535": {
+    "score": 6,
+    "rationale": "Classical language teachers have moderate-to-high AI exposure because significant portions of their work—lesson planning, content preparation, grading, and providing constructive feedback—can be augmented or partially automated by AI tools. However, the core activities of classroom instruction, managing student behavior, building relationships, and adapting teaching strategies to individual learning needs require human presence, interpersonal skills, and real-time judgment that current AI cannot fully replace. While AI can support administrative and content creation tasks, the irreplaceable human elements of teaching keep this occupation below the 7+ range."
+  },
+  "0536": {
+    "score": 6,
+    "rationale": "This occupation involves significant digital work products including product catalog management, data analysis, content marketing strategy, and regulatory compliance documentation—all tasks where AI can provide substantial support. However, it requires human judgment for strategic decision-making, supplier relationship management, and understanding nuanced market positioning, preventing a higher score. The role blends routine digital tasks (data analysis, catalog development) with relationship-based and strategic responsibilities that still require human oversight."
+  },
+  "054": {
+    "score": 6,
+    "rationale": "Store managers handle many digitizable tasks including budget management, sales data analysis, inventory management, pricing strategies, and staff scheduling—areas where AI tools increasingly provide decision support. However, the role requires significant in-person leadership, customer relationship management, real-time problem-solving, and physical presence in the store, which limits full automation. The combination of routine administrative/analytical work and irreducible human judgment places this occupation in the high exposure category."
+  },
+  "0541": {
+    "score": 4,
+    "rationale": "Entertainment managers in hospitality have moderate AI exposure. While some tasks like scheduling, reporting, basic customer complaint handling, and marketing strategy implementation can be partially automated or enhanced by AI tools, the core responsibilities—team leadership, event coordination, real-time guest interaction, and creative entertainment program development—require significant human judgment, interpersonal skills, and on-site presence. The role is not primarily digital and involves substantial in-person management that AI cannot fully replace."
+  },
+  "0542": {
+    "score": 4,
+    "rationale": "This occupation involves a mix of automatable and non-automatable tasks. Digital tasks like sales analysis, pricing strategies, and inventory management are increasingly AI-automatable, while core responsibilities like staff management, customer relationship building, floral arrangement creation, and in-store supervision require human judgment and physical presence. The role is not primarily digital and requires significant on-site presence, limiting overall AI exposure despite some administrative task automation potential."
+  },
+  "0543": {
+    "score": 6,
+    "rationale": "This multimodal logistics management role involves substantial digital components including tracking systems, contract management, price negotiation analysis, and strategic planning that can be augmented by AI tools for data analysis and decision support. However, the position requires significant human judgment in personnel leadership, client relationship management, and complex operational decision-making in dynamic logistics environments, preventing a higher exposure score."
+  },
+  "055": {
+    "score": 7,
+    "rationale": "Revenue managers work primarily with digital data and analytics (reservation patterns, financial reports, market analysis, pricing optimization), tasks that AI tools like predictive analytics and dynamic pricing algorithms can increasingly automate or assist with. However, the role requires strategic decision-making, cross-departmental collaboration, staff leadership, and contextual judgment about market conditions that currently still benefit from human oversight, preventing a higher score."
+  },
+  "0551": {
+    "score": 7,
+    "rationale": "Revenue managers work primarily with digital data, analytics, and financial systems that are increasingly automatable by AI tools. Core tasks like demand forecasting, pricing optimization, financial analysis, and reporting can be substantially automated using machine learning and data analytics. However, the role retains some non-automatable elements such as strategic decision-making, staff leadership, and cross-departmental coordination that require human judgment and interpersonal skills."
+  },
+  "06": {
+    "score": 7,
+    "rationale": "Administrative work in public administration is highly susceptible to AI disruption due to its predominantly digital nature, involving routine data entry, document management, information processing, and question answering tasks. Large language models can handle email responses, document archival, spreadsheet management, and basic information retrieval, while RPA and workflow automation tools can streamline administrative procedures. However, some human oversight remains necessary for complex procedural decisions, sensitive public interactions, and coordination with elected officials."
+  },
+  "061": {
+    "score": 4,
+    "rationale": "This occupation involves teaching and mentoring, which require human judgment, emotional intelligence, and adaptive instruction tailored to individual students. However, significant portions of the work—lesson preparation, theoretical content delivery, regulatory knowledge updates, and assessment—can be substantially augmented or partially automated by AI tools. The practical, hands-on mentoring components and the need for real-time observation of student performance in railway vehicle operation limit full automation, placing this in the moderate exposure category."
+  },
+  "0611": {
+    "score": 6,
+    "rationale": "Overheidsbestuurders (government administrators) perform primarily digital work including document processing, data analysis, policy implementation, and routine administrative tasks that are increasingly automatable through AI. However, the role requires significant human judgment in decision-making, stakeholder engagement, and strategic leadership, which limits full automation exposure. The work is largely desk-based and involves substantial knowledge work, placing it in the high exposure category rather than very high."
+  },
+  "0612": {
+    "score": 6,
+    "rationale": "This policy advisor role for agricultural affairs involves significant digital work products (reports, presentations, policy analysis) and pattern recognition tasks that AI can increasingly support. However, the role requires domain expertise in agricultural legislation, stakeholder engagement with local government and farming professionals, and judgment-based problem-solving that still require human oversight. The work is partially automatable but depends on contextual understanding and relationship-building that limits full AI displacement."
+  },
+  "062": {
+    "score": 7,
+    "rationale": "Juridisch vertalers work with predominantly digital text products that can be processed remotely, making them highly exposed to AI disruption. Large language models and specialized translation AI are rapidly automating legal document translation, terminology matching, and grammar correction—core tasks listed in their skill set. However, the occupation retains some human value in complex legal analysis, ensuring contextual accuracy in sensitive documents, and understanding jurisdiction-specific nuances that require professional judgment beyond current AI capabilities."
+  },
+  "0621": {
+    "score": 7,
+    "rationale": "Legal translation involves highly digital work products that can be done remotely and consists largely of pattern recognition, terminology mapping, and text processing—all areas where large language models and AI translation tools excel. However, the occupation retains some human value through legal analysis requirements, quality assurance, and the need to understand nuanced contextual and cultural legal concepts that require expert judgment beyond pure language conversion."
+  },
+  "063": {
+    "score": 2,
+    "rationale": "Beveiligingswerkers (security workers) require constant physical presence on-site to monitor premises, respond to incidents, and make real-time judgment calls about threats and safety. While some administrative tasks like report writing could be digitized, the core work demands manual vigilance, situational awareness, and physical intervention capabilities that cannot be automated by current AI technology."
+  },
+  "0631": {
+    "score": 6,
+    "rationale": "Police instructors have high AI exposure in their theoretical teaching and instructional design components, where digital tools can assist with content creation, lesson planning, assessment automation, and knowledge delivery through interactive platforms. However, significant portions of their work—practical physical training, hands-on firearm instruction, self-defense demonstration, student safety supervision, and real-time mentoring—require in-person presence and human judgment that cannot be fully automated by current AI technology."
+  },
+  "0632": {
+    "score": 3,
+    "rationale": "Brandmeesters (fire chiefs) have significant real-world, physical presence requirements and supervisory duties that cannot be automated. While administrative tasks (register-keeping, policy implementation) and some data analysis could benefit from AI tools, the core work—emergency response coordination, on-site personnel supervision, safety decisions during incidents, and hands-on fire-fighting oversight—requires physical presence, real-time judgment, and immediate human leadership. The occupation involves critical life-safety responsibilities that demand human accountability and cannot be delegated to AI systems."
+  },
+  "0633": {
+    "score": 4,
+    "rationale": "Beveiligingskundigen have moderate AI exposure. While routine tasks like monitoring systems, incident logging, and policy documentation can be increasingly automated through AI-powered surveillance, access control, and report generation, the occupation requires significant human judgment, physical presence on-site, leadership of personnel, emergency response decision-making, and risk assessment that cannot be fully automated. The core work involves both digital/administrative components and essential physical/interpersonal elements."
+  },
+  "0634": {
+    "score": 3,
+    "rationale": "While theoretical instruction and curriculum development could benefit from AI tools for content creation and analysis, military education fundamentally requires in-person physical training, hands-on weapons instruction, real-time risk assessment in dangerous conditions, and direct supervision of cadets. The core competencies involving physical fitness training, weapons handling, tactical judgment, and safety oversight in high-risk environments cannot be delegated to AI and demand constant human presence and real-world expertise."
+  },
+  "07": {
+    "score": 6,
+    "rationale": "This specialized biomedical scientist role involves significant digital and analytical components (data analysis, lab documentation, result validation) that are increasingly susceptible to AI assistance, particularly in pattern recognition and data processing tasks. However, the occupation retains substantial non-automatable elements including hands-on laboratory work, clinical decision-making requiring domain expertise, complex tissue analysis, and ethical judgment in healthcare contexts that require human oversight and accountability."
+  },
+  "071": {
+    "score": 6,
+    "rationale": "Microelectronics designers work primarily with digital design tools (CAE software, simulations, circuit design) and their output is fundamentally digital (schematics, firmware, design specifications), making them highly exposed to AI-assisted design and optimization tools. However, the work requires significant specialized domain expertise, creative problem-solving in circuit design, and some physical prototyping/testing activities that limit complete automation. AI will substantially augment their workflow through automated circuit optimization, design verification, and component selection, but human judgment remains essential for innovative system-level design decisions."
+  },
+  "0711": {
+    "score": 6,
+    "rationale": "Biologists' work involves significant digital components including data analysis, literature review, computational modeling, and research documentation—all highly susceptible to AI enhancement. However, core activities like experimental design, laboratory work, field observations, and organism handling require hands-on expertise and real-world presence that AI cannot fully replace. The occupation sits at high exposure due to the digitization of research workflows and data processing, but practical experimentation and specialized scientific judgment limit complete automation."
+  },
+  "0712": {
+    "score": 7,
+    "rationale": "Electronics drafters work primarily with digital tools (CAD software, technical drawing software) to create blueprints and schematics, making their core outputs entirely digital and easily automatable by AI. However, the role still requires collaboration with engineers, interpretation of complex specifications, and some creative problem-solving in design decisions, which prevents a higher score. Current AI tools can already generate and modify technical drawings, schematics, and component layouts, significantly disrupting this occupation's traditional workflow."
+  },
+  "0713": {
+    "score": 4,
+    "rationale": "Elektrotechnisch ingenieurs perform a mix of automatable and non-automatable tasks. Digital work products like design, testing, and analysis can increasingly be supported by AI tools for circuit design, fault detection, and data analysis. However, core work requires significant hands-on skills (soldering, component alignment, physical testing, troubleshooting) that demand manual dexterity, on-site presence, and real-world sensory judgment that current AI cannot fully replace."
+  },
+  "0714": {
+    "score": 9,
+    "rationale": "Blockchain architects perform almost entirely digital work involving system design, architecture planning, and technical documentation that can be done remotely. AI tools are already highly capable of assisting with code generation, security analysis, architectural pattern recognition, and documentation—though the role currently requires human expertise in novel blockchain design decisions and regulatory compliance. As AI systems become more sophisticated in understanding complex distributed systems and security implications, this occupation faces very high exposure to automation and AI-augmented workflows."
+  },
+  "072": {
+    "score": 4,
+    "rationale": "Photography teaching involves a mix of automatable and non-automatable tasks. AI can assist with technical instruction (generating examples, analyzing composition) and administrative work, but the core role—mentoring students, fostering creative development, providing personalized feedback, and managing classroom dynamics—requires human judgment, interpersonal connection, and real-world presence. The hands-on, experiential nature of photography education and the need to guide individual artistic growth limits AI's ability to replace this occupation."
+  },
+  "0721": {
+    "score": 6,
+    "rationale": "This occupation has high AI exposure due to its significant digital and analytical components: CAD software usage, technical drawing interpretation, data analysis for material calculations, project progress tracking, and compliance monitoring can all be substantially automated or enhanced by AI tools. However, the role retains non-automatable elements including on-site inspection of materials, coordination with architects and stakeholders, safety oversight, and judgment calls on complex engineering problems that require contextual understanding and real-world site presence."
+  },
+  "0722": {
+    "score": 5,
+    "rationale": "Productieleiders in the chemical industry face moderate AI exposure. While routine monitoring, data analysis, quality control documentation, and process optimization tasks are increasingly automatable through AI and sensor systems, the role requires on-site physical presence, real-time decision-making in complex industrial environments, safety oversight, and management of human workers—tasks that remain difficult for current AI to fully replace. The work combines digital/analytical components (vulnerable to automation) with critical supervisory and interpersonal responsibilities (requiring human judgment)."
+  },
+  "0723": {
+    "score": 2,
+    "rationale": "This occupation involves highly specialized chemical processing with critical safety requirements that demand constant physical presence and real-world sensory judgment. While some documentation and data analysis tasks could be digitized, the core work—managing explosive materials, testing mixtures, handling hazardous chemicals, and ensuring safety protocols—requires hands-on supervision and human expertise that cannot be automated by current AI technology. The dangerous nature of nitroglycerin processing and the need for immediate physical intervention in case of anomalies make this fundamentally resistant to AI automation."
+  },
+  "073": {
+    "score": 1,
+    "rationale": "Bouwarbeiders (construction workers) require constant physical presence on job sites and perform manual labor involving dexterity, spatial reasoning, and safety-critical decisions that cannot be automated or done remotely. While some planning and design work in construction can be aided by AI, the core work of actually building structures remains highly dependent on human physical labor and real-world environmental adaptation."
+  },
+  "0731": {
+    "score": 2,
+    "rationale": "Bouwopzichters (construction supervisors) require constant physical presence on construction sites for real-time coordination, safety oversight, and inspection tasks that demand sensory judgment and immediate human decision-making. While some administrative and planning tasks could be digitized with AI tools, the core work of supervising teams, assessing work quality, and managing on-site safety is inherently dependent on physical presence and human interaction that AI cannot replace."
+  },
+  "0732": {
+    "score": 7,
+    "rationale": "Timmerlieden (carpenters) involve significant hands-on physical work and real-world presence that cannot be fully automated, but modern AI and robotics are increasingly capable of handling design work, material optimization, and precision cutting tasks. The occupation faces high exposure to AI-augmented tools and robotic assistance for planning and execution, though the core craftsmanship and on-site problem-solving remain fundamentally human-dependent."
+  },
+  "0733": {
+    "score": 2,
+    "rationale": "Bouwarbeiders afbouw (finishing construction workers) perform physical, manual tasks on construction sites that require constant real-world presence, precise hand-eye coordination, and sensory judgment for quality control. While some planning and measurement tasks could be digitized, the core work of applying finishes, installing fixtures, and detailed manual work cannot be automated by current AI or robotics technology and demands skilled human presence on-site."
+  },
+  "0734": {
+    "score": 2,
+    "rationale": "Teamleiders-loodgieters (plumbing team leaders) require significant on-site physical presence, manual dexterity, and real-world problem-solving in construction environments. While some administrative tasks like work progress tracking and worker scheduling could be partially automated, the core work—inspecting materials, interpreting blueprints in context, making real-time technical decisions, and overseeing hands-on plumbing work—fundamentally depends on physical presence and expert judgment that current AI cannot replicate."
+  },
+  "0735": {
+    "score": 3,
+    "rationale": "This occupation involves significant physical, on-site work requiring manual dexterity, sensory judgment, and real-world presence that AI cannot replace. While supervisory tasks like scheduling, material ordering, and work evaluation contain some automatable elements (4-5 range), the core responsibilities—inspecting paint quality, evaluating surface preparation, ensuring safety compliance on-site, and overseeing hands-on work—require human judgment and physical presence. The occupation remains fundamentally tied to construction site management and quality control that demands constant real-world interaction."
+  },
+  "074": {
+    "score": 6,
+    "rationale": "This vocational instructor role involves significant digital transformation potential: lesson planning, curriculum design, student assessment, and progress tracking can be substantially automated or augmented by AI tools. However, the core work—hands-on supervision of industrial arts students, real-time safety instruction, individualized feedback on practical skills, and the mentoring relationship—requires physical presence, sensory judgment, and human interaction that AI cannot fully replace. The occupation sits at high exposure due to the administrative and knowledge-delivery components being digitizable, but is constrained by its fundamentally practical, in-person teaching nature."
+  },
+  "0741": {
+    "score": 2,
+    "rationale": "Metaalbewerkers-siersmeden rely heavily on manual dexterity, physical manipulation of materials, and real-world presence at workstations. While some design and planning tasks could be digitized, the core work—shaping metal on anvils, operating specialized machinery, handling precise measurements, and applying decorative techniques—requires hands-on craftsmanship and cannot be meaningfully automated by current AI technology. Current robots lack the fine motor control and adaptive problem-solving needed for ornamental metalwork."
+  },
+  "0742": {
+    "score": 3,
+    "rationale": "Lassers en plaatwerkers perform highly manual, physical work requiring constant real-world presence, precise hand-eye coordination, and sensory judgment (e.g., recognizing metal corrosion, proper welding technique). While some planning tasks (reading blueprints, material calculations) and optional programming skills (CNC) could be aided by AI, the core work—measuring, cutting, bending, welding, and assembling metal—fundamentally requires hands-on craftsmanship and cannot be performed remotely. AI exposure is minimal for the essential occupational tasks."
+  },
+  "0743": {
+    "score": 4,
+    "rationale": "Eerste automonteurs have moderate AI exposure. While diagnostic and administrative tasks (vehicle data analysis, scheduling, financial record-keeping, claims management) are increasingly automatable through AI tools, the core work requires significant physical presence, hands-on mechanical dexterity, sensory judgment for repairs, and direct team/client management that cannot be fully automated. Leadership responsibilities and complex troubleshooting also demand human expertise and contextual decision-making."
+  },
+  "0744": {
+    "score": 3,
+    "rationale": "Machinemonteurs (industrial assembly installers) perform predominantly physical, manual work requiring hands-on dexterity, on-site presence, and real-world spatial reasoning for equipment assembly, maintenance, and troubleshooting. While some tasks like inspection and problem diagnosis could benefit from AI-assisted diagnostics, the core work—operating hand tools, welding equipment, physical assembly, and machine operation—remains fundamentally dependent on manual skill and physical presence that current AI cannot replace. The occupation has low exposure to automation despite its technical nature."
+  },
+  "075": {
+    "score": 6,
+    "rationale": "This occupation involves significant digital and analytical work (data analysis, research documentation, laboratory analysis validation) that AI can increasingly support through pattern recognition and data processing. However, it requires substantial hands-on laboratory work, physical specimen handling, clinical judgment, and direct oversight of complex biomedical procedures that cannot be fully automated. The role combines high automation potential for analytical/documentation tasks with irreplaceable human expertise for clinical decision-making and specialized laboratory techniques."
+  },
+  "0751": {
+    "score": 2,
+    "rationale": "Jewish butchers (slagers) perform highly specialized physical work requiring manual dexterity, sensory judgment, and constant real-world presence. While some peripheral tasks like inventory management and customer order processing could be partially automated, the core work—selecting, inspecting, cutting, trimming, and preparing kosher meat according to Jewish dietary laws—demands hands-on expertise, physical skill, and cannot be performed remotely or by AI systems."
+  },
+  "0752": {
+    "score": 2,
+    "rationale": "Bakking is fundamentally a physical, hands-on occupation requiring constant real-world presence, manual dexterity, sensory judgment (temperature, texture, appearance), and direct machine operation. While some administrative tasks (inventory, ordering) and recipe development could be partially automated, the core work—mixing, kneading, shaping, temperature monitoring, and quality assessment—requires human skill and cannot be meaningfully replaced by current AI technology."
+  },
+  "0753": {
+    "score": 7,
+    "rationale": "Productcontroleurs (quality control inspectors) perform routine inspection and testing tasks that are increasingly automatable through computer vision, robotics, and automated testing systems. While some judgment is required for complex defect assessment, the core work—visual inspection, measurements, and documentation—is highly digitizable and can be performed by AI systems. The occupation requires physical presence at production facilities but the actual control tasks are increasingly being automated."
+  },
+  "0754": {
+    "score": 3,
+    "rationale": "Meubelmakers (furniture makers) perform highly physical, manual work requiring constant real-world presence, hands-on dexterity, and sensory judgment for woodworking. While some tasks like CAD design and production planning could be partially automated, the core work—cutting, shaping, assembling, and finishing wood—demands specialized manual skills and cannot be performed remotely. AI exposure remains low as the occupation is fundamentally dependent on physical craftsmanship and material handling."
+  },
+  "0755": {
+    "score": 5,
+    "rationale": "Printing managers face moderate AI exposure. While production optimization, quality control monitoring, and workflow management are increasingly automatable through AI-driven systems and data analysis, their core responsibilities involving personnel leadership, client communication, and real-time decision-making in physical production environments remain human-dependent. The occupation sits at the intersection of digital process improvement and hands-on operational oversight."
+  },
+  "076": {
+    "score": 4,
+    "rationale": "This occupation involves a significant manual and physical component (electrical installation, maintenance, safety oversight on-site) that cannot be automated by current AI, requiring constant real-world presence and hands-on expertise. However, administrative and supervisory tasks like progress tracking, material management, schedule monitoring, and some decision-making are increasingly automatable through AI tools, creating moderate overall exposure to AI disruption."
+  },
+  "0761": {
+    "score": 4,
+    "rationale": "This occupation involves a mix of automatable and non-automatable tasks. While some administrative duties (progress tracking, inventory monitoring, scheduling) can be partially automated by AI tools, the core work remains fundamentally physical and on-site: supervising electrical infrastructure installation, making real-time safety decisions, performing hands-on electrical work, and managing personnel in dynamic construction environments. The requirement for physical presence, safety oversight, and practical problem-solving in complex real-world conditions limits AI's transformative potential."
+  },
+  "077": {
+    "score": 6,
+    "rationale": "EU fund managers work primarily with digital financial systems, data analysis, regulatory documentation, and administrative processes that are increasingly automatable through AI. However, the role requires significant human judgment in stakeholder management, strategic decision-making, policy interpretation, and fraud detection—elements that cannot be fully automated. The work is substantially digital and routine in parts, but core responsibilities involving complex negotiations, political sensitivity, and nuanced EU-regulatory interpretation limit complete AI displacement."
+  },
+  "0771": {
+    "score": 2,
+    "rationale": "Productiemachinebedieners (production machine operators) work primarily with physical machinery and equipment on factory floors, requiring constant on-site presence and hands-on manual operation. While some routine monitoring tasks could theoretically be automated, the core work demands real-world sensory judgment, immediate physical intervention, and troubleshooting of equipment failures. This occupation has minimal exposure to AI disruption due to its inherently physical and presence-dependent nature."
+  },
+  "0772": {
+    "score": 2,
+    "rationale": "Assemblagemedewerkers karton perform primarily manual, physical tasks requiring real-world presence on production floors to operate and monitor machinery, handle materials, and ensure quality control. While some routine monitoring and data-tracking tasks could be partially automated, the core work—operating specialized machinery, assembling cardboard products, and performing quality inspections—requires hands-on dexterity, physical presence, and sensory judgment that current AI and robotics cannot fully replace at scale in diverse production environments."
+  },
+  "078": {
+    "score": 6,
+    "rationale": "Robotics technicians work with fundamentally digital and technical systems (CAD/CAM, control systems, programming), and many design, testing, and calibration tasks can be partially automated or assisted by AI tools. However, the occupation still requires significant hands-on physical work (building, installing, calibrating hardware), real-world problem-solving, and sensory judgment that cannot be fully replaced by current AI, preventing a higher score."
+  },
+  "0781": {
+    "score": 6,
+    "rationale": "Robotics technicians work with digital design tools (CAD/CAM), control systems, and programming, making significant portions of their work AI-exposed. However, the occupation requires substantial hands-on work including physical assembly, installation, calibration, and real-world testing of equipment, which cannot be fully automated. AI will augment design and diagnostics but cannot replace the practical, on-site technical work."
+  },
+  "08": {
+    "score": 6,
+    "rationale": "This specialized biomedical scientist role involves significant digital components (data analysis, research documentation, result validation) that are increasingly subject to AI automation, particularly in pattern recognition, data analysis, and literature review. However, the occupation retains substantial human judgment requirements (clinical decision-making, ethical considerations, complex laboratory work requiring physical presence and sensory expertise), limiting full automation despite high AI exposure to routine analytical tasks."
+  },
+  "081": {
+    "score": 8,
+    "rationale": "ICT security technicians work almost entirely with digital systems, performing security updates, threat analysis, system testing, and policy implementation—all core tasks increasingly augmented by AI-powered security tools, vulnerability scanners, and automated compliance monitoring. While the role requires some human judgment for complex threat assessment and strategic decision-making, the majority of routine security tasks, monitoring, and documentation are highly automatable and already being transformed by AI-driven cybersecurity solutions."
+  },
+  "0811": {
+    "score": 8,
+    "rationale": "Software and application developers work almost entirely with digital outputs and can perform their work remotely. AI tools (code generation, debugging, design assistance) are already transforming large portions of their work, from writing and testing code to technical documentation. However, the occupation retains moderate human value in architectural decisions, requirement gathering, and complex problem-solving that still require domain expertise and creative judgment."
+  },
+  "0812": {
+    "score": 8,
+    "rationale": "This administrative secretary role involves primarily digital work products (email, document management, scheduling, database administration) that can be performed remotely and are highly susceptible to AI automation. Large language models can handle email drafting, meeting summaries, and document organization, while AI scheduling tools and chatbots can manage appointment coordination and initial communications. The routine, rule-based nature of most tasks combined with minimal requirement for physical presence or specialized human judgment places this occupation in the very high exposure category."
+  },
+  "082": {
+    "score": 7,
+    "rationale": "ICT capacity planners work with fundamentally digital work products including data analysis, statistical forecasting, resource planning, and financial reporting. Their core tasks—analyzing business needs, predicting workloads, performing cost-benefit analyses, and planning infrastructure—are highly automatable through AI tools for data analysis, forecasting, and strategic planning. However, the role retains some non-automatable elements: strategic business judgment, stakeholder communication, and understanding nuanced organizational contexts still require human expertise, preventing a score of 8+."
+  },
+  "0821": {
+    "score": 6,
+    "rationale": "ICT-helpdeskmanagers work primarily with digital systems, ticketing platforms, and remote support tools, making their work largely automatable through AI-powered chatbots, automated troubleshooting, and ticket routing systems. However, the role involves significant people management, complex problem-solving requiring judgment, and customer relationship management that currently still benefit from human oversight. The combination of routine technical tasks (high AI exposure) with leadership and interpersonal responsibilities (lower AI exposure) places this occupation in the high-exposure category but not the very-high range."
+  },
+  "0822": {
+    "score": 6,
+    "rationale": "Radio production leaders have significant AI exposure due to the digital nature of their work products, with AI increasingly automating content analysis, scheduling, budget management, and even script generation. However, the role retains human-essential elements like creative decision-making, personnel management, artist negotiation, and editorial judgment that currently require human oversight. The mix of automatable administrative/analytical tasks and irreplaceable creative/interpersonal leadership places this occupation in the high exposure category."
+  },
+  "09": {
+    "score": 6,
+    "rationale": "This occupation involves primarily digital work products including policy analysis, report writing, and presentations that AI can substantially assist with. However, it requires significant human judgment in policy development, stakeholder engagement with agricultural professionals, and understanding complex regulatory contexts that demand domain expertise and real-world knowledge of agricultural issues. The work is office-based and knowledge-intensive, but the relational and advisory aspects limit full automation."
+  },
+  "091": {
+    "score": 4,
+    "rationale": "This horticultural management occupation has moderate AI exposure. While tasks like pest identification, crop yield prediction, soil analysis, and irrigation planning can increasingly be automated through computer vision and data analytics, the role fundamentally requires physical presence for field monitoring, hands-on crop management, and real-time decision-making in variable natural environments. Leadership and interpersonal elements also limit full automation."
+  },
+  "0911": {
+    "score": 1,
+    "rationale": "Bosbouwers perform highly physical, manual work that requires constant real-world presence in forests, including tree planting, pruning, felling, and pest management. The occupation demands sensory judgment, spatial awareness, and specialized equipment operation in outdoor environments that cannot be automated or performed remotely. While some administrative planning tasks could be enhanced by AI, the core work remains fundamentally dependent on human physical labor and on-site decision-making."
+  },
+  "0912": {
+    "score": 2,
+    "rationale": "Hoveniers (gardeners/landscapers) perform highly manual and physical work that requires constant real-world presence, hands-on dexterity, and sensory judgment for plant health assessment and outdoor conditions. While some planning and design tasks could be augmented by AI tools, the core work—pruning, planting, weeding, and maintaining outdoor spaces—cannot be automated by current technology and requires physical presence on-site."
+  },
+  "0913": {
+    "score": 1,
+    "rationale": "Veetelers (livestock farmers) perform highly physical work requiring constant real-world presence on farms, including animal care, feeding, health monitoring, and facility maintenance. While some administrative and record-keeping tasks could potentially be digitized, the core occupation fundamentally depends on hands-on animal husbandry, sensory judgment, and physical dexterity that current AI technology cannot replace."
+  },
+  "092": {
+    "score": 2,
+    "rationale": "Agricultural machine operators require significant manual dexterity, physical presence on farms, and real-time sensory judgment to operate equipment safely and effectively in unpredictable outdoor environments. While some routine tasks like pesticide application or crop monitoring could theoretically be partially automated, the core work demands constant physical control of machinery, real-world hazard navigation, and adaptive decision-making that current AI cannot replicate without human oversight."
+  },
+  "0921": {
+    "score": 2,
+    "rationale": "Agricultural machinery operators require significant physical presence, manual dexterity, and real-time sensory judgment to operate heavy equipment safely in variable outdoor conditions. While some routine tasks like pesticide application could theoretically be automated, the core work—operating tractors and specialized farm equipment, identifying plant conditions, making real-time decisions—remains fundamentally dependent on human presence and cannot be effectively replaced by current AI technology."
+  },
+  "10": {
+    "score": 2,
+    "rationale": "Beekeeping is fundamentally a hands-on, physical occupation requiring constant real-world presence in apiaries to monitor hive health, perform manual tasks like medication administration, and manage bee colonies. While digital tools (drones for monitoring, automated feeders, data logging) can supplement some tasks, the core work demands direct observation, sensory judgment about bee health and behavior, and physical dexterity that current AI cannot replicate. The occupation remains heavily dependent on tacit knowledge and in-person animal care."
+  },
+  "101": {
+    "score": 4,
+    "rationale": "Specialized physiotherapists have moderate AI exposure. While some tasks like patient assessment documentation, treatment planning, and health research can be partially automated or supported by AI tools, the core work requires significant in-person physical interaction, manual clinical skills, real-time patient judgment, and empathetic care that cannot be fully replaced by current AI technology. The occupation fundamentally depends on hands-on treatment delivery and complex decision-making in unpredictable clinical situations."
+  },
+  "1011": {
+    "score": 6,
+    "rationale": "Hospital pharmacists work with primarily digital systems (pharmacy databases, electronic health records, drug interaction software) and perform routine tasks like medication dispensing, compounding, and monitoring that are increasingly automatable through robotics and AI. However, the role requires significant clinical judgment, patient safety responsibility, collaborative decision-making with healthcare teams, and contextual understanding of complex drug interactions and individual patient factors that currently demand human expertise and accountability."
+  },
+  "1012": {
+    "score": 4,
+    "rationale": "Specialized nurses perform a mix of automatable and non-automatable tasks. While administrative work, documentation, and clinical decision support can increasingly be handled by AI, the core work requires significant physical presence (patient care, procedures, assessments), hands-on clinical judgment, and direct human interaction that current AI cannot fully replace. However, AI tools for diagnostics, documentation, scheduling, and clinical guideline support will increasingly augment but not displace this role."
+  },
+  "1013": {
+    "score": 3,
+    "rationale": "Fysiotherapy requires extensive in-person physical interaction, manual dexterity, and real-time assessment of patient responses that cannot be fully automated by current AI. While administrative tasks, treatment planning, and patient education could benefit from AI support, the core work of orthopedic manual therapy, physical assessment, and hands-on rehabilitation demands human presence and tactile judgment that remains beyond AI capabilities."
+  },
+  "102": {
+    "score": 3,
+    "rationale": "Social work requires significant in-person interaction, emotional intelligence, and real-world presence that cannot be fully replaced by AI. While administrative tasks like documentation and data analysis could be partially automated, the core work—counseling, risk assessment, relationship-building, and holistic support for vulnerable populations—demands human judgment, empathy, and direct physical presence that remains resistant to automation."
+  },
+  "1021": {
+    "score": 3,
+    "rationale": "Crisis intervention social work requires constant real-world presence, direct human interaction, empathetic judgment, and physical safety assessment that cannot be fully automated. While AI tools could assist with documentation, resource coordination, and information processing, the core work of de-escalation, risk assessment, and emotional support depends on human judgment, presence, and relational skills that remain fundamentally non-automatable."
+  },
+  "1022": {
+    "score": 6,
+    "rationale": "Sociologists' work is substantially digital, involving data analysis, statistical work, research, and academic writing—tasks where AI can assist significantly with literature review, data processing, and draft generation. However, the occupation requires original theoretical insight, fieldwork observation, human interaction for qualitative research, and nuanced interpretation of social phenomena that demand human expertise and judgment, preventing a higher score."
+  },
+  "103": {
+    "score": 6,
+    "rationale": "This occupation involves significant digital work products (policy analysis, reports, data-driven recommendations) and pattern recognition in healthcare data, making it moderately-to-highly exposed to AI tools for data analysis, document generation, and strategic planning. However, it requires substantial human judgment in stakeholder management, policy interpretation, and leadership—factors that currently limit full automation and keep it from scoring higher (7+)."
+  },
+  "1031": {
+    "score": 6,
+    "rationale": "Botanical laboratory assistants perform tasks that are increasingly automatable through AI, including data collection and analysis, pattern recognition in plant properties, report writing, and inventory management. However, the role requires significant hands-on laboratory work, physical plant handling, equipment calibration, and specialized sensory judgment that cannot yet be fully automated, keeping it in the high-exposure rather than very-high-exposure range."
+  },
+  "1032": {
+    "score": 5,
+    "rationale": "Apothekersassistenten perform a mix of automatable and non-automatable tasks. Inventory management, administrative work, and claims processing are increasingly digitizable through pharmacy management systems and AI-driven tools. However, the role requires physical presence for stock control, customer interaction, handling of regulated medications, and real-world judgment about medication safety and patient communication that AI cannot fully replace without significant regulatory and safety constraints."
+  },
+  "1033": {
+    "score": 6,
+    "rationale": "Verpleegkundigen (general nurses) have high AI exposure in specific domains: digital documentation, data analysis, patient monitoring systems, and clinical decision support are increasingly automated. However, core nursing work requires substantial physical presence, direct patient care, emotional support, and real-time clinical judgment that AI cannot fully replace. The occupation is partially transformable through automation of administrative and analytical tasks, but remains fundamentally reliant on human interaction and hands-on medical skills."
+  },
+  "1034": {
+    "score": 6,
+    "rationale": "Medical practice assistants face high AI exposure due to significant digital and routine task components: administrative work, patient record management, appointment scheduling, and standardized diagnostic procedures can increasingly be automated or supported by AI. However, core responsibilities involving direct patient care, physical procedures (blood draws, sterilization, surgical assistance), manual dexterity, real-world presence, and clinical judgment under physician supervision remain difficult to fully automate, preventing a higher score."
+  },
+  "1035": {
+    "score": 9,
+    "rationale": "This occupation is almost entirely digital, involving transcription and processing of dictated medical information into structured documents. Large language models and speech-to-text AI can now perform dictation transcription, formatting, grammar correction, and medical document generation with high accuracy, requiring minimal human oversight. The work requires no physical presence, manual dexterity, or sensory judgment—only text processing and data management skills that AI systems excel at."
+  },
+  "104": {
+    "score": 4,
+    "rationale": "Social workers have moderate AI exposure. While some tasks like data entry, report writing, and information retrieval can be partially automated by AI tools, the core work requires complex interpersonal skills, empathy, judgment in crisis situations, and physical presence for home visits and face-to-face counseling. The occupation combines digital administrative work with irreplaceable human interaction and nuanced decision-making in sensitive contexts."
+  },
+  "1041": {
+    "score": 3,
+    "rationale": "Social workers require significant in-person presence, emotional intelligence, and judgment-based decision-making that AI cannot replicate. While some administrative tasks like documentation and initial intake forms could be automated, the core work—building trust, providing counseling, navigating complex family dynamics, and advocating for vulnerable populations—fundamentally depends on human connection and contextual understanding that current AI cannot provide."
+  },
+  "105": {
+    "score": 1,
+    "rationale": "Kraamverzorgenden (obstetric care workers) require constant physical presence, direct human contact, and hands-on care delivery with patients during vulnerable periods. The work involves clinical judgment in emergency situations, emotional support, and physical examinations that cannot be performed remotely or by AI systems, making this occupation minimally exposed to AI automation."
+  },
+  "1051": {
+    "score": 1,
+    "rationale": "Kraamverzorgenden (maternity care assistants) perform highly physical, hands-on work requiring constant real-world presence and direct human contact with pregnant women, newborns, and families. The core responsibilities—assisting with childbirth, physical patient care, vital sign monitoring, and emotional support—demand in-person clinical expertise, manual dexterity, and immediate sensory judgment that cannot be automated or performed remotely by current AI technology."
+  },
+  "11": {
+    "score": 6,
+    "rationale": "Gespecialiseerde biomedische wetenschappers perform knowledge-intensive, digital-capable work including data analysis, pattern recognition in laboratory results, and research documentation that AI tools can increasingly support. However, the occupation requires significant hands-on laboratory work, clinical judgment in complex cases, specialized sensory evaluation of samples, and direct patient consultation that cannot be fully automated, limiting AI exposure to moderate-to-high rather than very high levels."
+  },
+  "111": {
+    "score": 1,
+    "rationale": "This occupation (home care worker/thuiszorgmedewerker) involves primarily physical, hands-on tasks requiring constant real-world presence and human judgment in sensitive care situations. The work demands direct physical assistance with personal hygiene, mobility, emergency response, and interpersonal connection with vulnerable individuals—tasks that cannot be meaningfully automated by current AI technology and require ongoing human compassion and adaptation."
+  },
+  "1111": {
+    "score": 4,
+    "rationale": "Reisbegeleiders have moderate AI exposure. While some tasks like information provision, payment processing, and customer complaint handling can be partially automated or enhanced by AI tools (chatbots, AR/VR experiences), the core work requires significant human presence, interpersonal skills, real-time problem-solving, and local knowledge. The occupation remains heavily dependent on physical presence at destinations and genuine human interaction with tourists."
+  },
+  "1112": {
+    "score": 3,
+    "rationale": "Industrial cooks perform fundamentally physical, manual work requiring hands-on presence in kitchens and food production facilities. While some tasks like recipe development and inventory management have digital components, the core work—food preparation, temperature control, handling equipment, and quality assessment—requires sensory judgment, physical dexterity, and real-time presence that current AI cannot replicate. Automation potential is limited to specific repetitive subtasks rather than the occupation as a whole."
+  },
+  "1113": {
+    "score": 2,
+    "rationale": "Waiters and bar staff require constant physical presence, manual dexterity (carrying trays, pouring drinks), and direct face-to-face customer interaction that cannot be automated. While payment processing and reservation systems can be digitized, the core work of serving food/beverages, reading customer needs, and providing hospitality remains fundamentally dependent on human presence and judgment."
+  },
+  "1114": {
+    "score": 1,
+    "rationale": "This occupation is fundamentally hands-on, requiring direct physical contact with clients' hair and scalp in a salon setting. The work involves manual dexterity, sensory judgment about hair condition and client preferences, and cannot be performed remotely. While some administrative tasks (appointment scheduling, inventory) could be digitized, the core work of hair washing, treatment application, and scalp care requires constant in-person presence and tactile expertise that AI cannot replicate."
+  },
+  "1115": {
+    "score": 2,
+    "rationale": "Conciërges perform primarily physical, manual tasks requiring constant on-site presence such as cleaning, inspections, small repairs, and facility monitoring. While some administrative tasks like data entry and report writing are automatable, the core work—physical maintenance, building inspections, and hands-on problem-solving—cannot be replicated by current AI technology and demands human presence and judgment."
+  },
+  "1116": {
+    "score": 6,
+    "rationale": "Aviation managers perform significant digital and data-driven work including flight planning coordination, data analysis, risk management, and system performance monitoring that AI can increasingly support. However, the role requires substantial human judgment for safety-critical decisions, real-time operational oversight, regulatory compliance, and personnel management that cannot be fully automated. The occupation has high AI exposure in its analytical and administrative dimensions but maintains essential human oversight responsibilities in aviation safety and strategic decision-making."
+  },
+  "112": {
+    "score": 1,
+    "rationale": "Kitchen helpers' work is predominantly manual and physical, requiring constant real-world presence in the kitchen environment. Tasks involve hands-on food preparation, cleaning surfaces, handling equipment, and maintaining hygiene standards that cannot be automated or done remotely. While some inventory monitoring could theoretically be digitized, the core occupation is fundamentally dependent on physical presence and manual dexterity."
+  },
+  "1121": {
+    "score": 1,
+    "rationale": "Furniture cleaners perform highly physical, manual work requiring constant real-world presence, hands-on dexterity, and sensory judgment to assess material types and cleaning needs. The occupation cannot be performed remotely and involves tangible objects requiring human touch and judgment that current AI technology cannot effectively replace."
+  },
+  "1122": {
+    "score": 2,
+    "rationale": "Kitchen assistants perform primarily manual, physical tasks requiring constant real-world presence in the kitchen environment. While some routine tasks like inventory tracking could theoretically be digitized, the core work—food preparation, cutting, cleaning, handling equipment, and maintaining hygiene standards—demands hands-on physical labor, sensory judgment, and real-time decision-making that current AI cannot replicate in a kitchen setting."
+  },
+  "12": {
+    "score": 6,
+    "rationale": "This occupation involves substantial digital work products including tracking systems, contract management, price analysis, and strategic planning—all areas where AI tools can provide significant assistance. However, it requires human judgment in personnel leadership, complex negotiations, customer relationship management, and strategic decision-making that cannot be fully automated. The role remains partially dependent on real-world logistics operations oversight and interpersonal skills."
+  },
+  "121": {
+    "score": 1,
+    "rationale": "Fire truck drivers require constant physical presence in emergency response situations, real-time decision-making based on complex environmental conditions, and direct operation of heavy vehicles and safety equipment. The work is inherently hands-on, requires immediate sensory judgment, and cannot be remotely performed or significantly automated by current AI technology."
+  },
+  "1211": {
+    "score": 3,
+    "rationale": "Pilots require constant physical presence in the cockpit, real-time sensory judgment, and hands-on control of complex mechanical systems that cannot be fully automated. While many navigational and monitoring tasks are increasingly digital and could be enhanced by AI, the core responsibility of safely operating an aircraft demands human judgment, situational awareness, and the ability to respond to unexpected conditions that AI cannot yet reliably replace. Current automation in commercial aviation supplements rather than replaces pilot control, and regulatory frameworks still mandate human pilots for passenger flights."
+  },
+  "1212": {
+    "score": 2,
+    "rationale": "Taxi driving involves substantial physical and manual components (vehicle operation, real-time navigation, passenger interaction) that require human presence and sensory judgment. While GPS and payment systems are digital, autonomous vehicles and ride-sharing apps are disrupting this occupation, the core task of safely operating a vehicle in unpredictable urban environments with diverse passengers remains highly dependent on human skills, situational awareness, and physical control that current AI cannot fully replace at scale."
+  },
+  "1213": {
+    "score": 2,
+    "rationale": "Tram drivers perform highly physical work requiring constant real-world presence, manual vehicle operation, and direct passenger interaction that cannot be automated in the near term. While autonomous vehicles are emerging, the complex urban environment, safety-critical decision-making, and essential human service components of this role make it largely resistant to current AI technology. The work products are not digital, and the occupation fundamentally requires physical presence and sensory judgment."
+  },
+  "1214": {
+    "score": 1,
+    "rationale": "Vrachtwagenchauffeurs (truck drivers) have minimal AI exposure because their work is fundamentally physical and requires constant real-world presence, manual vehicle operation, sensory judgment for navigation and safety, and real-time decision-making in unpredictable traffic environments. While autonomous vehicle technology is developing, current AI cannot reliably handle the full complexity of truck driving, and the occupation will remain human-dependent for the foreseeable future."
+  },
+  "1215": {
+    "score": 2,
+    "rationale": "This occupation involves primarily physical machine operation and manual handling of materials in a manufacturing setting, with work that requires constant real-world presence on the factory floor. While some monitoring tasks could theoretically be partially automated, the core responsibilities—adjusting equipment, handling tobacco materials, and performing quality checks—require hands-on dexterity and sensory judgment that current AI technology cannot reliably replicate in this industrial context."
+  },
+  "122": {
+    "score": 7,
+    "rationale": "This multimodal logistics management role involves significant digital and data-driven tasks (tracking shipments, analyzing tariffs, managing contracts, strategic planning) that AI can increasingly support or automate. However, it retains core human-centric elements like staff leadership, negotiation, customer relationship management, and real-time operational decision-making that require contextual judgment and interpersonal skills. The occupation scores high exposure due to its heavy reliance on data analysis, digital systems, and routine administrative processes, but falls short of maximum exposure because effective logistics management still requires human oversight of complex negotiations and personnel management."
+  },
+  "1221": {
+    "score": 1,
+    "rationale": "This occupation is predominantly physical and manual, requiring constant real-world presence at airport terminals. Core tasks like loading/unloading baggage, operating equipment, lifting heavy items, and sorting luggage depend on physical dexterity and hands-on work that cannot be automated or done remotely. While labeling could theoretically be automated, the hands-on baggage handling remains fundamentally a physical labor role with minimal AI exposure."
+  },
+  "1222": {
+    "score": 1,
+    "rationale": "This occupation is highly physical and manual, requiring constant real-world presence to collect waste from homes and facilities. The core tasks—lifting, emptying bins, and operating collection equipment—demand hands-on dexterity and cannot be performed remotely. While documentation of waste collection could theoretically be digitized, it remains a minor supplementary task to work that is fundamentally tied to physical labor."
+  },
+  "13": {
+    "score": 6,
+    "rationale": "Groupage-expediteurs work with highly digital processes including document management (bills of lading, export permits), tariff analysis, rate publishing, and cargo coordination systems. Most core tasks involve data processing, documentation, and administrative work that can be automated or significantly augmented by AI tools. However, the role requires negotiation skills, client relationship management, and understanding of maritime regulations that still demand human judgment and communication."
+  },
+  "131": {
+    "score": 6,
+    "rationale": "Groupage-expediteurs work primarily with digital documentation (bills of lading, manifests, customs permits, tariff analysis) and logistics coordination that can be increasingly automated by AI systems for document processing, scheduling, and data analysis. However, the role requires significant human judgment in negotiating with clients, managing complex international regulations, and coordinating physical shipping operations that still depend on real-world expertise and relationship management."
+  },
+  "1311": {
+    "score": 1,
+    "rationale": "Kraamverzorgenden (postpartum care nurses) perform highly physical, hands-on work requiring constant real-world presence: assisting with deliveries, monitoring vital signs, providing direct patient care, and handling emergency situations. This occupation demands sensory judgment, physical touch, emotional presence, and immediate responsiveness to patients that cannot be automated or performed remotely by current or near-future AI technology."
+  }
+}
