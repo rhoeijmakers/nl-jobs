@@ -620,16 +620,17 @@ function drawTreemap(data) {
     .data(groups)
     .join("text")
     .attr("class", "group-label")
-    .attr("x", d => d.x0 + 4)
-    .attr("y", d => d.y0 + 13)
-    .attr("font-size", "10px")
-    .attr("fill", "#666")
+    .attr("x", d => d.x0 + 5)
+    .attr("y", d => d.y0 + 14)
+    .attr("font-size", "11px")
+    .attr("font-weight", "600")
+    .attr("fill", "#aaa")
     .attr("pointer-events", "none")
     .text(d => {
       const w = d.x1 - d.x0;
       const name = d.data.name;
       if (w < 60) return "";
-      const maxChars = Math.floor(w / 6.5);
+      const maxChars = Math.floor(w / 7);
       return name.length > maxChars ? name.slice(0, maxChars - 1) + "…" : name;
     });
 
