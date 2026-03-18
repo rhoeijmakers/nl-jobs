@@ -2,7 +2,7 @@
 
 An interactive treemap visualizing how exposed Dutch occupations are to AI — adapted from [mariodian/jobs](https://github.com/mariodian/jobs) (originally by Andrej Karpathy) for the Netherlands using [ESCO](https://esco.ec.europa.eu/) occupation data.
 
-**Live demo:** [jobs.hoeijmakers.net](https://jobs.hoeijmakers.net/)
+**Live demo:** [nljobs.hoeijmakers.net](https://nljobs.hoeijmakers.net/)
 
 ## What's here
 
