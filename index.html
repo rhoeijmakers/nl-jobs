@@ -240,7 +240,7 @@
   @media (max-width: 700px) {
     body { height: auto; min-height: 100dvh; overflow-y: auto; }
     #wrapper { flex: none; padding-bottom: 32px; }
-    #treemap-container { flex: none; height: 100vw; min-height: 300px; }
+    #treemap-container { flex: none; height: 300px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
     #intro-section { padding: 12px 16px 14px; font-size: 0.82rem; }
     #mobile-disclaimer { display: block; padding: 10px 16px 48px; font-size: 0.75rem; color: #3a3a4a; text-align: center; border-top: 1px solid #1a1a1a; }
     #footer-bar { position: sticky; bottom: 0; }
@@ -660,8 +660,11 @@ function drawTreemap(data) {
   drawDashboard(data, currentLayer);
 
   const container = document.getElementById("treemap-container");
-  const W = container.clientWidth;
-  const H = container.clientHeight - (window.innerWidth > 700 ? 40 : 0);
+  container.style.height = ""; // reset to CSS value before measuring
+  const isMobile = window.innerWidth <= 700;
+  const W = isMobile ? Math.round(window.innerWidth * 2) : container.clientWidth;
+  const H = container.clientHeight - 40;
+  if (isMobile) container.style.height = H + "px"; // close gap on mobile
 
   d3.select("#treemap-container svg").remove();
   const svg = d3.select("#treemap-container")
