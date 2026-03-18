@@ -125,45 +125,45 @@ code,title,level,category,jobs_x1000,median_hourly_wage,annual_wage_est
 0913,Veetelers,4,Agrarische beroepen,45,17.4,32573
 092,Hulpkrachten landbouw,3,Agrarische beroepen,35,16.0,29952
 0921,Hulpkrachten landbouw,4,Agrarische beroepen,35,16.0,29952
-10,Zorg en welzijn beroepen,2,Transport en logistiek beroepen,1412,25.9,48485
-101,"Artsen, therapeuten en gespeciali...",3,Transport en logistiek beroepen,397,31.3,58594
-1011,Artsen,4,Transport en logistiek beroepen,156,36.9,69077
-1012,Gespecialiseerd verpleegkundigen,4,Transport en logistiek beroepen,144,30.8,57658
-1013,Fysiotherapeuten,4,Transport en logistiek beroepen,97,28.2,52790
-102,Specialisten op maatschappelijk g...,3,Transport en logistiek beroepen,193,29.4,55037
-1021,Maatschappelijk werkers,4,Transport en logistiek beroepen,99,26.9,50357
-1022,Psychologen en sociologen,4,Transport en logistiek beroepen,94,34.0,63648
-103,Vakspecialisten gezondheidszorg,3,Transport en logistiek beroepen,281,24.4,45677
-1031,Laboranten,4,Transport en logistiek beroepen,28,24.4,45677
-1032,Apothekersassistenten,4,Transport en logistiek beroepen,23,24.4,45677
-1033,Verpleegkundigen (mbo),4,Transport en logistiek beroepen,74,26.6,49795
-1034,Medisch praktijkassistenten,4,Transport en logistiek beroepen,84,22.6,42307
-1035,Medisch vakspecialisten,4,Transport en logistiek beroepen,73,29.9,55973
-104,"Sociaal werkers, groeps- en woonb...",3,Transport en logistiek beroepen,275,24.0,44928
-1041,"Sociaal werkers, groeps- en woon.",4,Transport en logistiek beroepen,275,24.0,44928
-105,Verzorgenden,3,Transport en logistiek beroepen,267,22.8,42682
-1051,Verzorgenden,4,Transport en logistiek beroepen,267,22.8,42682
-11,Dienstverlenende beroepen,2,Medische en paramedische beroepen,777,15.4,28829
-111,Medewerkers persoonlijke dienstve...,3,Medische en paramedische beroepen,476,15.2,28454
-1111,Reisbegeleiders,4,Medische en paramedische beroepen,25,15.2,28454
-1112,Koks,4,Medische en paramedische beroepen,66,16.6,31075
-1113,Kelners en barpersoneel,4,Medische en paramedische beroepen,223,13.7,25646
-1114,Kappers en schoonheidsspecialisten,4,Medische en paramedische beroepen,61,15.2,28454
-1115,Conciërges en teamleiders schoon.,4,Medische en paramedische beroepen,53,20.0,37440
-1116,Verleners van overige persoonlij.,4,Medische en paramedische beroepen,48,15.2,28454
-112,Schoonmakers en keukenhulpen,3,Medische en paramedische beroepen,301,15.5,29016
-1121,Schoonmakers,4,Medische en paramedische beroepen,223,16.1,30139
-1122,Keukenhulpen,4,Medische en paramedische beroepen,78,10.0,18720
-12,Transport en logistiek beroepen,2,Verzorgende en dienstverlenende beroepen,648,16.1,30139
-121,Bestuurders voertuigen en bediene...,3,Verzorgende en dienstverlenende beroepen,301,20.2,37814
-1211,Dekofficieren en piloten,4,Verzorgende en dienstverlenende beroepen,32,20.2,37814
-1212,"Chauffeurs auto's, taxi's en bes.",4,Verzorgende en dienstverlenende beroepen,86,16.0,29952
-1213,Buschauffeurs en trambestuurders,4,Verzorgende en dienstverlenende beroepen,23,20.2,37814
-1214,Vrachtwagenchauffeurs,4,Verzorgende en dienstverlenende beroepen,99,20.3,38002
-1215,Bedieners mobiele machines,4,Verzorgende en dienstverlenende beroepen,62,21.0,39312
-122,Hulpkrachten transport en logistiek,3,Verzorgende en dienstverlenende beroepen,347,12.0,22464
-1221,"Laders, lossers en vakkenvullers",4,Verzorgende en dienstverlenende beroepen,306,11.0,20592
-1222,Vuilnisophalers en dagbladenbezo.,4,Verzorgende en dienstverlenende beroepen,41,12.0,22464
+10,Zorg en welzijn beroepen,2,Medische en paramedische beroepen,1412,25.9,48485
+101,"Artsen, therapeuten en gespeciali...",3,Medische en paramedische beroepen,397,31.3,58594
+1011,Artsen,4,Medische en paramedische beroepen,156,36.9,69077
+1012,Gespecialiseerd verpleegkundigen,4,Medische en paramedische beroepen,144,30.8,57658
+1013,Fysiotherapeuten,4,Medische en paramedische beroepen,97,28.2,52790
+102,Specialisten op maatschappelijk g...,3,Medische en paramedische beroepen,193,29.4,55037
+1021,Maatschappelijk werkers,4,Medische en paramedische beroepen,99,26.9,50357
+1022,Psychologen en sociologen,4,Medische en paramedische beroepen,94,34.0,63648
+103,Vakspecialisten gezondheidszorg,3,Medische en paramedische beroepen,281,24.4,45677
+1031,Laboranten,4,Medische en paramedische beroepen,28,24.4,45677
+1032,Apothekersassistenten,4,Medische en paramedische beroepen,23,24.4,45677
+1033,Verpleegkundigen (mbo),4,Medische en paramedische beroepen,74,26.6,49795
+1034,Medisch praktijkassistenten,4,Medische en paramedische beroepen,84,22.6,42307
+1035,Medisch vakspecialisten,4,Medische en paramedische beroepen,73,29.9,55973
+104,"Sociaal werkers, groeps- en woonb...",3,Medische en paramedische beroepen,275,24.0,44928
+1041,"Sociaal werkers, groeps- en woon.",4,Medische en paramedische beroepen,275,24.0,44928
+105,Verzorgenden,3,Medische en paramedische beroepen,267,22.8,42682
+1051,Verzorgenden,4,Medische en paramedische beroepen,267,22.8,42682
+11,Dienstverlenende beroepen,2,Verzorgende en dienstverlenende beroepen,777,15.4,28829
+111,Medewerkers persoonlijke dienstve...,3,Verzorgende en dienstverlenende beroepen,476,15.2,28454
+1111,Reisbegeleiders,4,Verzorgende en dienstverlenende beroepen,25,15.2,28454
+1112,Koks,4,Verzorgende en dienstverlenende beroepen,66,16.6,31075
+1113,Kelners en barpersoneel,4,Verzorgende en dienstverlenende beroepen,223,13.7,25646
+1114,Kappers en schoonheidsspecialisten,4,Verzorgende en dienstverlenende beroepen,61,15.2,28454
+1115,Conciërges en teamleiders schoon.,4,Verzorgende en dienstverlenende beroepen,53,20.0,37440
+1116,Verleners van overige persoonlij.,4,Verzorgende en dienstverlenende beroepen,48,15.2,28454
+112,Schoonmakers en keukenhulpen,3,Verzorgende en dienstverlenende beroepen,301,15.5,29016
+1121,Schoonmakers,4,Verzorgende en dienstverlenende beroepen,223,16.1,30139
+1122,Keukenhulpen,4,Verzorgende en dienstverlenende beroepen,78,10.0,18720
+12,Transport en logistiek beroepen,2,Transport en logistiek beroepen,648,16.1,30139
+121,Bestuurders voertuigen en bediene...,3,Transport en logistiek beroepen,301,20.2,37814
+1211,Dekofficieren en piloten,4,Transport en logistiek beroepen,32,20.2,37814
+1212,"Chauffeurs auto's, taxi's en bes.",4,Transport en logistiek beroepen,86,16.0,29952
+1213,Buschauffeurs en trambestuurders,4,Transport en logistiek beroepen,23,20.2,37814
+1214,Vrachtwagenchauffeurs,4,Transport en logistiek beroepen,99,20.3,38002
+1215,Bedieners mobiele machines,4,Transport en logistiek beroepen,62,21.0,39312
+122,Hulpkrachten transport en logistiek,3,Transport en logistiek beroepen,347,12.0,22464
+1221,"Laders, lossers en vakkenvullers",4,Transport en logistiek beroepen,306,11.0,20592
+1222,Vuilnisophalers en dagbladenbezo.,4,Transport en logistiek beroepen,41,12.0,22464
 13,Beroepsklasse overig,2,Bouwberoepen,99,17.7,33134
 131,Beroepssegment overig,3,Bouwberoepen,99,17.7,33134
 1311,Beroepsgroep overig,4,Bouwberoepen,99,17.7,33134
