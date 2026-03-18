@@ -661,7 +661,7 @@ function drawTreemap(data) {
 
   const container = document.getElementById("treemap-container");
   const W = container.clientWidth;
-  const H = container.clientHeight - 40;
+  const H = container.clientHeight - (window.innerWidth > 700 ? 40 : 0);
 
   d3.select("#treemap-container svg").remove();
   const svg = d3.select("#treemap-container")
