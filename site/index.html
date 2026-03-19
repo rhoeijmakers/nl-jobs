@@ -78,6 +78,7 @@
   #treemap-container {
     position: relative; overflow: hidden;
     width: 100%; flex: 1; min-height: 80px;
+    margin-bottom: 40px; /* clearance for fixed footer */
   }
   #treemap-container svg { display: block; }
 
@@ -239,7 +240,7 @@
   /* ── Mobile: scrollable layout ── */
   @media (max-width: 700px) {
     body { height: auto; min-height: 100dvh; overflow-y: auto; }
-    #treemap-container { flex: none; height: 100vw; min-height: 300px; }
+    #treemap-container { flex: none; height: 100vw; min-height: 300px; margin-bottom: 0; }
     #intro-section { padding: 12px 16px 14px; font-size: 0.82rem; }
     #mobile-disclaimer { display: block; padding: 10px 16px 48px; font-size: 0.75rem; color: #3a3a4a; text-align: center; border-top: 1px solid #1a1a1a; }
     #footer-bar { position: sticky; bottom: 0; }
@@ -665,7 +666,7 @@ function drawTreemap(data) {
 
   const container = document.getElementById("treemap-container");
   const W = container.clientWidth;
-  const H = container.clientHeight - (window.innerWidth > 700 ? 40 : 0);
+  const H = container.clientHeight;
 
   d3.select("#treemap-container svg").remove();
   const svg = d3.select("#treemap-container")
