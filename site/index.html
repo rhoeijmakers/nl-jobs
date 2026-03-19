@@ -78,6 +78,7 @@
   #treemap-container {
     position: relative; overflow: hidden;
     width: 100%; flex: 1; min-height: 80px;
+    margin-bottom: 40px; /* clearance for fixed footer */
   }
   #treemap-container svg { display: block; }
 
@@ -239,11 +240,16 @@
   /* ── Mobile: scrollable layout ── */
   @media (max-width: 700px) {
     body { height: auto; min-height: 100dvh; overflow-y: auto; }
-    #treemap-container { flex: none; height: 100vw; min-height: 300px; }
+    #treemap-container { flex: none; height: 150vw; min-height: 300px; margin-bottom: 0; }
     #intro-section { padding: 12px 16px 14px; font-size: 0.82rem; }
     #mobile-disclaimer { display: block; padding: 10px 16px 48px; font-size: 0.75rem; color: #3a3a4a; text-align: center; border-top: 1px solid #1a1a1a; }
     #footer-bar { position: sticky; bottom: 0; }
-    #dashboard { padding: 10px 16px; }
+    #dashboard {
+      flex-direction: column; height: auto;
+      overflow-x: hidden; overflow-y: visible;
+      border-bottom: none; padding: 10px 16px 16px;
+    }
+    .dash-card { width: 100%; height: auto; min-height: 0; }
   }
 </style>
 <!-- Privacy-friendly analytics by Plausible -->
@@ -390,7 +396,7 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
 </div>
 
 <div id="footer-bar">
-  <button id="changelog-btn">v2.1 &middot; Wijzigingen ↗</button>
+  <button id="changelog-btn">v2.2 &middot; Wijzigingen ↗</button>
   <span id="footer-credit">Gemaakt door <a href="https://schmuki.nl" target="_blank">Schmuki</a></span>
 </div>
 
@@ -398,6 +404,14 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
   <div id="changelog-panel">
     <button id="close-changelog">&times;</button>
     <h2>Versiegeschiedenis</h2>
+
+    <h3>v2.2 — maart 2026</h3>
+    <ul>
+      <li>Mobiele lay-out verbeterd: dashboardkaarten worden verticaal gestapeld (volledig breed) in plaats van horizontaal scrollend</li>
+      <li>Grafiekbreedte in dashboardkaarten schaalt mee met de schermbreedte op mobiel</li>
+      <li>Treemap-hoogte op mobiel vergroot naar 150vw zodat alle categorieën voldoende ruimte krijgen voor zichtbare tegels — inclusief kleine sectoren zoals Bouwberoepen</li>
+      <li>Voettekstmarge verplaatst naar CSS (margin-bottom) in plaats van JS-correctie, waardoor de treemap altijd correct tot de rand wordt gevuld</li>
+    </ul>
 
     <h3>v2.1 — maart 2026</h3>
     <ul>
@@ -660,7 +674,7 @@ function drawTreemap(data) {
 
   const container = document.getElementById("treemap-container");
   const W = container.clientWidth;
-  const H = container.clientHeight - 40;
+  const H = container.clientHeight;
 
   d3.select("#treemap-container svg").remove();
   const svg = d3.select("#treemap-container")
@@ -763,7 +777,7 @@ function drawTreemap(data) {
 function createCard(container, title, minWidth) {
   const card = document.createElement("div");
   card.className = "dash-card";
-  if (minWidth) card.style.minWidth = minWidth + "px";
+  if (minWidth && window.innerWidth > 700) card.style.minWidth = minWidth + "px";
   const titleEl = document.createElement("div");
   titleEl.className = "dash-card-title";
   titleEl.textContent = title;
@@ -776,14 +790,16 @@ function drawDashboard(data, layer) {
   const dash = document.getElementById("dashboard");
   dash.innerHTML = "";
   const leaf = data.filter(d => d.level === 4);
-  if (layer === "exposure") drawExposureDash(dash, leaf);
-  else if (layer === "wage") drawWageDash(dash, leaf);
-  else if (layer === "education") drawEducationDash(dash, leaf);
+  // dashboard h-padding=32px, card h-padding=22px → subtract 54px total
+  const mobileSvgW = window.innerWidth <= 700 ? Math.round(window.innerWidth - 54) : null;
+  if (layer === "exposure")  drawExposureDash(dash, leaf, mobileSvgW);
+  else if (layer === "wage") drawWageDash(dash, leaf, mobileSvgW);
+  else drawEducationDash(dash, leaf, mobileSvgW);
 }
 
 // ── AI Exposure tab ───────────────────────────────────────────────────────────
 
-function drawExposureDash(dash, leaf) {
+function drawExposureDash(dash, leaf, mobileSvgW) {
   const scored = leaf.filter(d => d.exposure != null);
   const totalJobs = d3.sum(leaf, d => d.jobs || 0);
 
@@ -804,7 +820,7 @@ function drawExposureDash(dash, leaf) {
   // Card 2: score histogram
   {
     const card = createCard(dash, "Verdeling scores", 195);
-    const svgW = 172, svgH = 100;
+    const svgW = mobileSvgW ?? 172, svgH = 100;
     const m = { top: 6, right: 6, bottom: 20, left: 22 };
     const buckets = d3.range(10).map(i => ({
       bin: i,
@@ -850,7 +866,7 @@ function drawExposureDash(dash, leaf) {
   // Card 4: avg score per sector (top 8)
   {
     const card = createCard(dash, "Score per sector", 235);
-    const svgW = 212, svgH = 112;
+    const svgW = mobileSvgW ?? 212, svgH = 112;
     const m = { top: 4, right: 38, bottom: 4, left: 78 };
     const byCat = d3.group(scored, d => d.category);
     const cats = Array.from(byCat, ([cat, occ]) => ({
@@ -874,12 +890,12 @@ function drawExposureDash(dash, leaf) {
   }
 
   // Card 5: scatter score vs wage
-  drawScatterCard(dash, scored.filter(d => d.median_hourly_wage), "Score vs. uurloon", "score");
+  drawScatterCard(dash, scored.filter(d => d.median_hourly_wage), "Score vs. uurloon", "score", mobileSvgW);
 }
 
 // ── Wage tab ──────────────────────────────────────────────────────────────────
 
-function drawWageDash(dash, leaf) {
+function drawWageDash(dash, leaf, mobileSvgW) {
   const waged = leaf.filter(d => d.median_hourly_wage);
   const totalJobs = d3.sum(leaf, d => d.jobs || 0);
   const plasmaScale = d3.scaleSequential(d3.interpolatePlasma).domain([10, 50]);
@@ -912,7 +928,7 @@ function drawWageDash(dash, leaf) {
   // Card 2: wage distribution histogram
   {
     const card = createCard(dash, "Loonverdeling", 195);
-    const svgW = 172, svgH = 100;
+    const svgW = mobileSvgW ?? 172, svgH = 100;
     const m = { top: 6, right: 6, bottom: 20, left: 22 };
     const wMin = 10, bucketSize = 5, nBuckets = 9;
     const buckets = d3.range(nBuckets).map(i => {
@@ -943,7 +959,7 @@ function drawWageDash(dash, leaf) {
     const card = createCard(dash, "Uurloon per opleidingsniveau", 205);
     const eduLabels = ["Elementair","MBO","HBO-ad","HBO+"];
     const eduColors = ["#d4e6f1","#5dade2","#1a5276","#0b3d91"];
-    const svgW = 182, svgH = 100;
+    const svgW = mobileSvgW ?? 182, svgH = 100;
     const m = { top: 6, right: 38, bottom: 4, left: 60 };
     const byEdu = d3.group(waged, d => d.isco_skill_level);
     const eduData = [1,2,3,4].map(lv => ({
@@ -985,12 +1001,12 @@ function drawWageDash(dash, leaf) {
   }
 
   // Card 5: scatter wage vs score
-  drawScatterCard(dash, waged.filter(d => d.exposure != null), "Score vs. uurloon", "wage");
+  drawScatterCard(dash, waged.filter(d => d.exposure != null), "Score vs. uurloon", "wage", mobileSvgW);
 }
 
 // ── Education tab ─────────────────────────────────────────────────────────────
 
-function drawEducationDash(dash, leaf) {
+function drawEducationDash(dash, leaf, mobileSvgW) {
   const EDU_LABELS = { 1:"Elementair", 2:"MBO", 3:"HBO-ad", 4:"HBO+" };
   const EDU_COLORS = { 1:"#d4e6f1", 2:"#5dade2", 3:"#1a5276", 4:"#0b3d91" };
   const totalJobs = d3.sum(leaf, d => d.jobs || 0);
@@ -1020,7 +1036,7 @@ function drawEducationDash(dash, leaf) {
     const card = createCard(dash, "AI-score per niveau", 205);
     const scored = leaf.filter(d => d.exposure != null);
     const byEdu = d3.group(scored, d => d.isco_skill_level);
-    const svgW = 182, svgH = 100;
+    const svgW = mobileSvgW ?? 182, svgH = 100;
     const m = { top: 6, right: 38, bottom: 4, left: 60 };
     const eduData = [1,2,3,4].map(lv => ({
       level: lv, label: EDU_LABELS[lv], col: EDU_COLORS[lv],
@@ -1047,7 +1063,7 @@ function drawEducationDash(dash, leaf) {
     const card = createCard(dash, "Uurloon per niveau", 205);
     const waged = leaf.filter(d => d.median_hourly_wage);
     const byEdu = d3.group(waged, d => d.isco_skill_level);
-    const svgW = 182, svgH = 100;
+    const svgW = mobileSvgW ?? 182, svgH = 100;
     const m = { top: 6, right: 38, bottom: 4, left: 60 };
     const eduData = [1,2,3,4].map(lv => ({
       level: lv, label: EDU_LABELS[lv], col: EDU_COLORS[lv],
@@ -1086,14 +1102,14 @@ function drawEducationDash(dash, leaf) {
   }
 
   // Card 5: scatter colored by education level
-  drawScatterCard(dash, leaf.filter(d => d.exposure != null && d.median_hourly_wage), "Score vs. uurloon", "education");
+  drawScatterCard(dash, leaf.filter(d => d.exposure != null && d.median_hourly_wage), "Score vs. uurloon", "education", mobileSvgW);
 }
 
 // ── Shared: scatter plot ──────────────────────────────────────────────────────
 
-function drawScatterCard(dash, data, title, colorMode) {
+function drawScatterCard(dash, data, title, colorMode, mobileSvgW) {
   const card = createCard(dash, title, 225);
-  const svgW = 202, svgH = 108;
+  const svgW = mobileSvgW ?? 202, svgH = 108;
   const m = { top: 8, right: 12, bottom: 24, left: 34 };
   const plasmaScale = d3.scaleSequential(d3.interpolatePlasma).domain([10, 50]);
   const EDU_COLORS = { 1:"#d4e6f1", 2:"#5dade2", 3:"#1a5276", 4:"#0b3d91" };
