@@ -4,75 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Nederlandse Arbeidsmarkt — AI Blootstelling</title>
-<meta name="description" content="Interactieve treemap van 114 beroepsgroepen en hun AI-blootstelling, op basis van ESCO en CBS-data 2023.">
-<meta property="og:title" content="Nederlandse Arbeidsmarkt & AI Blootstelling">
-<meta property="og:description" content="114 beroepsgroepen · 9,7M werkenden · AI-blootstelling gescoord door Claude op ESCO-omschrijvingen">
+<title>Nederlandse Arbeidsmarkt — AI Invloed</title>
+<meta name="description" content="Interactieve treemap van 114 beroepsgroepen en hun AI-invloed, op basis van ESCO en CBS-data 2023.">
+<meta property="og:title" content="Nederlandse Arbeidsmarkt & AI Invloed">
+<meta property="og:description" content="114 beroepsgroepen · 9,7M werkenden · AI-invloed gescoord door Claude op ESCO-omschrijvingen">
 <meta property="og:image" content="https://rhoeijmakers.github.io/nl-jobs/preview.png">
 <meta property="og:url" content="https://rhoeijmakers.github.io/nl-jobs/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://rhoeijmakers.github.io/nl-jobs/preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0f0f13; color: #e0e0e0; display: flex; flex-direction: column; min-height: 100dvh; overflow-y: auto; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #faf8f5; color: #1c1c1c; display: flex; flex-direction: column; min-height: 100dvh; overflow-y: auto; }
   #wrapper { max-width: 1400px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; flex: 1; min-height: 0; }
 
-  header { padding: 14px 20px 10px; border-bottom: 1px solid #222; }
-  header h1 { font-size: 1.2rem; font-weight: 600; color: #fff; }
-  header p { font-size: 0.78rem; color: #888; margin-top: 3px; }
+  header { padding: 14px 20px 10px; border-bottom: 1px solid #e5e0da; }
+  header h1 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; font-weight: 400; color: #111; }
+  header p { font-size: 0.78rem; color: #999; margin-top: 3px; }
 
   #controls {
     display: flex; gap: 8px; align-items: center;
-    padding: 8px 16px; border-bottom: 1px solid #1a1a1a;
+    padding: 8px 16px; border-bottom: 1px solid #e5e0da;
     overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap;
     scrollbar-width: none;
   }
   #controls::-webkit-scrollbar { display: none; }
   .layer-btn {
-    padding: 5px 13px; border-radius: 20px; border: 1px solid #444;
-    background: #1c1c24; color: #aaa; cursor: pointer; font-size: 0.78rem;
+    padding: 5px 13px; border-radius: 20px; border: 1px solid #d8d2ca;
+    background: #fff; color: #555; cursor: pointer; font-size: 0.78rem;
     transition: all 0.15s; white-space: nowrap; flex-shrink: 0;
   }
-  .layer-btn.active { background: #3a6cff; border-color: #3a6cff; color: #fff; }
-  .layer-btn:hover:not(.active) { border-color: #666; color: #ddd; }
+  .layer-btn.active { background: #1e5f6e; border-color: #1e5f6e; color: #fff; }
+  .layer-btn:hover:not(.active) { border-color: #aaa; color: #222; }
 
   #stats {
     padding: 8px 20px 10px;
-    display: flex; gap: 32px; border-bottom: 1px solid #1a1a1a;
+    display: flex; gap: 32px; border-bottom: 1px solid #e5e0da;
     flex-wrap: wrap;
   }
   .stat-block { display: flex; flex-direction: column; }
-  .stat-val { font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1.1; }
-  .stat-lbl { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-top: 2px; }
+  .stat-val { font-size: 1.6rem; font-weight: 700; color: #111; line-height: 1.1; }
+  .stat-lbl { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; margin-top: 2px; }
 
   #intro-section {
     padding: 18px 24px 16px;
-    border-bottom: 1px solid #1a1a1a;
-    font-size: 0.875rem; line-height: 1.65; color: #888;
+    border-bottom: 1px solid #e5e0da;
+    font-size: 0.875rem; line-height: 1.65; color: #555;
     max-width: 960px;
   }
   #intro-section p { margin-bottom: 0; }
-  #intro-section a { color: #5b8fff; text-decoration: none; }
+  #intro-section a { color: #1e5f6e; text-decoration: none; }
   #intro-section a:hover { text-decoration: underline; }
   #intro-section details { margin-top: 10px; }
   #intro-section summary {
-    color: #5b8fff; cursor: pointer; font-size: 0.83rem;
+    color: #1e5f6e; cursor: pointer; font-size: 0.83rem;
     list-style: none; display: inline-flex; align-items: center; gap: 6px;
   }
   #intro-section summary::-webkit-details-marker { display: none; }
   #intro-section summary::before { content: "▶"; font-size: 0.6rem; transition: transform 0.15s; }
   #intro-section details[open] summary::before { transform: rotate(90deg); }
-  #intro-section summary:hover { color: #8abaff; }
+  #intro-section summary:hover { color: #2d8fa0; }
   #intro-section .prompt-box {
-    background: #0d0d14; border: 1px solid #2a2a38; border-radius: 6px;
+    background: #f0ece6; border: 1px solid #d8d2ca; border-radius: 6px;
     padding: 12px 14px; font-family: monospace; font-size: 0.78rem;
-    color: #8a9; white-space: pre-wrap; margin: 10px 0 4px;
+    color: #5a7060; white-space: pre-wrap; margin: 10px 0 4px;
   }
   #intro-section .caveat {
-    font-size: 0.8rem; color: #666; margin-top: 8px;
-    border-left: 2px solid #444; padding-left: 10px;
+    font-size: 0.8rem; color: #888; margin-top: 8px;
+    border-left: 2px solid #ccc; padding-left: 10px;
   }
 
   #treemap-container {
@@ -82,28 +85,28 @@
   }
   #treemap-container svg { display: block; }
 
-  .node rect { stroke: #0f0f13; }
+  .node rect { stroke: #faf8f5; }
   .node text { pointer-events: none; }
 
   /* Tooltip — bottom sheet on mobile, floating on desktop */
   #tooltip {
     position: fixed; display: none; z-index: 100;
-    background: rgba(15,15,20,0.97); border: 1px solid #333;
+    background: rgba(255,255,255,0.98); border: 1px solid #d8d2ca;
     border-radius: 8px; padding: 12px 16px; max-width: 340px;
     font-size: 0.82rem; line-height: 1.5; pointer-events: none;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   }
-  #tooltip h3 { font-size: 0.95rem; color: #fff; margin-bottom: 6px; }
-  #tooltip .meta { color: #888; margin-bottom: 6px; }
-  #tooltip .meta b { color: #ccc; }
-  #tooltip .rationale { color: #aaa; font-style: italic; font-size: 0.78rem; }
+  #tooltip h3 { font-size: 0.95rem; color: #111; margin-bottom: 6px; }
+  #tooltip .meta { color: #666; margin-bottom: 6px; }
+  #tooltip .meta b { color: #333; }
+  #tooltip .rationale { color: #777; font-style: italic; font-size: 0.78rem; }
   #tooltip .score-badge {
     display: inline-block; padding: 2px 10px; border-radius: 12px;
     font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;
   }
   #tooltip .close-tip {
     display: none; float: right; background: none; border: none;
-    color: #666; font-size: 1.2rem; cursor: pointer; line-height: 1; margin: -4px -4px 0 8px;
+    color: #aaa; font-size: 1.2rem; cursor: pointer; line-height: 1; margin: -4px -4px 0 8px;
   }
   @media (pointer: coarse) {
     /* Touch device: show as bottom sheet */
@@ -119,12 +122,12 @@
   /* Legend — inline above treemap */
   #legend {
     display: flex; flex-direction: row; align-items: center; gap: 12px;
-    padding: 7px 20px 8px; border-bottom: 1px solid #1a1a1a;
+    padding: 7px 20px 8px; border-bottom: 1px solid #e5e0da;
     font-size: 0.75rem;
   }
-  #legend-title { color: #999; white-space: nowrap; margin-bottom: 0; }
+  #legend-title { color: #888; white-space: nowrap; margin-bottom: 0; }
   #legend .grad { width: 120px; height: 8px; border-radius: 3px; }
-  #legend .grad-labels { display: flex; justify-content: space-between; color: #555; font-size: 0.68rem; width: 120px; }
+  #legend .grad-labels { display: flex; justify-content: space-between; color: #aaa; font-size: 0.68rem; width: 120px; }
 
   /* Mobile disclaimer — hidden on desktop */
   #mobile-disclaimer {
@@ -133,116 +136,117 @@
 
   /* Footer bar */
   #footer-bar {
-    position: fixed; bottom: 0; left: 0; right: 0; height: 28px;
-    background: #0f0f13; border-top: 1px solid #1e1e1e;
+    position: fixed; bottom: 0; left: 0; right: 0; height: 32px;
+    background: #faf8f5; border-top: 1px solid #e5e0da;
     display: flex; align-items: center; justify-content: space-between; padding: 0 16px; z-index: 50;
     white-space: nowrap; overflow: hidden;
   }
   #footer-credit {
-    font-size: 0.72rem; color: #404040; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-size: 0.75rem; color: #555; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
-  #footer-credit a { color: #404040; text-decoration: none; }
-  #footer-credit a:hover { color: #aaa; }
+  #footer-credit a { color: #1e5f6e; text-decoration: none; font-weight: 500; }
+  #footer-credit a:hover { color: #111; text-decoration: underline; }
   #changelog-btn {
-    background: none; border: none; color: #484848;
-    font-size: 0.74rem; cursor: pointer; padding: 0;
+    background: none; border: 1px solid #d8d2ca; border-radius: 12px;
+    color: #555; font-size: 0.74rem; cursor: pointer; padding: 2px 10px;
+    transition: all 0.15s;
   }
-  #changelog-btn:hover { color: #aaa; }
+  #changelog-btn:hover { border-color: #aaa; color: #111; background: #f0ece6; }
 
-  /* Changelog modal — reuses .modal-overlay / .modal-box pattern */
+  /* Changelog modal */
   #changelog-modal {
     display: none; position: fixed; inset: 0; z-index: 200;
-    background: rgba(0,0,0,0.75); align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.4); align-items: center; justify-content: center;
   }
   #changelog-modal.open { display: flex; }
   #changelog-panel {
-    background: #16161e; border: 1px solid #2a2a38; border-radius: 12px;
+    background: #fff; border: 1px solid #e5e0da; border-radius: 12px;
     padding: 32px 36px; max-width: 560px; width: 90%; max-height: 80vh;
     overflow-y: auto; position: relative; line-height: 1.65;
-    font-size: 0.85rem; color: #bbb;
+    font-size: 0.85rem; color: #555;
   }
-  #changelog-panel h2 { color: #fff; font-size: 1.1rem; margin-bottom: 20px; }
-  #changelog-panel h3 { color: #ddd; font-size: 0.88rem; margin: 18px 0 6px; border-top: 1px solid #2a2a38; padding-top: 14px; }
+  #changelog-panel h2 { color: #111; font-size: 1.1rem; margin-bottom: 20px; }
+  #changelog-panel h3 { color: #333; font-size: 0.88rem; margin: 18px 0 6px; border-top: 1px solid #e5e0da; padding-top: 14px; }
   #changelog-panel h3:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
   #changelog-panel ul { padding-left: 18px; }
   #changelog-panel li { margin-bottom: 4px; }
   #close-changelog {
     position: absolute; top: 16px; right: 20px; background: none;
-    border: none; color: #666; font-size: 1.4rem; cursor: pointer; line-height: 1;
+    border: none; color: #aaa; font-size: 1.4rem; cursor: pointer; line-height: 1;
   }
-  #close-changelog:hover { color: #fff; }
+  #close-changelog:hover { color: #333; }
 
   /* Modal overlay */
   #about-modal {
     display: none; position: fixed; inset: 0; z-index: 200;
-    background: rgba(0,0,0,0.75); align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.4); align-items: center; justify-content: center;
   }
   #about-modal.open { display: flex; }
   #about-panel {
-    background: #16161e; border: 1px solid #2a2a38; border-radius: 12px;
+    background: #fff; border: 1px solid #e5e0da; border-radius: 12px;
     padding: 32px 36px; max-width: 640px; width: 90%; max-height: 80vh;
     overflow-y: auto; position: relative; line-height: 1.65;
-    font-size: 0.85rem; color: #bbb;
+    font-size: 0.85rem; color: #555;
   }
-  #about-panel h2 { color: #fff; font-size: 1.1rem; margin-bottom: 16px; }
-  #about-panel h3 { color: #ddd; font-size: 0.9rem; margin: 20px 0 8px; }
+  #about-panel h2 { color: #111; font-size: 1.1rem; margin-bottom: 16px; }
+  #about-panel h3 { color: #333; font-size: 0.9rem; margin: 20px 0 8px; }
   #about-panel p { margin-bottom: 10px; }
   #about-panel ul { padding-left: 18px; margin-bottom: 10px; }
   #about-panel li { margin-bottom: 5px; }
-  #about-panel a { color: #5b8fff; text-decoration: none; }
+  #about-panel a { color: #1e5f6e; text-decoration: none; }
   #about-panel a:hover { text-decoration: underline; }
   #about-panel .prompt-box {
-    background: #0d0d14; border: 1px solid #2a2a38; border-radius: 6px;
+    background: #f0ece6; border: 1px solid #d8d2ca; border-radius: 6px;
     padding: 12px 14px; font-family: monospace; font-size: 0.78rem;
-    color: #8a9; white-space: pre-wrap; margin: 8px 0;
+    color: #5a7060; white-space: pre-wrap; margin: 8px 0;
   }
   #about-panel .caveat {
-    background: #1e1a10; border-left: 3px solid #f1c40f;
+    background: #fffbec; border-left: 3px solid #e0a020;
     padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0;
   }
   #about-panel details { margin: 12px 0; }
   #about-panel summary {
-    color: #5b8fff; cursor: pointer; font-size: 0.83rem;
+    color: #1e5f6e; cursor: pointer; font-size: 0.83rem;
     list-style: none; display: inline-flex; align-items: center; gap: 6px;
   }
   #about-panel summary::-webkit-details-marker { display: none; }
   #about-panel summary::before { content: "▶"; font-size: 0.6rem; transition: transform 0.15s; }
   #about-panel details[open] summary::before { transform: rotate(90deg); }
-  #about-panel summary:hover { color: #8abaff; }
-  #about-panel .divider { border: none; border-top: 1px solid #2a2a38; margin: 18px 0; }
+  #about-panel summary:hover { color: #2d8fa0; }
+  #about-panel .divider { border: none; border-top: 1px solid #e5e0da; margin: 18px 0; }
   #close-about {
     position: absolute; top: 16px; right: 20px; background: none;
-    border: none; color: #666; font-size: 1.4rem; cursor: pointer; line-height: 1;
+    border: none; color: #aaa; font-size: 1.4rem; cursor: pointer; line-height: 1;
   }
-  #close-about:hover { color: #fff; }
+  #close-about:hover { color: #333; }
 
   /* Dashboard panels */
   #dashboard {
     display: flex; gap: 10px; padding: 10px 20px;
-    overflow-x: auto; border-bottom: 1px solid #1a1a1a;
+    overflow-x: auto; border-bottom: 1px solid #e5e0da;
     height: 178px; flex-shrink: 0; align-items: flex-start;
-    scrollbar-width: thin; scrollbar-color: #333 transparent;
+    scrollbar-width: thin; scrollbar-color: #ddd transparent;
   }
   #dashboard::-webkit-scrollbar { height: 4px; }
-  #dashboard::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+  #dashboard::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
   .dash-card {
-    flex-shrink: 0; background: #16161e; border: 1px solid #1e1e2a;
+    flex-shrink: 0; background: #fff; border: 1px solid #e5e0da;
     border-radius: 8px; padding: 9px 11px; height: 158px;
     display: flex; flex-direction: column; overflow: hidden;
   }
   .dash-card-title {
     font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.07em;
-    color: #444; margin-bottom: 7px; white-space: nowrap; flex-shrink: 0;
+    color: #aaa; margin-bottom: 7px; white-space: nowrap; flex-shrink: 0;
   }
-  .dash-kpi { font-size: 1.9rem; font-weight: 700; color: #fff; line-height: 1; }
-  .dash-kpi-sub { font-size: 0.7rem; color: #555; margin-top: 5px; line-height: 1.4; }
+  .dash-kpi { font-size: 1.9rem; font-weight: 700; color: #111; line-height: 1; }
+  .dash-kpi-sub { font-size: 0.7rem; color: #888; margin-top: 5px; line-height: 1.4; }
 
   /* ── Mobile: scrollable layout ── */
   @media (max-width: 700px) {
     body { height: auto; min-height: 100dvh; }
     #treemap-container { flex: none; height: 150vw; min-height: 300px; margin-bottom: 0; }
     #intro-section { padding: 12px 16px 14px; font-size: 0.82rem; }
-    #mobile-disclaimer { display: block; padding: 10px 16px 48px; font-size: 0.75rem; color: #3a3a4a; text-align: center; border-top: 1px solid #1a1a1a; }
+    #mobile-disclaimer { display: block; padding: 10px 16px 48px; font-size: 0.75rem; color: #ccc; text-align: center; border-top: 1px solid #e5e0da; }
     #footer-bar { position: sticky; bottom: 0; }
     #dashboard {
       flex-direction: column; height: auto;
@@ -264,23 +268,23 @@
 <div id="wrapper">
 
 <header>
-  <h1>Nederlandse Arbeidsmarkt &amp; AI Blootstelling</h1>
+  <h1>Nederlandse Arbeidsmarkt &amp; AI Invloed</h1>
   <p>CBS 2023 &middot; <a href="https://github.com/rhoeijmakers/nl-jobs" style="color:#555;text-decoration:none;" target="_blank">GitHub ↗</a></p>
 </header>
 
 <div id="intro-section">
-  <p>Dit is een onderzoeksvisualisatie van <strong style="color:#ccc;">114 beroepsgroepen</strong> uit de
+  <p>Dit is een onderzoeksvisualisatie van <strong style="color:#111;">114 beroepsgroepen</strong> uit de
   <a href="https://esco.ec.europa.eu/nl/classification/occupation_main" target="_blank">ESCO-beroepsclassificatie</a>
-  (Europese Commissie), goed voor <strong style="color:#ccc;">9,7 miljoen banen</strong> in Nederland
+  (Europese Commissie), goed voor <strong style="color:#111;">9,7 miljoen banen</strong> in Nederland
   (<a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85276NED" target="_blank">CBS 2023</a>).
-  De oppervlakte van elke tegel is evenredig met het aantal werkenden; de kleur toont AI-blootstelling (0–10)
+  De oppervlakte van elke tegel is evenredig met het aantal werkenden; de kleur toont AI-invloed (0–10)
   of mediaan uurloon — schakel via de knoppen onderaan.
   Zweef of tik op een tegel voor naam, score en toelichting.
   Dit is geen rapport of economische publicatie — het is een hulpmiddel om arbeidsmarktdata visueel te verkennen.</p>
 
   <details>
     <summary>Bekijk de gebruikte scoringsprompt (voorbeeld)</summary>
-    <div class="prompt-box">Beoordeel de AI-blootstelling van dit beroep op een schaal van 0–10.
+    <div class="prompt-box">Beoordeel de AI-invloed van dit beroep op een schaal van 0–10.
 
 Factoren:
 - Zijn de werkproducten fundamenteel digitaal?
@@ -304,7 +308,7 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
 
 <div id="controls">
   <span style="font-size:0.8rem;color:#555;margin-right:4px;">Kleur:</span>
-  <button class="layer-btn active" data-layer="exposure">AI Blootstelling</button>
+  <button class="layer-btn active" data-layer="exposure">AI Invloed</button>
   <button class="layer-btn" data-layer="wage">Uurloon (mediaan)</button>
   <button class="layer-btn" data-layer="education">Opleidingsniveau</button>
 </div>
@@ -339,7 +343,7 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
     (Europese Commissie), goed voor 9,7 miljoen banen in de Nederlandse economie
     op basis van <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85276NED" target="_blank">CBS-data 2023</a>.
     De oppervlakte van elke tegel is evenredig met het aantal werkenden.
-    De kleur toont de geselecteerde maatstaf — wissel tussen AI-blootstelling en mediaan uurloon
+    De kleur toont de geselecteerde maatstaf — wissel tussen AI-invloed en mediaan uurloon
     (<a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85517NED" target="_blank">CBS 2023</a>).
     Zweef of klik op een tegel voor details.
     Dit is geen rapport, geen onderzoekspaper en geen serieuze economische publicatie —
@@ -352,15 +356,15 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
     bevat scrapers en een scoringspipeline waarmee je via een prompt aan
     Claude (Anthropic) elke beroepsgroep een score kunt laten geven.
     Je schrijft een prompt, Claude scoort elke beroepsgroep, en de treemap kleurt dienovereenkomstig.
-    De optie <em>AI Blootstelling</em> is één voorbeeld — het schat in hoeverre huidige AI
+    De optie <em>AI Invloed</em> is één voorbeeld — het schat in hoeverre huidige AI
     (die primair digitaal werkt) elk beroep zal transformeren.
     Maar je kunt een andere prompt schrijven voor elke vraag —
-    bijv. blootstelling aan humanoid robotics, risico op offshoring, impact van de energietransitie —
+    bijv. invloed aan humanoid robotics, risico op offshoring, impact van de energietransitie —
     en de pipeline opnieuw draaien voor een andere kleurlaag.</p>
 
     <details>
       <summary>Bekijk de gebruikte scoringsprompt (voorbeeld)</summary>
-      <div class="prompt-box" style="margin-top:10px">Beoordeel de AI-blootstelling van dit beroep op een schaal van 0–10.
+      <div class="prompt-box" style="margin-top:10px">Beoordeel de AI-invloed van dit beroep op een schaal van 0–10.
 
 Factoren:
 - Zijn de werkproducten fundamenteel digitaal?
@@ -376,7 +380,7 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
     <hr class="divider">
 
     <div class="caveat">
-      <strong>Kanttekening bij AI-blootstellingsscores:</strong> Dit zijn ruwe schattingen van een
+      <strong>Kanttekening bij AI-invloedscores:</strong> Dit zijn ruwe schattingen van een
       taalmodel, geen rigoureuze voorspellingen. Een hoge score betekent <em>niet</em> dat een beroep
       verdwijnt. Softwareontwikkelaars scoren 8/10 omdat AI hun werk ingrijpend verandert —
       maar de vraag naar ontwikkelaars kan juist groeien als elke ontwikkelaar productiever wordt.
@@ -396,7 +400,7 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
 </div>
 
 <div id="footer-bar">
-  <button id="changelog-btn">v2.2 &middot; Wijzigingen ↗</button>
+  <button id="changelog-btn">v2.3 &middot; Wijzigingen ↗</button>
   <span id="footer-credit">Gemaakt door <a href="https://schmuki.nl" target="_blank">Schmuki</a></span>
 </div>
 
@@ -404,6 +408,17 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
   <div id="changelog-panel">
     <button id="close-changelog">&times;</button>
     <h2>Versiegeschiedenis</h2>
+
+    <h3>v2.3 — maart 2026</h3>
+    <ul>
+      <li>Licht thema: warm crème achtergrond, serif koptekst (DM Serif Display), teal accenten</li>
+      <li>"AI-blootstelling" hernoemd naar "AI-invloed" — neutralere terminologie</li>
+      <li>ESCO-koppeling verbeterd: CBS BRC→ISCO-concordantie (Bijlage 2) als brug in plaats van vrije tekstzoekopdracht — voorkomt verkeerde matches zoals architect→IT-architect</li>
+      <li>Scoringsprompt en toelichtingen volledig in het Nederlands</li>
+      <li>Dashboard: voortgangsbalkjes "Werkenden per loonband" en "Werkenden per niveau" leesbaar op lichte achtergrond</li>
+      <li>"Beroepsgroepen per niveau" kaart opnieuw vormgegeven met gekleurde topbalk per niveau</li>
+      <li>Footer-navigatie zichtbaarder en duidelijk klikbaar gemaakt</li>
+    </ul>
 
     <h3>v2.2 — maart 2026</h3>
     <ul>
@@ -416,7 +431,7 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
     <h3>v2.1 — maart 2026</h3>
     <ul>
       <li>Dashboardpaneel toegevoegd per tabblad: vijf kleine grafieken verschijnen contextgevoelig onder de legenda</li>
-      <li><strong>AI Blootstelling:</strong> KPI hoog blootgesteld (score ≥ 7), scoreverdeling (histogram), top 5 meest blootgesteld, gemiddelde score per sector (staafdiagram), score × uurloon (scatter)</li>
+      <li><strong>AI Invloed:</strong> KPI hoge AI-invloed (score ≥ 7), scoreverdeling (histogram), top 5 hoogste invloed, gemiddelde score per sector (staafdiagram), score × uurloon (scatter)</li>
       <li><strong>Uurloon:</strong> werkenden per loonband, loonverdeling, uurloon per opleidingsniveau, top 5 hoogst betaald, score × uurloon (scatter)</li>
       <li><strong>Opleidingsniveau:</strong> werkenden per niveau, AI-score per niveau, uurloon per niveau, beroepsgroepen per niveau, score × uurloon (scatter)</li>
       <li>OG-preview bijgewerkt met dashboardweergave</li>
@@ -424,7 +439,7 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
 
     <h3>v2.0 — maart 2026</h3>
     <ul>
-      <li>Opleidingsniveau toegevoegd als derde kleurlaag (naast AI-blootstelling en uurloon)</li>
+      <li>Opleidingsniveau toegevoegd als derde kleurlaag (naast AI-invloed en uurloon)</li>
       <li>Gebaseerd op ISCO-08 vaardigheidsniveaus 1–4, deterministisch afgeleid uit BRC-categoriecodes — geen schatting, geen API-aanroep</li>
       <li>Tegels tonen nu het label van de actieve laag (score, loon of opleidingsniveau)</li>
     </ul>
@@ -495,9 +510,9 @@ Geef een score en een korte toelichting van 2-3 zinnen.</div>
 
     <h3>v1.0 — maart 2026</h3>
     <ul>
-      <li>Eerste versie: Nederlandse arbeidsmarkt &amp; AI-blootstelling</li>
+      <li>Eerste versie: Nederlandse arbeidsmarkt &amp; AI-invloed</li>
       <li>114 beroepsgroepen op basis van ESCO v1.2 en CBS 2023, 9,7M werkenden</li>
-      <li>AI-blootstelling gescoord door Claude (Anthropic) op basis van beroepsomschrijvingen</li>
+      <li>AI-invloed gescoord door Claude (Anthropic) op basis van beroepsomschrijvingen</li>
     </ul>
   </div>
 </div>
@@ -514,7 +529,7 @@ const scales = {
       return greenRedCSS(d.exposure / 10);
     },
     label: d => d.exposure != null ? d.exposure.toFixed(1) : "?",
-    legendTitle: "AI Blootstelling (0–10)",
+    legendTitle: "AI Invloed (0–10)",
     legendLabels: ["0 (laag)", "5", "10 (hoog)"],
     legendGrad: "linear-gradient(to right, rgb(30,180,40), rgb(230,160,20), rgb(255,15,15))",
   },
@@ -642,7 +657,7 @@ function updateStats(data) {
     </div>
     <div class="stat-block">
       <div class="stat-val" style="color:${avgColor}">${avgExposure != null ? avgExposure.toFixed(1) + "/10" : "—"}</div>
-      <div class="stat-lbl">Gem. AI-blootstelling</div>
+      <div class="stat-lbl">Gem. AI-invloed</div>
     </div>
     <div class="stat-block">
       <div class="stat-val">${(totalJobs/1000).toFixed(1)}M</div>
@@ -703,7 +718,7 @@ function drawTreemap(data) {
     .attr("y", d => d.y0 + 14)
     .attr("font-size", "11px")
     .attr("font-weight", "600")
-    .attr("fill", "#aaa")
+    .attr("fill", "#555")
     .attr("pointer-events", "none")
     .text(d => {
       const w = d.x1 - d.x0;
@@ -807,7 +822,7 @@ function drawExposureDash(dash, leaf, mobileSvgW) {
     const highRisk = scored.filter(d => d.exposure >= 7);
     const highJobs = d3.sum(highRisk, d => d.jobs || 0);
     const pct = (highJobs / totalJobs * 100).toFixed(0);
-    const card = createCard(dash, "Score ≥ 7 (hoog belast)", 155);
+    const card = createCard(dash, "Score ≥ 7 (hoge AI-invloed)", 155);
     const inner = document.createElement("div");
     inner.innerHTML = `
       <div class="dash-kpi" style="color:rgb(235,80,20)">${pct}%</div>
@@ -834,19 +849,19 @@ function drawExposureDash(dash, leaf, mobileSvgW) {
       .attr("fill", d => greenRedCSS((d.bin + 0.5) / 10)).attr("opacity", 0.85);
     svg.append("g").attr("transform", `translate(0,${svgH - m.bottom})`)
       .call(d3.axisBottom(x).tickValues([0,5,9]).tickFormat(d => d === 9 ? "10" : String(d)).tickSize(3))
-      .call(g => g.select(".domain").attr("stroke","#333"))
-      .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","9px"))
-      .call(g => g.selectAll("line").attr("stroke","#333"));
+      .call(g => g.select(".domain").attr("stroke","#ccc"))
+      .call(g => g.selectAll("text").attr("fill","#888").attr("font-size","9px"))
+      .call(g => g.selectAll("line").attr("stroke","#ccc"));
     svg.append("g").attr("transform", `translate(${m.left},0)`)
       .call(d3.axisLeft(y).ticks(3).tickSize(2))
       .call(g => g.select(".domain").remove())
-      .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","9px"))
-      .call(g => g.selectAll("line").attr("stroke","#2a2a35"));
+      .call(g => g.selectAll("text").attr("fill","#888").attr("font-size","9px"))
+      .call(g => g.selectAll("line").attr("stroke","#e5e0da"));
   }
 
   // Card 3: top 5 highest scored
   {
-    const card = createCard(dash, "Hoogst blootgesteld", 200);
+    const card = createCard(dash, "Hoogste AI-invloed", 200);
     const top5 = [...scored].sort((a, b) => b.exposure - a.exposure).slice(0, 5);
     const list = document.createElement("div");
     list.style.cssText = "display:flex;flex-direction:column;gap:5px;";
@@ -854,8 +869,8 @@ function drawExposureDash(dash, leaf, mobileSvgW) {
       const col = greenRedCSS(d.exposure / 10);
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:6px;";
-      row.innerHTML = `<span style="color:#444;font-size:0.7rem;width:10px">${i+1}</span>
-        <span style="color:#aaa;font-size:0.75rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.title}</span>
+      row.innerHTML = `<span style="color:#bbb;font-size:0.7rem;width:10px">${i+1}</span>
+        <span style="color:#444;font-size:0.75rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.title}</span>
         <span style="color:${col};font-size:0.75rem;font-weight:700;flex-shrink:0">${d.exposure.toFixed(1)}</span>`;
       list.appendChild(row);
     });
@@ -881,10 +896,10 @@ function drawExposureDash(dash, leaf, mobileSvgW) {
       .attr("fill", d => greenRedCSS(d.score / 10)).attr("opacity", 0.85);
     svg.selectAll(".vl").data(cats).join("text").attr("class","vl")
       .attr("x", d => x(d.score) + 3).attr("y", d => y(d.cat) + y.bandwidth()/2 + 3.5)
-      .attr("font-size","9px").attr("fill","#777").text(d => d.score.toFixed(1));
+      .attr("font-size","9px").attr("fill","#999").text(d => d.score.toFixed(1));
     svg.selectAll(".cl").data(cats).join("text").attr("class","cl")
       .attr("x", m.left - 4).attr("y", d => y(d.cat) + y.bandwidth()/2 + 3.5)
-      .attr("font-size","9px").attr("fill","#666").attr("text-anchor","end")
+      .attr("font-size","9px").attr("fill","#777").attr("text-anchor","end")
       .text(d => d.cat.length > 11 ? d.cat.slice(0,10)+"…" : d.cat);
   }
 
@@ -916,7 +931,7 @@ function drawWageDash(dash, leaf, mobileSvgW) {
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:8px;";
       row.innerHTML = `<span style="color:#666;font-size:0.72rem;width:48px">${b.label}</span>
-        <div style="flex:1;background:#1e1e2a;border-radius:2px;height:8px">
+        <div style="flex:1;background:#eeebe6;border-radius:2px;height:8px">
           <div style="width:${pct}%;background:${col};height:100%;border-radius:2px"></div></div>
         <span style="color:#888;font-size:0.72rem;width:28px;text-align:right">${pct}%</span>`;
       inner.appendChild(row);
@@ -943,14 +958,14 @@ function drawWageDash(dash, leaf, mobileSvgW) {
       .attr("fill", d => plasmaScale(d.mid)).attr("opacity", 0.85);
     svg.append("g").attr("transform", `translate(0,${svgH - m.bottom})`)
       .call(d3.axisBottom(x).tickValues([0,4,8]).tickFormat(i => `€${wMin + i * bucketSize}`).tickSize(3))
-      .call(g => g.select(".domain").attr("stroke","#333"))
-      .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","9px"))
-      .call(g => g.selectAll("line").attr("stroke","#333"));
+      .call(g => g.select(".domain").attr("stroke","#ccc"))
+      .call(g => g.selectAll("text").attr("fill","#888").attr("font-size","9px"))
+      .call(g => g.selectAll("line").attr("stroke","#ccc"));
     svg.append("g").attr("transform", `translate(${m.left},0)`)
       .call(d3.axisLeft(y).ticks(3).tickSize(2))
       .call(g => g.select(".domain").remove())
-      .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","9px"))
-      .call(g => g.selectAll("line").attr("stroke","#2a2a35"));
+      .call(g => g.selectAll("text").attr("fill","#888").attr("font-size","9px"))
+      .call(g => g.selectAll("line").attr("stroke","#e5e0da"));
   }
 
   // Card 3: avg wage by education level
@@ -991,8 +1006,8 @@ function drawWageDash(dash, leaf, mobileSvgW) {
       const col = plasmaScale(d.median_hourly_wage);
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:6px;";
-      row.innerHTML = `<span style="color:#444;font-size:0.7rem;width:10px">${i+1}</span>
-        <span style="color:#aaa;font-size:0.75rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.title}</span>
+      row.innerHTML = `<span style="color:#bbb;font-size:0.7rem;width:10px">${i+1}</span>
+        <span style="color:#444;font-size:0.75rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.title}</span>
         <span style="color:${col};font-size:0.75rem;font-weight:700;flex-shrink:0">€${d.median_hourly_wage}</span>`;
       list.appendChild(row);
     });
@@ -1022,7 +1037,7 @@ function drawEducationDash(dash, leaf, mobileSvgW) {
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:8px;";
       row.innerHTML = `<span style="color:#666;font-size:0.72rem;width:52px">${EDU_LABELS[lv]}</span>
-        <div style="flex:1;background:#1e1e2a;border-radius:2px;height:8px">
+        <div style="flex:1;background:#eeebe6;border-radius:2px;height:8px">
           <div style="width:${pct}%;background:${EDU_COLORS[lv]};height:100%;border-radius:2px"></div></div>
         <span style="color:#888;font-size:0.72rem;width:28px;text-align:right">${pct}%</span>`;
       inner.appendChild(row);
@@ -1092,9 +1107,9 @@ function drawEducationDash(dash, leaf, mobileSvgW) {
     [1,2,3,4].forEach(lv => {
       const count = (byEduAll.get(lv) || []).length;
       const box = document.createElement("div");
-      box.style.cssText = `flex:1;background:#1c1c26;border:1px solid ${EDU_COLORS[lv]}44;border-radius:6px;padding:6px 4px;text-align:center;`;
-      box.innerHTML = `<div style="font-size:1.4rem;font-weight:700;color:${EDU_COLORS[lv]}">${count}</div>
-        <div style="font-size:0.65rem;color:#555;margin-top:2px">${EDU_LABELS[lv]}</div>`;
+      box.style.cssText = `flex:1;background:#f5f3f0;border:1px solid #e5e0da;border-top:3px solid ${EDU_COLORS[lv]};border-radius:6px;padding:6px 4px;text-align:center;`;
+      box.innerHTML = `<div style="font-size:1.4rem;font-weight:700;color:#111">${count}</div>
+        <div style="font-size:0.65rem;color:#888;margin-top:2px">${EDU_LABELS[lv]}</div>`;
       inner.appendChild(box);
     });
     card.appendChild(inner);
@@ -1125,14 +1140,14 @@ function drawScatterCard(dash, data, title, colorMode, mobileSvgW) {
   svg.append("g").attr("transform", `translate(${m.left},0)`)
     .call(d3.axisLeft(y).ticks(4).tickSize(-(svgW - m.left - m.right)))
     .call(g => g.select(".domain").remove())
-    .call(g => g.selectAll("line").attr("stroke","#1e1e2a").attr("stroke-dasharray","2,2"))
+    .call(g => g.selectAll("line").attr("stroke","#e5e0da").attr("stroke-dasharray","2,2"))
     .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","8px"));
 
   svg.append("g").attr("transform", `translate(0,${svgH - m.bottom})`)
     .call(d3.axisBottom(x).ticks(4).tickFormat(d => `€${d}`).tickSize(3))
-    .call(g => g.select(".domain").attr("stroke","#333"))
-    .call(g => g.selectAll("text").attr("fill","#555").attr("font-size","8px"))
-    .call(g => g.selectAll("line").attr("stroke","#333"));
+    .call(g => g.select(".domain").attr("stroke","#ccc"))
+    .call(g => g.selectAll("text").attr("fill","#888").attr("font-size","8px"))
+    .call(g => g.selectAll("line").attr("stroke","#ccc"));
 
   // axis labels
   svg.append("text").attr("x", svgW/2).attr("y", svgH - 5)

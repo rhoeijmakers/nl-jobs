@@ -28,31 +28,31 @@ PAGES_DIR = "pages"
 SCORES_FILE = "scores.json"
 
 SYSTEM_PROMPT = (
-    "You are an expert labor economist analyzing how much current AI technology "
-    "(large language models, computer vision, robotics, etc.) will reshape occupations. "
-    "Always respond with valid JSON only — no markdown, no code blocks, no extra text."
+    "Je bent een expert arbeidsmarkteconomist die analyseert in hoeverre huidige AI-technologie "
+    "(grote taalmodellen, computervisie, robotica, etc.) beroepen zal transformeren. "
+    "Reageer altijd met geldige JSON — geen markdown, geen codeblokken, geen extra tekst."
 )
 
-PROMPT_TEMPLATE = """Score the following Dutch occupation for AI exposure on a scale from 0 to 10:
-- 0-1: Minimal exposure. Highly physical, manual, or requires constant real-world presence (e.g., roofer, garbage collector).
-- 2-3: Low exposure. Some routine tasks automatable, but core work requires human judgment or dexterity.
-- 4-5: Moderate exposure. Mix of automatable and non-automatable tasks.
-- 6-7: High exposure. Many tasks are digital, routine, or knowledge-based and are already being transformed by AI tools.
-- 8-9: Very high exposure. Most work products are digital; AI can do most tasks with minimal human oversight.
-- 10: Maximum exposure. Work is almost entirely digital and repetitive (e.g., medical transcription).
+PROMPT_TEMPLATE = """Beoordeel het volgende Nederlandse beroep op AI-invloed op een schaal van 0 tot 10:
+- 0-1: Minimale invloed. Sterk fysiek, manueel, of vereist constante aanwezigheid in de echte wereld (bijv. dakdekker, vuilnisophaler).
+- 2-3: Lage invloed. Sommige routinetaken zijn automatiseerbaar, maar het kernwerk vereist menselijk oordeel of handigheid.
+- 4-5: Matige invloed. Mix van automatiseerbare en niet-automatiseerbare taken.
+- 6-7: Hoge invloed. Veel taken zijn digitaal, routinematig of kennisgebaseerd en worden al getransformeerd door AI-tools.
+- 8-9: Zeer hoge invloed. De meeste werkproducten zijn digitaal; AI kan de meeste taken uitvoeren met minimale menselijke supervisie.
+- 10: Maximale invloed. Het werk is bijna volledig digitaal en repetitief (bijv. medische transcriptie).
 
-Key factors to consider:
-- Are the work products fundamentally digital?
-- Can the work be done remotely/online?
-- Does the occupation involve creative or original content generation?
-- Does it involve pattern recognition, data analysis, or text processing?
-- Does it require physical presence, manual dexterity, or sensory judgment?
+Belangrijke factoren om te overwegen:
+- Zijn de werkproducten fundamenteel digitaal?
+- Kan het werk op afstand/online worden gedaan?
+- Betreft het beroep het creëren van creatieve of originele inhoud?
+- Betreft het patroonherkenning, data-analyse of tekstverwerking?
+- Vereist het fysieke aanwezigheid, manuele behendigheid of zintuiglijk oordeel?
 
---- OCCUPATION ---
+--- BEROEP ---
 {content}
 
-Respond with valid JSON only, in this exact format:
-{{"score": <number 0-10>, "rationale": "<2-3 sentence explanation in English>"}}"""
+Reageer met geldige JSON, in dit exacte formaat:
+{{"score": <getal 0-10>, "rationale": "<2-3 zinnen toelichting in het Nederlands>"}}"""
 
 
 def score_occupation(title: str, content: str) -> dict:
@@ -83,7 +83,7 @@ def score_occupation(title: str, content: str) -> dict:
         except Exception as e:
             print(f"  Error: {e}")
             time.sleep(2)
-    return {"score": None, "rationale": "Error: failed to score."}
+    return {"score": None, "rationale": "Fout: beoordeling mislukt."}
 
 
 # Load existing scores
@@ -113,7 +113,7 @@ for i, occ in enumerate(occupations):
     matches = glob.glob(pattern)
     if not matches:
         print(f"  [{i+1}/{total}] {code} {title[:40]} — no page file, skipping")
-        scores[code] = {"score": None, "rationale": "No description available."}
+        scores[code] = {"score": None, "rationale": "Geen beschrijving beschikbaar."}
         continue
 
     with open(matches[0], encoding="utf-8") as f:
