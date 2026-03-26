@@ -1,6 +1,6 @@
 # nl-jobs — Project Context
 
-An interactive treemap visualising AI exposure and labour market data across Dutch occupations. Static site, no build step.
+An interactive treemap visualising AI influence and labour market data across Dutch occupations. Static site, no build step.
 
 **Live repo:** https://github.com/rhoeijmakers/nl-jobs
 
@@ -10,7 +10,7 @@ An interactive treemap visualising AI exposure and labour market data across Dut
 
 - **Frontend:** Single-file `site/index.html` — vanilla JS + D3.js (CDN). No framework, no bundler.
 - **Data pipeline:** Python scripts producing `site/data.json`, consumed by the frontend.
-- **Data sources:** CBS StatLine (employment + wages), ESCO v1.2 (occupation descriptions), Claude API (AI exposure scoring).
+- **Data sources:** CBS StatLine (employment + wages), ESCO v1.2 (occupation descriptions), Claude API (AI influence scoring).
 
 ---
 
@@ -29,7 +29,7 @@ build_site_data.py     → site/data.json         (merged output, consumed by fr
 
 To preview the site locally:
 ```bash
-cd site && python3 -m http.server 8080
+cd docs && python3 -m http.server 8080
 ```
 
 ---
@@ -38,7 +38,7 @@ cd site && python3 -m http.server 8080
 
 `site/index.html` is self-contained. Key sections:
 
-- **Colour layers:** AI Exposure, Wage (median hourly), Education Level (ISCO skill level 1–4). Toggled via `#controls` buttons.
+- **Colour layers:** AI Invloed, Wage (median hourly), Education Level (ISCO skill level 1–4). Toggled via `#controls` buttons.
 - **Treemap:** D3 treemap, rendered into `#treemap-container`. Re-rendered on layer switch or resize. Width/height read from `container.clientWidth` / `container.clientHeight`.
 - **Dashboard:** KPI cards + mini charts rendered above the treemap, also D3.
 - **Tooltip:** Shown on hover/tap, positioned with viewport edge detection.
@@ -59,8 +59,21 @@ Key fields:
 | `level` | int | 2 = category, 4 = leaf |
 | `jobs` | float | Employment in thousands |
 | `median_hourly_wage` | float\|null | € per hour |
-| `exposure` | float\|null | AI exposure score 0–10 |
+| `exposure` | float\|null | AI influence score 0–10 (field name kept as `exposure` for compatibility) |
 | `isco_skill_level` | int\|null | ISCO skill level 1–4 |
+
+---
+
+## ESCO coupling method
+
+`fetch_descriptions.py` maps each BRC 4-digit occupation to an ESCO description using a two-step approach:
+
+1. **BRC → ISCO bridge** — a static dict (`BRC_TO_ISCO`) maps every BRC code to its primary ISCO-08 unit group, derived from Bijlage 2 of the CBS "Beroepenindeling ROA-CBS 2014" PDF (the official concordance table, percentage-weighted, highest share = primary).
+2. **ESCO iscoGroup filter** — the ESCO API is queried with `iscoGroup=<ISCO code>`, returning only occupations in the correct occupational family. The best Dutch title match (Jaccard similarity) is selected from those results.
+
+This replaces the old approach of a free-text search with `limit:1`, which caused systematic mismatches (e.g. "Architect" → IT architect).
+
+Do **not** revert to free-text search. If an ISCO code is missing from `BRC_TO_ISCO`, add it based on the CBS concordance PDF before running `fetch_descriptions.py`.
 
 ---
 
