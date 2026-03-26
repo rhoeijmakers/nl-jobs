@@ -105,8 +105,7 @@
     font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;
   }
   #tooltip .close-tip {
-    display: none; float: right; background: none; border: none;
-    color: #aaa; font-size: 1.2rem; cursor: pointer; line-height: 1; margin: -4px -4px 0 8px;
+    display: none;
   }
   @media (pointer: coarse) {
     /* Touch device: show as bottom sheet */
@@ -115,8 +114,16 @@
       max-width: 100%; border-radius: 16px 16px 0 0;
       border-bottom: none; pointer-events: auto;
       max-height: 55vh; overflow-y: auto;
+      padding-top: 8px;
     }
-    #tooltip .close-tip { display: block; }
+    #tooltip .close-tip {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; background: none; border: none; border-bottom: 1px solid #e5e0da;
+      color: #888; font-size: 0.85rem; cursor: pointer;
+      padding: 10px 0 12px; margin: -8px -16px 12px -16px; width: calc(100% + 32px);
+      letter-spacing: 0.04em;
+    }
+    #tooltip .close-tip::before { content: "—"; margin-right: 8px; color: #ccc; }
   }
 
   /* Legend — inline above treemap */
@@ -583,7 +590,7 @@ const isTouchDevice = () => window.matchMedia("(pointer: coarse)").matches;
 
 function buildTooltipHTML(d) {
   const sc = d.exposure;
-  let html = `<button class="close-tip" onclick="hideTooltip()">×</button>`;
+  let html = `<button class="close-tip" onclick="hideTooltip()">Sluiten</button>`;
   html += `<h3>${d.code} — ${d.title}</h3>`;
   html += `<div class="meta"><b>Categorie:</b> ${d.category}</div>`;
   if (sc != null) {
