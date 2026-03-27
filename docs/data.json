@@ -36,7 +36,10 @@
     "annual_wage": 67205,
     "exposure": 6,
     "exposure_rationale": "Docenten hoger onderwijs hebben veel digitaliseerbare taken (examencorrectie, content creatie, informatieverstrekking via LLM's, automatische feedback), maar het kernwerk vereist sterke interpersoonlijke vaardigheden, mentorschap, onderwijsaanpassing en origineel onderzoek dat moeilijk volledig te automatiseren is. De blended-learning trend en AI-assistenten transformeren het beroep al aanzienlijk, maar menselijke begeleiding en academisch oordeel blijven onmisbaar.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "011",
+    "group_title": "Docenten",
+    "esco_uri": "http://data.europa.eu/esco/occupation/c90a6ebe-adcc-4395-9f5b-ff3e96e93cef"
   },
   {
     "code": "0112",
@@ -49,7 +52,10 @@
     "annual_wage": 56534,
     "exposure": 7,
     "exposure_rationale": "Docenten beroepsonderwijs hebben een hoge AI-blootstelling omdat veel ondersteunende taken digitaliseerbaar zijn: lesmateriaal genereren, huiswerk nakijken, toetsen samenstellen, studentenprogress monitoren en individuele feedback geven kunnen grotendeels door AI worden ondersteund. Echter, het kernwerk—praktische begeleiding in de werkplaats, veiligheidsbewaking, aanpassingsvermogen aan individuele leerlingen en mentorschap—vereist sterke fysieke aanwezigheid, praktische demonstratie en menselijk oordeel, wat de transformatie beperkt.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "011",
+    "group_title": "Docenten",
+    "esco_uri": "http://data.europa.eu/esco/occupation/80ec8f3e-2cda-4ea6-a382-ece99589ccdd"
   },
   {
     "code": "0113",
@@ -62,7 +68,10 @@
     "annual_wage": 61963,
     "exposure": 5,
     "exposure_rationale": "Leerkrachten hebben een gemengde AI-blootstelling. Routine-taken zoals lesplannen maken, huiswerk beoordelen en factische inhoud overbrengen kunnen steeds meer door AI-tools worden ondersteund. Echter, het kernwerk—interactie met leerlingen, motivatie, aanpassingen per student, disciplinering en persoonlijke begeleiding—vereist sterke menselijke aanwezigheid, emotionele intelligentie en fysieke interactie in het klaslokaal, wat AI niet kan vervangen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "011",
+    "group_title": "Docenten",
+    "esco_uri": "http://data.europa.eu/esco/occupation/f6ca9392-708d-46cb-a2e9-51519595baa2"
   },
   {
     "code": "0114",
@@ -75,7 +84,10 @@
     "annual_wage": 58781,
     "exposure": 4,
     "exposure_rationale": "Leerkrachten basisonderwijs hebben een mix van automatiseerbare en niet-automatiseerbare taken. AI kan lesinhoud voorbereiden, toetsen genereren en feedback geven ondersteunen, maar het kernwerk—persoonlijke interactie met kinderen, gedragsmanagement, emotionele ondersteuning en directe begeleiding—vereist fysieke aanwezigheid en menselijk oordeel. De sociale en affectieve dimensies van onderwijs kunnen niet door AI worden vervangen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "011",
+    "group_title": "Docenten",
+    "esco_uri": "http://data.europa.eu/esco/occupation/03d79393-7b30-4159-945b-01963eddd302"
   },
   {
     "code": "0115",
@@ -88,7 +100,10 @@
     "annual_wage": 61027,
     "exposure": 7,
     "exposure_rationale": "Toelatingscoördinatoren voeren voornamelijk digitale, routinematige taken uit zoals het beoordelen van aanvragen tegen vastgestelde criteria, het verwerken van inschrijvingen en het beheren van administratie. AI-systemen kunnen veel van deze taken (aanvraagbeoordeling, documentverificatie, automatische routing) efficiënt automatiseren, hoewel enig menselijk oordeel voor complexe uitzonderingsgevallen blijft nodig.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "011",
+    "group_title": "Docenten",
+    "esco_uri": "http://data.europa.eu/esco/occupation/4b72d306-9781-434d-8522-1fcaf892cdce"
   },
   {
     "code": "012",
@@ -114,7 +129,10 @@
     "annual_wage": 31824,
     "exposure": 3,
     "exposure_rationale": "Scheidsrechters voeren veel regeltoepassing uit die theoretisch automatiseerbaar is (patroonherkenning via computervisie voor grensbesluiten), maar het kernwerk vereist fysieke aanwezigheid, real-time oordeel in nuancesituaties en interpersoonlijke autoriteit die moeilijk door AI kan worden vervangen. De meeste taken blijven mens-gericht en afhankelijk van contextueel inzicht en acceptatie door sporters.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "012",
+    "group_title": "Sportinstructeurs",
+    "esco_uri": "http://data.europa.eu/esco/occupation/30194ac4-93b8-4450-8a15-f6f7cbe351cb"
   },
   {
     "code": "013",
@@ -140,7 +158,10 @@
     "annual_wage": 38563,
     "exposure": 1,
     "exposure_rationale": "Dit beroep vereist constante fysieke aanwezigheid in een schoolbus, directe persoonlijke interactie met kinderen, en real-time toezicht en veiligheidsverantwoordelijkheden die niet kunnen worden gedigitaliseerd. Hoewel enkele administratieve taken (communicatie, rapportage) door AI kunnen worden ondersteund, is het kernwerk - het fysiek begeleiden, toezien op en veilig houden van kinderen - fundamenteel afhankelijk van menselijke aanwezigheid en kan niet door AI worden vervangen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "013",
+    "group_title": "Leidsters kinderopvang en onderwi.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/fa6bd9e9-9631-4abe-b2f8-fad7bf8a819d"
   },
   {
     "code": "02",
@@ -179,7 +200,10 @@
     "annual_wage": 51667,
     "exposure": 6,
     "exposure_rationale": "Bibliothecarissen en conservatoren werken overwegend met digitale systemen, gegevensmanagement en informatieorganisatie—taken waarin AI grote voortgang boekt (catalogisering, datamining, kwaliteitsbeoordeling). Echter behoud het beroep belangrijke menselijke componenten zoals informatiebehoeftenanalyse, klantrelatiebeheer, strategische informatiedoelstellingen en juridisch oordeel dat contextueel inzicht vereist.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "021",
+    "group_title": "Auteurs en kunstenaars",
+    "esco_uri": "http://data.europa.eu/esco/occupation/7556c748-15b4-4e44-97d9-00d885d4cd7d"
   },
   {
     "code": "0212",
@@ -192,7 +216,10 @@
     "annual_wage": 51667,
     "exposure": 6,
     "exposure_rationale": "Dit beroep heeft hoge blootstelling omdat de meeste werkproducten digitaal zijn (artikelen, analyses, datasets) en veel kernactiviteiten—literatuuranalyse, informatiesamenvattingen, tekstverwerking—door AI-tools kunnen worden ondersteund of versneld. Echter, het vereist origineel academisch oordeel, theorievorming en kritische interpretatie van complexe culturele contexten, wat AI niet volledig kan vervangen zonder menselijke expertise en validatie.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "021",
+    "group_title": "Auteurs en kunstenaars",
+    "esco_uri": "http://data.europa.eu/esco/occupation/a9c7a04d-807a-41b5-b441-87c73c73c9c5"
   },
   {
     "code": "0213",
@@ -205,7 +232,10 @@
     "annual_wage": 51667,
     "exposure": 6,
     "exposure_rationale": "Journalistiek heeft een hoge AI-blootstelling omdat veel kerntaken digitaal zijn: nieuwsonderzoek, tekstverwerking, patroonherkenning in data, en eerste versies van berichten kunnen door AI-tools worden ondersteund. Echter, cruciale elementen zoals investigatief werk, ethische oordeelsvorming, bronverificatie, contextualisering en originele inzichten vereisen nog steeds menselijke expertise en kunnen niet volledig worden geautomatiseerd. AI transformeert het beroep aanzienlijk maar zal journalisten niet vervangen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "021",
+    "group_title": "Auteurs en kunstenaars",
+    "esco_uri": "http://data.europa.eu/esco/occupation/db3da11f-67a0-415f-b785-81f33d3be810"
   },
   {
     "code": "0214",
@@ -218,7 +248,10 @@
     "annual_wage": 51667,
     "exposure": 3,
     "exposure_rationale": "Hoewel videokunstenaars met digitale tools werken, staat creatief en origineel artistiek oordeel centraal in hun werk. AI kan technische taken zoals effecten en rendering ondersteunen, maar kan niet de artistieke visie, conceptontwikkeling en persoonlijke artistieke keuzes vervangen die fundamenteel zijn voor dit beroep. Het kernwerk vereist menselijke creativiteit en emotionele intentie die moeilijk automatiseerbaar zijn.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "021",
+    "group_title": "Auteurs en kunstenaars",
+    "esco_uri": "http://data.europa.eu/esco/occupation/d0341f2c-f797-4306-b847-411dee1058a9"
   },
   {
     "code": "0215",
@@ -231,7 +264,10 @@
     "annual_wage": 51667,
     "exposure": 3,
     "exposure_rationale": "Muziekdirecteurs hebben lage AI-blootstelling omdat hun kernwerk fysieke aanwezigheid, live leiding geven en creatief-interpretatief oordeel vereist dat moeilijk te automatiseren is. Hoewel AI muziek kan genereren en notatie kan ondersteunen, kan het niet het directoraat van live-uitvoeringen, de nuances van musicaal leiderschap of de interactie met musici vervangen. Het beroep blijft sterk afhankelijk van menselijk artistiek inzicht en real-time communicatie.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "021",
+    "group_title": "Auteurs en kunstenaars",
+    "esco_uri": "http://data.europa.eu/esco/occupation/a655aff1-e5e9-4c64-bc85-b902568a3dfb"
   },
   {
     "code": "022",
@@ -257,7 +293,10 @@
     "annual_wage": 44741,
     "exposure": 7,
     "exposure_rationale": "Grafisch ontwerpen is sterk blootgesteld aan AI-transformatie omdat het werk fundamenteel digitaal is en veel taken (lay-out, kleurkeuze, basismontage, conceptgeneratie) door AI-tools kunnen worden ondersteund of geautomatiseerd. Generatieve AI-modellen kunnen nu afbeeldingen en ontwerpconcepten creëren, hoewel strategische beslissingen, originele conceptualisering en klantinteractie nog steeds menselijke expertise vereisen. Het beroep wordt snel getransformeerd door tools als DALL-E, Midjourney en AI-integratie in Adobe Creative Suite, maar volledig automatisering is onwaarschijnlijk omdat klanten blijvend oordeelkundig ontwerp en creatieve sturing verwachten.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "022",
+    "group_title": "Vakspecialisten op artistiek en c.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/69bcbb0a-8d80-4ecd-b0a4-9adea2a40de2"
   },
   {
     "code": "0222",
@@ -270,7 +309,10 @@
     "annual_wage": 43056,
     "exposure": 6,
     "exposure_rationale": "Fotojournalisten hebben een gemengde blootstelling. AI-tools kunnen foto's analyseren, bijschriften genereren, basisbewerking uitvoeren en zelfs beeldmateriaal van evenementen samenvatten. Het kernwerk vereist echter fysieke aanwezigheid ter plekke, journalistiek oordeel over nieuwswaarde, interviewing, en creatieve storytelling - taken die menselijke nuance en contextverstaan vereisen. De digitale componenten (bewerking, schrijven, sociale media) zijn wel sterk automatiseerbaar.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "022",
+    "group_title": "Vakspecialisten op artistiek en c.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/66542dd6-05a6-4d9e-97ff-3f4858c31ff9"
   },
   {
     "code": "03",
@@ -309,7 +351,10 @@
     "annual_wage": 54850,
     "exposure": 6,
     "exposure_rationale": "Creatief directeurs werken grotendeels digitaal met ontwerp- en presentatietaken die deels automatiseerbaar zijn door AI-tools (contentgeneratie, designsuggesties). Hun kernwerk vereist echter strategisch denken, klantrelatiebeheer, teamleiding en originele creatieve visie, wat menselijk oordeel en interpersoonlijke vaardigheden vraagt. Live presentaties en het begeleiding van creatieve processen blijven sterk afhankelijk van menselijke inbreng.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "031",
+    "group_title": "Adviseurs marketing, public relat.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/c0489e22-6a1b-4e52-974a-eb71bbb42134"
   },
   {
     "code": "032",
@@ -335,7 +380,10 @@
     "annual_wage": 54288,
     "exposure": 7,
     "exposure_rationale": "Commercieel vertegenwoordigers voeren veel digitale, routinematige taken uit zoals contactbeheer, informatieverstrekking, verkoopgegevens bijhouden en klantrelatiebeheer, die sterk kunnen worden ondersteund of geautomatiseerd door AI-tools (chatbots, CRM-automatisering, predictive analytics). Echter, het kernwerk vereist nog steeds menselijke inzet voor relatiebouw, onderhandelingen, het begrijpen van nuanceerde klantbehoeften en adaptief verkopen, waardoor volledige automatisering niet haalbaar is.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "032",
+    "group_title": "Vertegenwoordigers en inkopers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/29fa406d-de89-4515-be8d-0fe7bda993f1"
   },
   {
     "code": "033",
@@ -361,7 +409,10 @@
     "annual_wage": 33696,
     "exposure": 5,
     "exposure_rationale": "Detailhandelaars voeren een mix uit van automatiseerbare en niet-automatiseerbare taken. Digitale processen zoals prijsstrategieën, dataanalyses, voorraadbeheer en marketingplanning kunnen sterk door AI worden ondersteund, maar kernactiviteiten als klantinteractie, personeelsbeheer, leveranciersonderhandelingen en fysieke winkelbeheer vereisen menselijk oordeel en aanwezigheid. Het werk is deels digitaal maar ook sterk afhankelijk van lokale situaties en interpersoonlijke vaardigheden.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "033",
+    "group_title": "Verkopers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/bf89925d-00a1-4f94-ab3b-2148c887af33"
   },
   {
     "code": "0332",
@@ -374,7 +425,10 @@
     "annual_wage": 27706,
     "exposure": 3,
     "exposure_rationale": "Verkoopmedewerkers detailhandel/personal shoppers vereisen fysieke aanwezigheid in winkels, directe interactie met klanten en intuïtief oordeel over persoonlijke stijl en voorkeur. Hoewel enkele taken (inventarisvraagstukken, basale aanbevelingen) door AI kunnen worden ondersteund, blijft het kernwerk afhankelijk van menselijke empathie, subtiele observatie en vertrouwensrelaties.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "033",
+    "group_title": "Verkopers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/c76dda38-938c-404e-8a6d-78c8705eebc0"
   },
   {
     "code": "0333",
@@ -387,7 +441,10 @@
     "annual_wage": 20030,
     "exposure": 6,
     "exposure_rationale": "Kassamedewerkers voeren veel routinetaken uit die automatiseerbaar zijn: betalingen verwerken, geld tellen en transacties registreren kunnen steeds meer door zelfbedienings- en automatische systemen worden overgenomen. De fysieke aanwezigheid blijft echter nodig voor klanteninteractie, identiteitscontrole en fraude-preventie. Automatisering zal dit werk transformeren, maar volledig vervangen is lastig vanwege de combinatie van geldverwerking, wettelijke eisen (witwaspraktijken) en menselijk contact.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "033",
+    "group_title": "Verkopers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/2b871272-bd61-4206-bd1a-0b96d7023098"
   },
   {
     "code": "0334",
@@ -400,7 +457,10 @@
     "annual_wage": 33322,
     "exposure": 8,
     "exposure_rationale": "Callcenterwerk is sterk automatiseerbaar omdat het primair digitaal is, repetitieve gesprekspatronen volgt en waarneembare routines bevat. AI-systemen kunnen al inkomende oproepen beantwoorden, klantgegevens analyseren en veel standaardvragen automatisch afhandelen; hoewel emotionele intelligentie en complexe probleemoplossing nog menselijke toetsing vereisen, zal AI dit beroep fundamenteel transformeren naar toezichtshoudende rollen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "033",
+    "group_title": "Verkopers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/b7b75eb6-34bc-462d-b412-eed393cc1397"
   },
   {
     "code": "04",
@@ -439,7 +499,10 @@
     "annual_wage": 64397,
     "exposure": 8,
     "exposure_rationale": "Accountantswerkzaamheden zijn grotendeels digitaal en routinematig: financiële dataverwerking, patroonherkenning in uitgaven, belastingberekeningen en rapportgeneratie kunnen allemaal sterk worden geautomatiseerd door AI en RPA-tools. Hoewel strategisch financieel advies en complexe belastingplanning nog menselijk oordeel vereisen, worden de meeste kern-administratieve taken al of zeer binnenkort overgenomen door intelligente softwaresystemen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "041",
+    "group_title": "Specialisten bedrijfsbeheer en ad.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/eda0d957-3c3c-4139-b89a-a18bc9e18897"
   },
   {
     "code": "0412",
@@ -452,7 +515,10 @@
     "annual_wage": 62525,
     "exposure": 7,
     "exposure_rationale": "Financieel specialisten werken primair met digitale data, financiële modellen en analyses waar AI grote taalmodellen en data-analysegereedschappen sterk inzetbaar zijn voor prognoses, portefeuillebeheer en geautomatiseerde advisering. Echter, het beroep vereist nog steeds aanzienlijk menselijk oordeel voor gepersonaliseerde klantadvisering, ethische overwegingen en complexe situaties die niet volledig algoritmisch kunnen worden opgelost, waardoor de blootstelling hoog maar niet maximaal is.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "041",
+    "group_title": "Specialisten bedrijfsbeheer en ad.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/e20eee17-4876-4f21-a0cb-5d7f40c63cd8"
   },
   {
     "code": "0413",
@@ -465,7 +531,10 @@
     "annual_wage": 66643,
     "exposure": 7,
     "exposure_rationale": "Bedrijfskundigen voeren voornamelijk digitale, kennisintensieve taken uit (data-analyse, onderzoek, strategische adviezen) die grotendeels door AI-tools kunnen worden ondersteund of geautomatiseerd. Large language models kunnen marktanalyses genereren, financiële data verwerken en aanbevelingen opstellen, terwijl computervisie bedrijfsprocessen kan monitoren. Echter, het beroep vereist significant menselijk oordeel, relatiebeheer en contextueel inzicht dat AI nog niet volledig kan vervangen, wat de score onder de maximale blootstelling houdt.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "041",
+    "group_title": "Specialisten bedrijfsbeheer en ad.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/3db35c88-bcb7-4de4-914a-9a9839a3c911"
   },
   {
     "code": "0414",
@@ -478,7 +547,10 @@
     "annual_wage": 69077,
     "exposure": 6,
     "exposure_rationale": "Parlementair medewerkers voeren veel digitale, kennisgebaseerde taken uit zoals documentanalyse, beleidsadvisering en tekstverwerking waar AI steeds beter in wordt. Echter, het kernwerk vereist ook substantieel menselijk oordeel, onderhandeling met belanghebbenden, politieke sensitiviteit en fysieke aanwezigheid op het parlement, wat AI niet volledig kan vervangen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "041",
+    "group_title": "Specialisten bedrijfsbeheer en ad.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/4b214899-ed00-4156-b269-a23df0fb1093"
   },
   {
     "code": "0415",
@@ -491,7 +563,10 @@
     "annual_wage": 56347,
     "exposure": 7,
     "exposure_rationale": "Arbeidsanalisten voeren veel digitale, kennisgebaseerde taken uit zoals data-analyse, rapportage en het schrijven van functieomschrijvingen. LLM's kunnen al veel van deze taken ondersteunen (teksten genereren, patronen in personeelsdata herkennen, analyses automatiseren). Echter, het werk vereist nog steeds significant menselijk oordeel in gesprekken met stakeholders, contextueel begrip van bedrijfscultuur en het evalueren van complexe organisatorische situaties, wat de blootstelling temperde.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "041",
+    "group_title": "Specialisten bedrijfsbeheer en ad.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/4ae3ad16-2d33-406c-8497-c66f7d61b914"
   },
   {
     "code": "042",
@@ -517,7 +592,10 @@
     "annual_wage": 48485,
     "exposure": 8,
     "exposure_rationale": "Boekhoudwerk is grotendeels digitaal en routinematig: transacties invoeren, posten naar grootboeken, balansen controleren en rapportage zijn allemaal taken die modern accounting software en AI-tools (OCR voor bonnen, automatische categorisering, anomaliedetectie) aanzienlijk kunnen automatiseren. Hoewel enig professioneel oordeel vereist is voor complexe situaties en regelinterpretatie, kunnen hedendaagse AI-systemen het merendeel van de dagelijkse werkstromen overnemen en alleen uitzonderingen naar menselijke boekhhouders escaleren.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "042",
+    "group_title": "Vakspecialisten bedrijfsbeheer en...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/c3aae59e-1441-4b3e-bdd1-6da50dc7cf42"
   },
   {
     "code": "0422",
@@ -530,7 +608,10 @@
     "annual_wage": 49421,
     "exposure": 6,
     "exposure_rationale": "Managers uitgeefrechten werken grotendeels met digitale documenten, contracten en communicatie, wat AI-assistentie via documentanalyse, contractbeoordeling en marktonderzoek mogelijk maakt. Echter, het kernwerk vereist substantieel menselijk oordeel: onderhandelen, relatiebeheer, financiële evaluatie van complexe deals en kennis van juridische nuances rond auteursrecht en internationale wetgeving kunnen niet volledig door AI worden overgenomen. De combinatie van routinematige administratieve taken (hoog automatiseerbaar) en strategische onderhandelingen (laag automatiseerbaar) plaatst dit beroep in de categorie hoge blootstelling met aanzienlijke blijvende menselijke waarde.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "042",
+    "group_title": "Vakspecialisten bedrijfsbeheer en...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/bcc2c1db-f969-4355-bebf-4878ff6c2a94"
   },
   {
     "code": "0423",
@@ -543,7 +624,10 @@
     "annual_wage": 47923,
     "exposure": 7,
     "exposure_rationale": "Directiesecretaresses voeren grotendeels digitale, administratieve taken uit (emailbeheer, agendacoördinatie, documenten verwerken, spreadsheets) die sterk automatiseerbaar zijn door AI-tools en RPA. Echter behouden ze waarde door interpretatief oordeel, relatiebeheer met stakeholders en contextueel inzicht in organisatieworkings, wat volledige automatisering voorkomt.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "042",
+    "group_title": "Vakspecialisten bedrijfsbeheer en...",
+    "esco_uri": null
   },
   {
     "code": "043",
@@ -569,7 +653,10 @@
     "annual_wage": 38750,
     "exposure": 8,
     "exposure_rationale": "Administratief medewerkers voeren overwegend routine, digitale taken uit zoals formulieren invullen, documenten archiveren, e-mails beheren en spreadsheetwerk - allemaal kernactiviteiten die grote taalmodellen, RPA en documentverwerking-AI kunnen automatiseren. Hoewel enkele interpersoonlijke aspecten (telefoongesprekken, klantontvangst) menselijke aanwezigheid vereisen, is het merendeel van het werk digitaal, patroonmatig en herkenbaar proceswerk dat zich leent voor automatisering en AI-transformatie.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "043",
+    "group_title": "Administratief personeel",
+    "esco_uri": "http://data.europa.eu/esco/occupation/84fabf82-4abf-4f41-99aa-55718a2e500b"
   },
   {
     "code": "0432",
@@ -582,7 +669,10 @@
     "annual_wage": 41558,
     "exposure": 8,
     "exposure_rationale": "Het werk van secretaresses bestaat grotendeels uit digitale, routinematige taken zoals e-mailbeheer, agendacoördinatie, documentverwerking en gegevensmanagement — allemaal gebieden waar AI (met name grote taalmodellen en automatisering) aanzienlijke waarde kan toevoegen. Hoewel enige menselijke communicatie en contextbegrip nodig blijft, kunnen AI-tools het merendeel van deze administratieve werkzaamheden significant automatiseren of ondersteunen, wat een zeer hoge blootstelling betekent.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "043",
+    "group_title": "Administratief personeel",
+    "esco_uri": null
   },
   {
     "code": "0433",
@@ -595,7 +685,10 @@
     "annual_wage": 36317,
     "exposure": 7,
     "exposure_rationale": "Receptionisten en telefonisten voeren veel digitale, routinematige taken uit (informatieafhandeling, kennisbankgebruik, CRM-software) die steeds meer door AI-chatbots en spraakherkenning worden overgenomen. De kernactiviteiten zoals basale klantenvragen beantwoorden, informatie verwerken en planningen beheren zijn goed automatiseerbaar. Echter, complexe conflictbeheersing en empathische klantinteracties vereisen nog menselijk oordeel, waardoor niet alle werk volledig vervangen wordt.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "043",
+    "group_title": "Administratief personeel",
+    "esco_uri": "http://data.europa.eu/esco/occupation/0bf68df5-e808-4c27-abf2-6f85440f2d7f"
   },
   {
     "code": "0434",
@@ -608,7 +701,10 @@
     "annual_wage": 43056,
     "exposure": 8,
     "exposure_rationale": "Het werk van boekhoudkundige medewerkers bestaat grotendeels uit digitale, repetitieve taken zoals gegevensverwerking, transactieregistratie en documentbeheer - precies wat AI-systemen efficiënt kunnen automatiseren. Moderne accounting software en machine learning kunnen invoerfouten detecteren, transacties classificeren en rapportage genereren met minimale menselijke supervisie, waardoor veel kernactiviteiten vervangbaar worden.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "043",
+    "group_title": "Administratief personeel",
+    "esco_uri": "http://data.europa.eu/esco/occupation/bfe142b9-a049-4d41-89c4-fd2f34ac56b6"
   },
   {
     "code": "0435",
@@ -621,7 +717,10 @@
     "annual_wage": 42869,
     "exposure": 7,
     "exposure_rationale": "Voorraadadministrateurs voeren grotendeels digitale, routinematige taken uit: voorraadniveaus monitoren, gegevens invoeren in spreadsheets en magazijnsoftware, en inventariscontroles uitvoeren. AI-systemen kunnen deze patroonherkenning, data-analyse en administratieve processen grotendeels automatiseren en optimaliseren. Hoewel fysieke inspectie van beschadigde goederen enige aanwezigheid vereist, wordt het merendeel van het kernwerk (digitale voorraadbeheer, planning, documentatie) snel vervangen door geautomatiseerde AI-gestuurde systemen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "043",
+    "group_title": "Administratief personeel",
+    "esco_uri": "http://data.europa.eu/esco/occupation/c4071145-a774-4cf4-aefa-ae18a385cca4"
   },
   {
     "code": "05",
@@ -660,7 +759,10 @@
     "annual_wage": 74506,
     "exposure": 5,
     "exposure_rationale": "Algemeen directeuren hebben matige AI-blootstelling. Veel kernvaardigheden zijn digitaal en AI-ondersteund (data-analyse, financiële prestaties analyseren, strategische onderbouw), maar cruciaal blijven menselijke elementen: vertrouwen opbouwen, onderhandelen met stakeholders, ethisch leiderschap en complexe menselijke besluitvorming onder onzekerheid. AI kan assisteren met analyses en informatieverwerking, maar kan het strategisch oordeel en interpersoonlijke leiderschap niet vervangen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "051",
+    "group_title": "Algemeen directeuren",
+    "esco_uri": "http://data.europa.eu/esco/occupation/4be4ea31-1211-4f0c-82bb-f6fe10791f4d"
   },
   {
     "code": "052",
@@ -686,7 +788,10 @@
     "annual_wage": 83491,
     "exposure": 6,
     "exposure_rationale": "Financieel directeuren werken primair met digitale data, financiële modellen en verslaglegging, wat AI goed kan ondersteunen via data-analyse, prognoses en rapportgeneratie. Echter, het beroep vereist aanzienlijk strategisch oordeel, stakeholdermanagement en contextueel begrip van bedrijfsrisico's, wat menselijke expertise en verantwoordelijkheid nodig maakt. AI zal veel ondersteunende taken automatiseren, maar de kern van strategische financiële besluitvorming blijft afhankelijk van menselijk leiderschap.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "052",
+    "group_title": "Managers op administratief en com...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/3c136897-4e0e-41ef-bb57-d8152323b93a"
   },
   {
     "code": "0522",
@@ -699,7 +804,10 @@
     "annual_wage": 81432,
     "exposure": 6,
     "exposure_rationale": "Managers verkoop en marketing voeren veel digitale, kennisgebaseerde taken uit (data-analyse, rapportage, strategiebepaling) die AI kan ondersteunen via prognoses, contentgeneratie en automatische inzichten. Het kernwerk vereist echter strategisch oordeel, stakeholder-management en creatieve besluitvorming die moeilijk volledig automatiseerbaar zijn, waardoor menselijke supervisie essentieel blijft.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "052",
+    "group_title": "Managers op administratief en com...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/a7594892-ff23-4e2a-aedf-2f967ebca15c"
   },
   {
     "code": "053",
@@ -725,7 +833,10 @@
     "annual_wage": 77501,
     "exposure": 6,
     "exposure_rationale": "Productieleiders textielindustrie voeren veel digitaliseerbare taken uit zoals planning, orderbeheer, productieschema's en kwaliteitscontrole, die AI-systemen kunnen ondersteunen. Echter, hun werk vereist fysieke aanwezigheid op de werkvloer, real-time probleemoplossing, menselijk oordeel bij complexe situaties en relationeel leiderschap, wat de AI-blootstelling matigt naar het hogere bereik.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "053",
+    "group_title": "Managers productie en gespecialis...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/6426ada1-4d8c-4612-99e3-91bc569805ee"
   },
   {
     "code": "0532",
@@ -738,7 +849,10 @@
     "annual_wage": 76939,
     "exposure": 6,
     "exposure_rationale": "Logistiek managers werken voornamelijk met digitale systemen (ERP, WMS, supply chain software) en voeren veel data-analyses, prognoses en planning uit die goed automatiseerbaar zijn door AI. Echter, hun werk vereist nog steeds significant mensueel oordeel bij leveranciersbeheer, risicobeoordeling, strategische beslissingen en aanpassingen aan onvoorziene veranderingen in de markt. De combinatie van digitaal analysewerk en menselijk strategisch management plaatst dit beroep in de categorie van hoge maar niet zeer hoge blootstelling.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "053",
+    "group_title": "Managers productie en gespecialis...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/5c9dea76-c7da-4e58-857c-fc3cbe7b960a"
   },
   {
     "code": "0533",
@@ -751,7 +865,10 @@
     "annual_wage": 76939,
     "exposure": 6,
     "exposure_rationale": "ICT-documentatiemanagers werken voornamelijk met digitale artefacten (documentatie, metadata, normen, processen) die AI-tools kunnen ondersteunen bij patroonherkenning, tekstanalyse en procesoptimalisatie. Echter, het beroep vereist aanzienlijk strategisch oordeel, personeelsbeheer, stakeholdercommunicatie en juridische interpretatievaardigheden die menselijk inzicht vereisen. Dit is een managementberoep met hoge blootstelling voor automatisering van ondersteunende taken, maar waar core-verantwoordelijkheden zoals strategiebepaling en teamleiding moeilijk volledig automatiseerbaar zijn.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "053",
+    "group_title": "Managers productie en gespecialis...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/a28dff76-74df-46ee-929f-d1fffbb63cd7"
   },
   {
     "code": "0534",
@@ -764,7 +881,10 @@
     "annual_wage": 69451,
     "exposure": 6,
     "exposure_rationale": "Managers van zorginstellingen voeren veel digitale, routinetaken uit zoals budgetbeheer, dossiervoering, beleidsimplementatie en personeelscoördinatie, die deels door AI kunnen worden ondersteund (data-analyse, planning, documentatie). Echter, het beroep vereist cruciaal menselijk oordeel voor strategische beslissingen, medisch leiderschap, conflictmanagement en interpersoonlijke communicatie met patiënten en personeel, wat AI niet volledig kan vervangen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "053",
+    "group_title": "Managers productie en gespecialis...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/4a29eab1-5f02-4723-a863-e2d5a0614dfa"
   },
   {
     "code": "0535",
@@ -777,7 +897,10 @@
     "annual_wage": 76939,
     "exposure": 6,
     "exposure_rationale": "Managers onderwijs voeren veel digitaliseerbare taken uit zoals financieel beheer, personeelsadministratie, data-analyse van studentprestaties en rapportage. AI kan deze administratieve en analytische functies aanzienlijk ondersteunen. Het kernwerk vereist echter nog steeds mentaliteit voor strategische besluitvorming, persoonlijke leiderschap, stakeholder-management en complexe situaties waarin menselijk oordeel essentieel blijft.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "053",
+    "group_title": "Managers productie en gespecialis...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/2b6bb2d1-54b0-4feb-8c6c-8ba20adde1df"
   },
   {
     "code": "0536",
@@ -790,7 +913,10 @@
     "annual_wage": 76939,
     "exposure": 5,
     "exposure_rationale": "Dit beroep combineert regelmatig fysieke inspectie ter plaatse (onvervangbaar) met digitale taken zoals rapportage, naleving van voorschriften en risicoanalyse die deels door AI kunnen worden ondersteund. Hoewel AI kan helpen bij data-analyse, regeldetectie en rapportage, vereist het werk essentiële ter-plaatse inspecties, fysieke beoordeling van gevaren en menselijk oordeel in complexe veiligheidssituaties die niet volledig kunnen worden geautomatiseerd.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "053",
+    "group_title": "Managers productie en gespecialis...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/e5a63940-57d3-4065-8713-74b4e2c93063"
   },
   {
     "code": "054",
@@ -816,7 +942,10 @@
     "annual_wage": 47174,
     "exposure": 6,
     "exposure_rationale": "Restaurantmanagers hebben veel digitaliseerbare taken (voorraadbeheer, financiële administratie, personeelsplanning, bestellingen) die AI en automatisering kunnen ondersteunen. Echter, het beroep vereist ook fysieke aanwezigheid, interpersonele vaardigheden voor klanteninteractie, real-time probleemoplossing en strategisch leiderschap dat moeilijk volledig te automatiseren is. De balans tussen digitale processen en noodzakelijke menselijke betrokkenheid plaatst dit in de categorie van hoge maar niet zeer hoge blootstelling.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "054",
+    "group_title": "Managers horeca, detailhandel en.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/4887c8a5-35d3-44c3-be69-346027e485f0"
   },
   {
     "code": "0542",
@@ -829,7 +958,10 @@
     "annual_wage": 52229,
     "exposure": 6,
     "exposure_rationale": "Rayonmanagers voeren veel digitaliseerbare taken uit zoals gegevensanalyse, financieel beheer, prijsstrategieën en IT-systeemgebruik, waarbij AI-tools kunnen assisteren met data-driven inzichten en rapportageautomatisering. Echter, het beroep vereist ook kritieke menselijke elementen zoals relatiebeheer met klanten en leveranciers, strategisch leiderschap, probleemoplossing in complexe contexten en personeelsmanagement, wat de AI-blootstelling beperkt tot de hogere helft van het spectrum.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "054",
+    "group_title": "Managers horeca, detailhandel en.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/e7f6e98a-cef5-41be-b65c-70cf1feed11d"
   },
   {
     "code": "0543",
@@ -842,7 +974,10 @@
     "annual_wage": 47174,
     "exposure": 5,
     "exposure_rationale": "Managers van autogaragebedrijven voeren een mix van automatiseerbare en niet-automatiseerbare taken uit. AI kan helpen met financieel beheer, planningstaken, klantencommunicatie en data-analyse, maar het kernwerk vereist fysieke aanwezigheid, direct toezicht op monteurs, klantrelaties en situationeel oordeel dat moeilijk te automatiseren is. De rol combineert kantoorwerk (digitaal) met bedrijfsleiding en klantinteractie (menselijk gericht).",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "054",
+    "group_title": "Managers horeca, detailhandel en.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/a2ff6cc3-15fa-4f02-a457-8fd5df7aa29e"
   },
   {
     "code": "055",
@@ -868,7 +1003,10 @@
     "annual_wage": 74506,
     "exposure": 6,
     "exposure_rationale": "Managers z.n.d. (zonder nadere detaillering) omvatten vooral leidinggevende, strategische en coördinerende taken die grotendeels digitaal kunnen plaatsvinden. AI kan veel ondersteunende functies automatiseren (data-analyse, rapportage, planning), maar strategische besluitvorming en personeelsbeheer vereisen nog aanzienlijk menselijk oordeel en interpersoonlijke vaardigheden. Het beroep is dus gevoelig voor AI-transformatie, maar niet volledig vervangbaar.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "055",
+    "group_title": "Managers z.n.d.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/002da35b-7808-43f3-83bf-63596b8b351f"
   },
   {
     "code": "06",
@@ -907,7 +1045,10 @@
     "annual_wage": 88733,
     "exposure": 4,
     "exposure_rationale": "Hoofdcommandeurs van de brandweer hebben een mix van automatiseerbare en niet-automatiseerbare taken. Beleidsvorming, begroting, en risicoanalyses kunnen ondersteund worden door AI-tools, maar het beroep vereist essentieel menselijk oordeel, leidinggevingscapaciteit, vakkennis in brandveiligheid, en directe toezicht op operationele brandweeractiviteiten. De noodzaak van fysieke aanwezigheid en situationeel leiderschap beperkt de blootstelling aanzienlijk.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "061",
+    "group_title": "Overheidsambtenaren en -bestuurders",
+    "esco_uri": null
   },
   {
     "code": "0612",
@@ -920,7 +1061,10 @@
     "annual_wage": 54475,
     "exposure": 6,
     "exposure_rationale": "Sociaal rechercheurs voeren veel digitaliseerbare taken uit zoals data-analyse van aanvragen, patroonherkenning van frauduleuze activiteiten en rapportage. AI kan ondersteunend inzetten bij documentanalyse, fraudedetectie en informatieverzameling. Echter, het kernwerk vereist menselijk oordeel in complexe situaties, onderzoeksinterviews met gevoeligheid, en juridische expertise die niet volledig kan worden geautomatiseerd.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "061",
+    "group_title": "Overheidsambtenaren en -bestuurders",
+    "esco_uri": "http://data.europa.eu/esco/occupation/98f17395-0f8c-4f51-9072-cb8f66fd6044"
   },
   {
     "code": "062",
@@ -946,7 +1090,10 @@
     "annual_wage": 70013,
     "exposure": 7,
     "exposure_rationale": "Functionarissen voor gegevensbescherming voeren veel digitaal werk uit (beleidsvorming, documentanalyse, compliance-checks, data-audits) dat AI kan ondersteunen via patroonherkenning en tekstverwerking. Echter, het beroep vereist sterke juridische oordeelsvermogen, stakeholder-management en strategische advies die menselijk inzicht blijven vereisen. De combinatie van automatiseerbare administratieve taken en irreplacebare juridisch-strategische componenten plaatst dit in de categorie 'hoge blootstelling'.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "062",
+    "group_title": "Juristen",
+    "esco_uri": "http://data.europa.eu/esco/occupation/55d2eb3e-1e49-404a-b4bf-be4829694a59"
   },
   {
     "code": "063",
@@ -972,7 +1119,10 @@
     "annual_wage": 46987,
     "exposure": 5,
     "exposure_rationale": "Technisch rechercheurs hebben een mix van automatiseerbare en niet-automatiseerbare taken. Digitale werkproducten zoals foto's, verslagen en gegevensverwerking kunnen deels door AI worden ondersteund (beeldanalyse, rapportgeneratie), maar het kernwerk vereist fysieke aanwezigheid ter plaatse, vakkundig oordeel bij bewijsverzameling, en het waarborgen van bewijsintegriteit wat menselijke supervisie en rechtelijke verantwoording vraagt. De plaats delict onderzoeken en bewijsmateriaal hanteren blijven fundamenteel menselijke taken met juridische consequenties.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "063",
+    "group_title": "Beveiligingswerkers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/6b304370-0112-4881-a1bd-27d8df645d00"
   },
   {
     "code": "0632",
@@ -985,7 +1135,10 @@
     "annual_wage": 49982,
     "exposure": 3,
     "exposure_rationale": "Politiewerk vereist cruciale fysieke aanwezigheid, directe interactie met het publiek, situationeel oordeel en handigheid (aanhoudingen, zelfverdediging, eerste hulp). Hoewel AI kan helpen bij gegevensanalyse, patroonherkenning in verkeerscijfers en administratieve taken, vormen deze slechts ondersteunende functies naast de kernactiviteiten die menselijke aanwezigheid en reële wereld-betrokkenheid vereisen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "063",
+    "group_title": "Beveiligingswerkers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/a05d0a6d-7b60-445a-8dcb-282c7d5a6852"
   },
   {
     "code": "0633",
@@ -998,7 +1151,10 @@
     "annual_wage": 41933,
     "exposure": 3,
     "exposure_rationale": "Beveiligingspersoneel vereist fysieke aanwezigheid, waakzaamheid en zintuiglijk oordeel voor situaties die continu kunnen veranderen. Hoewel AI videoanalyse en patroonherkenning kan untersteunen, blijft menselijke besluitvorming, communicatie en interventievermogen essentieel voor dit veiligheidswerk. De kern van het beroep kan niet volledig gedigitaliseerd worden.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "063",
+    "group_title": "Beveiligingswerkers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/e9507d34-c70f-474f-a4a3-d2cbfe50f6e9"
   },
   {
     "code": "0634",
@@ -1011,7 +1167,10 @@
     "annual_wage": 46987,
     "exposure": 6,
     "exposure_rationale": "Het werk is grotendeels digitaal en gebaseerd op patroonherkenning, signaalanalyse en gegevensverzameling, waarvoor AI-tools zoals machine learning en natuurlijke taalverwerking veel kunnen automatiseren. Echter, de operationele context vereist contextgevoeligheid, strategisch oordeel en real-time mensentoezicht, wat de volledig automatiseerbaarheid beperkt. De combinatie van geautomatiseerde signaaldetectie met menselijk expertise voor kritieke militaire beslissingen plaats dit beroep in de categorie hoge blootstelling.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "063",
+    "group_title": "Beveiligingswerkers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/853698f5-0f1e-42ae-9301-e5411a26dae2"
   },
   {
     "code": "07",
@@ -1050,7 +1209,10 @@
     "annual_wage": 56722,
     "exposure": 6,
     "exposure_rationale": "Biologen voeren veel digitale werkzaamheden uit (data-analyse, onderzoeksbeheer, literatuurstudie, modellering) die door AI kunnen worden ondersteund, maar het kernwerk vereist nog steeds fysieke laboratoriumwerk, waarneming in het veld, en creatief wetenschappelijk oordeel. AI zal routinetaken transformeren, maar kan experimenteel ontwerp en interpretatieve expertise niet volledig vervangen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "071",
+    "group_title": "Ingenieurs en onderzoekers wis.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/eee68e13-8248-43bb-a9fb-959832a6c217"
   },
   {
     "code": "0712",
@@ -1063,7 +1225,10 @@
     "annual_wage": 60091,
     "exposure": 7,
     "exposure_rationale": "Werktuigbouwingenieurs voeren veel digitale, kennisgebaseerde taken uit zoals computersimulatie, technisch ontwerp met CAD/CAM-software en data-analyse, die allemaal potentieel kunnen worden ondersteund of geautomatiseerd door AI-tools. Echter, het beroep vereist nog steeds substantieel menselijk oordeel voor probleemoplossing, creatief ontwerp, toezicht op fabricage en het fysiek testen van prototypes, wat voorkomen dat dit een score van 8+ bereikt.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "071",
+    "group_title": "Ingenieurs en onderzoekers wis.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/d849fd2a-5210-434b-a50b-2d92de3a4bac"
   },
   {
     "code": "0713",
@@ -1076,7 +1241,10 @@
     "annual_wage": 58781,
     "exposure": 6,
     "exposure_rationale": "Elektrotechnisch ingenieurs voeren veel digitale, kennisgebaseerde taken uit (ontwerp, simulatie, tekeningen, analyse) die AI-tools kunnen ondersteunen via geautomatiseerde circuit-ontwerp, patroonherkenning en data-analyse. Echter, het werk vereist nog steeds aanzienlijk creatief probleemoplossing, fysieke prototyping, testen in de echte wereld en ingenieursjudgement dat moeilijk volledig te automatiseren is.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "071",
+    "group_title": "Ingenieurs en onderzoekers wis.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/9aa2a36f-296e-45fe-9798-b7839e0ed389"
   },
   {
     "code": "0714",
@@ -1089,7 +1257,10 @@
     "annual_wage": 57658,
     "exposure": 6,
     "exposure_rationale": "Architecten werken voornamelijk met digitale werkproducten (CAD, BIM, ontwerpen, plannen) die sterk automatiseerbar zijn door AI-tools voor routinetaken zoals ruimteplanning, regelgeving-compliance en initiële ontwerpgeneratie. Echter, het kernwerk vereist creativiteit, origineel ontwerp, waardering van sociale context, lokale omgevingsfactoren en voortdurende samenwerking met stakeholders, waardoor volledige automatisering niet realistisch is. AI zal veel ondersteunende en analysewerkzaamheden transformeren, maar architect-als-beroep blijft essentieel voor creatieve en contextuele beslissingen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "071",
+    "group_title": "Ingenieurs en onderzoekers wis.",
+    "esco_uri": "http://data.europa.eu/esco/occupation/78faf623-2543-43a5-acb2-3c43a22d36e4"
   },
   {
     "code": "072",
@@ -1115,7 +1286,10 @@
     "annual_wage": 50357,
     "exposure": 7,
     "exposure_rationale": "PCB-ontwerp is grotendeels digitaal werk met gestandaardiseerde taken zoals schema's maken, trace-routing en verificatie, wat zeer geschikt is voor AI-automatisering. Moderne AI kan al veel van deze routinetaken uitvoeren (automatische routering, netlist-verificatie, ontwerpoptimalisatie), hoewel creatieve optimalisatie en complexe probleemoplossing nog menselijke expertise vereisen. Het werk gebeurt volledig op afstand en is kennisgebaseerd, wat de blootstelling verder verhoogt.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "072",
+    "group_title": "Vakspecialisten natuur en techniek",
+    "esco_uri": "http://data.europa.eu/esco/occupation/0f5cc4eb-925d-4b99-be6d-b0964a253a9a"
   },
   {
     "code": "0722",
@@ -1128,7 +1302,10 @@
     "annual_wage": 52790,
     "exposure": 6,
     "exposure_rationale": "Productieleiders voeren veel digitale, routinematige taken uit zoals planning, monitoring en rapportage die geschikt zijn voor AI-ondersteuning (predictieve analyses, real-time dashboards, slimme planning). Echter vereist het beroep nog steeds aanzienlijke fysieke aanwezigheid op de werkvloer, menselijk oordeel bij onverwachte situaties, en interpersoonlijke vaardigheden voor teamleiding, waardoor volledige automatisering onwaarschijnlijk is.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "072",
+    "group_title": "Vakspecialisten natuur en techniek",
+    "esco_uri": "http://data.europa.eu/esco/occupation/f5aa06b0-745e-4eb1-b050-3e15d11e5eb5"
   },
   {
     "code": "0723",
@@ -1141,7 +1318,10 @@
     "annual_wage": 51854,
     "exposure": 6,
     "exposure_rationale": "Procesoperators hebben een hoge AI-blootstelling omdat veel van hun werkzaamheden digitaal monitoren, data-analyse en patroonherkenning betreffen (kwaliteitscontrole, parameteroptimalisatie, procesbewaking via ICT-systemen). Deze taken kunnen grotendeels worden geautomatiseerd met AI en sensordata-analyse. Echter, de noodzaak voor fysieke aanwezigheid, hands-on onderhoud van apparatuur, en kritieke veiligheidstaken in chemische omgevingen voorkomen volledige automatisering.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "072",
+    "group_title": "Vakspecialisten natuur en techniek",
+    "esco_uri": "http://data.europa.eu/esco/occupation/bfdc096e-e450-424d-9340-46968047ed68"
   },
   {
     "code": "073",
@@ -1167,7 +1347,10 @@
     "annual_wage": 39125,
     "exposure": 1,
     "exposure_rationale": "Metselaars voeren fundamenteel fysiek handwerk uit dat sterke manuele behendigheid, ruimtelijk inzicht en constante fysieke aanwezigheid op de bouwplaats vereist. Hoewel AI-tools kunnen helpen bij planning en inspectie, kan geen enkele huidige technologie het eigenlijke leggen van bakstenen, voegen vullen en structurele kwaliteitsbepaling zelfstandig uitvoeren zonder menselijke vakmanschap.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "073",
+    "group_title": "Bouwarbeiders",
+    "esco_uri": "http://data.europa.eu/esco/occupation/0dd7e6cd-2e5a-4fae-9ce0-6a3622d4019f"
   },
   {
     "code": "0732",
@@ -1180,7 +1363,10 @@
     "annual_wage": 41558,
     "exposure": 1,
     "exposure_rationale": "Timmermannen voeren sterk fysiek manueel werk uit dat vereist zijn dat ze op bouwlocaties aanwezig zijn. De kern van het beroep — hout zagen, vormen, monteren en bevestigen — vereist constante handen-on-werk, ruimtelijk inzicht en aanpassingsvermogen aan echte bouwomstandigheden. Hoewel AI-tools kunnen helpen bij het lezen van 3D-schema's of project-management, kan automatisering de fysieke bouwwerkzaamheden zelf niet vervangen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "073",
+    "group_title": "Bouwarbeiders",
+    "esco_uri": null
   },
   {
     "code": "0733",
@@ -1193,7 +1379,10 @@
     "annual_wage": 40997,
     "exposure": 1,
     "exposure_rationale": "Parketteurs voeren sterk fysiek werk uit dat constante aanwezigheid op de bouwplaats vereist: oppervlakken voorbereiden, hout op maat snijden, parket vastpinnen en lakken. Hoewel enkele administratieve taken (voortgangsregistratie) digitaal kunnen worden ondersteund, is het kernwerk afhankelijk van handmatige vaardigheid, zintuiglijk oordeel voor patroonlayout en directe interactie met materialen die niet door AI kunnen worden geautomatiseerd.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "073",
+    "group_title": "Bouwarbeiders",
+    "esco_uri": null
   },
   {
     "code": "0734",
@@ -1206,7 +1395,10 @@
     "annual_wage": 40997,
     "exposure": 1,
     "exposure_rationale": "Dit beroep vereist sterke fysieke aanwezigheid, manuele behendigheid en vakmanschap in het veld voor installatie, inspectie en afstemming van irrigatiesystemen. Hoewel AI kan helpen bij planning en diagnostiek, kunnen de meeste kernactiviteiten (leidingen leggen, afdichtingen aanbrengen, drukcontroles) alleen door geschoolde professionals ter plaatse worden uitgevoerd.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "073",
+    "group_title": "Bouwarbeiders",
+    "esco_uri": "http://data.europa.eu/esco/occupation/0763c810-8ac6-4e39-867d-780a11af26e0"
   },
   {
     "code": "0735",
@@ -1219,7 +1411,10 @@
     "annual_wage": 40997,
     "exposure": 1,
     "exposure_rationale": "Behangen is fundamenteel handmatig werk dat sterke fysieke aanwezigheid, precieze motorische vaardigheden en zintuiglijk oordeel vereist. De taken zoals oppervlakken voorbereiding, behangpapier aanbrengen, luchtbellen verwijderen en rechte uitlijning kunnen niet door AI of robotica worden vervangen zonder geavanceerde mobiele robotica die nog niet praktisch beschikbaar is. Dit beroep zal op zeer korte tot middellange termijn niet significant door AI-technologie worden getransformeerd.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "073",
+    "group_title": "Bouwarbeiders",
+    "esco_uri": "http://data.europa.eu/esco/occupation/6a67114c-60a3-4cec-af26-c7df6fe6e9b5"
   },
   {
     "code": "074",
@@ -1245,7 +1440,10 @@
     "annual_wage": 41184,
     "exposure": 2,
     "exposure_rationale": "Bankwerkers voeren sterk fysiek, manueel werk uit dat ondanks digitale assistentie (CNC-machines, metingstools) fundamenteel afhankelijk blijft van handigheid, zintuiglijk oordeel en fysieke aanwezigheid in de werkplaats. Hoewel CNC-automatisering sommige repetitieve taken kan overnemen, vereist het kernwerk van precisiewerkstukken nog steeds menselijke expertise, aanpassing en kwaliteitscontrole ter plaatse.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "074",
+    "group_title": "Metaalarbeiders, machinemonteurs",
+    "esco_uri": "http://data.europa.eu/esco/occupation/c44f9f8c-46a6-40da-9630-cc568a18cc51"
   },
   {
     "code": "0742",
@@ -1258,7 +1456,10 @@
     "annual_wage": 41184,
     "exposure": 2,
     "exposure_rationale": "Lassen is een beroep dat sterke fysieke aanwezigheid, manuele behendigheid en sensorisch oordeel vereist. Hoewel AI-gebaseerde kwaliteitscontrole (computervisie) voor naadinspectie mogelijk wordt, blijft het kernwerk van het daadwerkelijk lassen met lasapparatuur sterk afhankelijk van vakmanschap, hand-oog coördinatie en aanpassingen in real-time aan verschillende materialen en omstandigheden.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "074",
+    "group_title": "Metaalarbeiders, machinemonteurs",
+    "esco_uri": "http://data.europa.eu/esco/occupation/572c9810-e1ee-4f7a-a71f-820f17c0c25b"
   },
   {
     "code": "0743",
@@ -1271,7 +1472,10 @@
     "annual_wage": 37253,
     "exposure": 3,
     "exposure_rationale": "Automonteurs voeren veel manuele, fysieke taken uit die sterke handen-aan-werk vaardigheid vereisen (lassen, monteren, precisiemetingen). Hoewel digitale tools voor ontwerp en documentatie gebruikt worden, blijft het kernwerk afhankelijk van fysieke aanwezigheid, ruimtelijk inzicht en handmatige behendigheid die moeilijk volledig te automatiseren zijn. Alleen gespecialiseerde repetitieve montagetaken en enkele kwaliteitscontroletaken zijn goed automatiseerbaar met robots, maar niet het hele beroep.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "074",
+    "group_title": "Metaalarbeiders, machinemonteurs",
+    "esco_uri": "http://data.europa.eu/esco/occupation/264b00c9-84d0-4dc9-b590-aed2cea2b904"
   },
   {
     "code": "0744",
@@ -1284,7 +1488,10 @@
     "annual_wage": 43805,
     "exposure": 3,
     "exposure_rationale": "Machinemonteurs voeren overwegend fysieke, hands-on werk uit dat fysieke aanwezigheid en manuele behendigheid vereist (solderen, laswerk, onderdelen vervangen, proefdraaien). Hoewel AI-tools toekomstig onderhoud kunnen voorspellen via sensoren en predictive maintenance, blijven de kern-activiteiten (montage, diagnose ter plekke, reparatie) sterk afhankelijk van menselijke vakmanschap en real-world probleemoplossing.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "074",
+    "group_title": "Metaalarbeiders, machinemonteurs",
+    "esco_uri": "http://data.europa.eu/esco/occupation/be0e6189-46a5-4b90-8622-2d1988efba1a"
   },
   {
     "code": "075",
@@ -1310,7 +1517,10 @@
     "annual_wage": 35006,
     "exposure": 2,
     "exposure_rationale": "Slagers/vishandelaars werken met fysieke producten die sterke handigheid, zintuiglijk oordeel (kleur, geur, textuur) en constante fysieke aanwezigheid vereisen. Hoewel enkele administratieve taken (voorraadbeheer, verkoop) automatiseerbaar zijn, blijft het kernwerk van fileren, snijden en kwaliteitsbeoordeling sterk afhankelijk van menselijke expertise en fijne motoriek.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "075",
+    "group_title": "Voedselverwerkende beroepen en ov...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/d4cbc865-ad88-4b07-9525-2af3dd31cf0d"
   },
   {
     "code": "0752",
@@ -1323,7 +1533,10 @@
     "annual_wage": 35006,
     "exposure": 2,
     "exposure_rationale": "Pastamakers voeren werk uit dat sterk fysiek en manueel is, met directe hantering van voedingsmiddelen en machines ter plaatse. Hoewel enkele routine-monitoringtaken (temperatuur, gewichten) theoretisch kunnen worden geautomatiseerd, vereist het kernwerk (kneden, vormen, hygiëne-inspectie) fysieke aanwezigheid, sensorisch oordeel en handigheid die AI niet kan vervangen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "075",
+    "group_title": "Voedselverwerkende beroepen en ov...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/1aadb308-432a-4d01-b54b-b4f7f76dd419"
   },
   {
     "code": "0753",
@@ -1336,7 +1549,10 @@
     "annual_wage": 35006,
     "exposure": 7,
     "exposure_rationale": "Productcontroleurs voeren grotendeels gestandaardiseerde testprocedures uit op printplaten, waarbij veel taken (metingen, patroonherkenning van defecten, rapportage) kunnen worden geautomatiseerd met AI-gestuurde visiesystemen en robotica. Het werk is echter niet volledig digitaal - het vereist nog steeds fysieke aanwezigheid voor handmatige reparaties en directe interactie met apparatuur, wat de blootstelling tot hoog niveau beperkt in plaats van zeer hoog.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "075",
+    "group_title": "Voedselverwerkende beroepen en ov...",
+    "esco_uri": null
   },
   {
     "code": "0754",
@@ -1349,7 +1565,10 @@
     "annual_wage": 35006,
     "exposure": 2,
     "exposure_rationale": "Meubelrestauratie is een sterk handwerkig beroep dat intensieve fysieke aanwezigheid, kunstzinnig oordeel en tactiele vaardigheid vereist. Hoewel AI kan helpen bij historisch onderzoek en analyse van materialen, blijft het kernwerk — het daadwerkelijk restaureren van meubels met oude technieken — afhankelijk van menselijke handigheid, expertise en creatieve interpretatie.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "075",
+    "group_title": "Voedselverwerkende beroepen en ov...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/e1416610-ad08-4f37-8b46-9f99632a5c0f"
   },
   {
     "code": "0755",
@@ -1362,7 +1581,10 @@
     "annual_wage": 35006,
     "exposure": 3,
     "exposure_rationale": "Textieldruktechnici voeren sterk fysieke en manuele taken uit die directe aanwezigheid op de werkvloer vereisen, zoals het opzetten van drukprocessen, machinesbediening en het evalueren van textielkwaliteit. Hoewel patroonherkenning en enkele digitale elementen aanwezig zijn, blijft het kernwerk afhankelijk van handenarbeid, tactiele waarneming en fysieke manipulatie van materialen en machines.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "075",
+    "group_title": "Voedselverwerkende beroepen en ov...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/4b536ea7-ebac-4f75-8356-94eb639f1ecc"
   },
   {
     "code": "076",
@@ -1388,7 +1610,10 @@
     "annual_wage": 42494,
     "exposure": 3,
     "exposure_rationale": "Liftmonteurs voeren werk uit dat sterk afhankelijk is van fysieke aanwezigheid, manuele behendigheid en ter plaatse inspectie in liftschachten. Hoewel sommige taken zoals liftbesturing programmeren en testgegevens vastleggen digitaal zijn, vereist het kernwerk van installatie, montage en veiligheidsinspectie menselijke expertise in complexe fysieke omgevingen die niet door AI kunnen worden vervangen. De documentatie en rapportage kunnen deels worden geautomatiseerd, maar dit vormt slechts een klein onderdeel van het beroep.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "076",
+    "group_title": "Elektriciens en elektronicamonteurs",
+    "esco_uri": "http://data.europa.eu/esco/occupation/8862c29b-3810-4fbc-85c7-c9ee87535f73"
   },
   {
     "code": "077",
@@ -1414,7 +1639,10 @@
     "annual_wage": 39874,
     "exposure": 3,
     "exposure_rationale": "Productiemachinebedieners werken in een fysieke, on-site omgeving waar constante aanwezigheid, monitoring van hardware en veiligheidsprotocollen essentieel zijn. Hoewel moderne fabrieken steeds meer automatisering en sensorsystemen hebben, vereist het kernwerk nog steeds menselijke oordeel voor veiligheid, kwaliteitscontrole en het reageren op onvoorziene situaties in een fysieke productieomgeving.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "077",
+    "group_title": "Productiemachinebedieners en asse...",
+    "esco_uri": null
   },
   {
     "code": "0772",
@@ -1427,7 +1655,10 @@
     "annual_wage": 38376,
     "exposure": 2,
     "exposure_rationale": "Assemblagemedewerkers hout voeren overwegend fysieke, manuele werkzaamheden uit die sterke aanwezigheid ter plaatse vereisen, zoals positionering van onderdelen en bediening van hydraulische machines. Hoewel sommige aspecten zoals kwaliteitscontroles en technische documentatie gedeeltelijk door AI kunnen worden ondersteund (visuele inspectie, instructiedetectie), blijft het kernwerk afhankelijk van menselijke handigheid, fysieke kracht en real-time probleemoplossing in de werkplaats.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "077",
+    "group_title": "Productiemachinebedieners en asse...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/fc9a86ec-7ad5-4ccb-a08f-1e369197e14a"
   },
   {
     "code": "078",
@@ -1453,7 +1684,10 @@
     "annual_wage": 28454,
     "exposure": 2,
     "exposure_rationale": "Inpakkers voeren primair fysieke, manuele werk uit dat sterke handen-coördinatie, zintuiglijk oordeel (juiste verpakking, stapeling) en fysieke aanwezigheid vereist. Hoewel sommige routinetaken (etikettage, gewichtcontrole) gedeeltelijk geautomatiseerd kunnen worden, blijft het kernwerk – goederen handig verpakken en vastmaken – moeilijk voor huidige robottechnologie op schaal toe te passen in variabele omgevingen.",
-    "isco_skill_level": 3
+    "isco_skill_level": 3,
+    "group_code": "078",
+    "group_title": "Hulpkrachten bouw en industrie",
+    "esco_uri": "http://data.europa.eu/esco/occupation/7833d5cd-873d-4fdd-b2f8-9762d68494a7"
   },
   {
     "code": "08",
@@ -1492,7 +1726,10 @@
     "annual_wage": 60840,
     "exposure": 7,
     "exposure_rationale": "User experience analysts werken primair met digitale deliverables (analyses, rapportages, prototypes) en kunnen veel van hun werk op afstand uitvoeren. AI-tools kunnen al veel routinetaken overnemen zoals data-analyse, patroonherkenning in gebruikersgedrag, en het genereren van onderzoeksrapporten. Echter, het kernwerk vereist nog steeds menselijk inzicht in psychologische aspecten, creativiteit bij het ontwerpen van oplossingen, en het voeren van betekenigvolle interactie met gebruikers, wat deze rol niet volledig automatiseerbaar maakt.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "081",
+    "group_title": "Specialisten ICT",
+    "esco_uri": "http://data.europa.eu/esco/occupation/fde4372d-8293-42de-afbb-8b5a9b274fe7"
   },
   {
     "code": "0812",
@@ -1505,7 +1742,10 @@
     "annual_wage": 58594,
     "exposure": 7,
     "exposure_rationale": "ICT systeembeheerders werken primair met digitale systemen en geautomatiseerde tools, wat AI-automation begünstigt. Veel routinetaken (monitoring, backups, patches, troubleshooting) kunnen al deels of volledig geautomatiseerd worden met AI-gestuurde systemen. Echter, het beroep vereist nog steeds strategisch beleid, complexe probleemoplossing, veiligheidsbeslissingen en menselijk oordeel in kritieke situaties, waardoor volledige vervanging onwaarschijnlijk is.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "081",
+    "group_title": "Specialisten ICT",
+    "esco_uri": "http://data.europa.eu/esco/occupation/5ac377d2-e1d0-4911-a299-b4ef2782a0ba"
   },
   {
     "code": "082",
@@ -1531,7 +1771,10 @@
     "annual_wage": 43618,
     "exposure": 6,
     "exposure_rationale": "ICT-helpdeskmanagers voeren veel digitale, kennisgebaseerde taken uit (ticketsystemen, probleemoplossing, teammanagement) die sterk gevoelig zijn voor AI-automatisering. Chatbots en AI kunnen veel routine-supportvragen beantwoorden, problemen diagnosticeren en ticketing automatiseren. Echter, het beroep vereist ook interpersoonlijke vaardigheden, strategische teamleiding, complexe escalatiehandling en situationeel oordeel dat AI nog niet volledig kan vervangen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "082",
+    "group_title": "Vakspecialisten ICT",
+    "esco_uri": "http://data.europa.eu/esco/occupation/1242d99a-47f1-4a62-b884-33746db8a6ca"
   },
   {
     "code": "0822",
@@ -1544,7 +1787,10 @@
     "annual_wage": 42682,
     "exposure": 6,
     "exposure_rationale": "Radio- en televisietechnici voeren veel routinematige monitoring-, onderhoudstaken en diagnostiek uit die deels te automatiseren zijn met AI-gestuurde monitoring- en predictive maintenance-systemen. Het werk is echter sterk gebonden aan fysieke installatiewerk, het bedienen van apparatuur op locatie en real-time probleemoplossing, wat menselijke aanwezigheid en zintuiglijk oordeel vereist. Hoewel digitale componenten sterk aanwezig zijn, vormt de noodzaak van fysieke interventie en vakmankundige beoordeling een aanzienlijke barrière voor volledige automatisering.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "082",
+    "group_title": "Vakspecialisten ICT",
+    "esco_uri": "http://data.europa.eu/esco/occupation/ce7d3362-5383-47d1-b66f-57b021c3d862"
   },
   {
     "code": "09",
@@ -1583,7 +1829,10 @@
     "annual_wage": 32573,
     "exposure": 3,
     "exposure_rationale": "Land- en bosbouwers voeren veel fysieke, ter plaatse vereiste werk uit zoals gewasmonitoring, bodembewerking en oogstactiviteiten die robotica slechts gedeeltelijk kan automatiseren. Hoewel precision agriculture en AI-gestuurde teelttools enkele routinetaken kunnen ondersteunen (ziektedetectie, irrigatieplanning), blijven het kernwerk en management ervaringsgericht, contextgebonden en afhankelijk van fysieke aanwezigheid en manuele interventie.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "091",
+    "group_title": "Tuinders, akkerbouwers en veetelers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/773cf1de-50a4-42e7-bab1-e68dcbae3f54"
   },
   {
     "code": "0912",
@@ -1596,7 +1845,10 @@
     "annual_wage": 31450,
     "exposure": 2,
     "exposure_rationale": "Dit beroep vereist sterke fysieke aanwezigheid, manuele behendigheid en het werken in de echte wereld met planten, tuinen en landschappen. Hoewel AI-tools ontwerp en planning kunnen ondersteunen, blijven de kernactiviteiten (snoeien, planten, onderhouden, fysieke installatie) fundamenteel manueel en ter plaatse, wat automatisering sterk beperkt.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "091",
+    "group_title": "Tuinders, akkerbouwers en veetelers",
+    "esco_uri": "http://data.europa.eu/esco/occupation/e7970c7a-7769-4002-87d3-0a8ea94fdd6f"
   },
   {
     "code": "0913",
@@ -1609,7 +1861,10 @@
     "annual_wage": 32573,
     "exposure": 1,
     "exposure_rationale": "Varkenshouderij is een sterk fysiek beroep dat voortdurende aanwezigheid op de boerderij vereist. De dagelijkse taken - dieren voeren, gezondheid controleren, eerste hulp verlenen, bij geboortes assisteren - zijn fundamenteel afhankelijk van fysieke interactie en directe waarneming in de echte wereld. Hoewel geautomatiseerde voedersystemen en digitale gegevensregistratie enkele aspecten kunnen ondersteunen, kunnen deze kernactiviteiten niet door AI of automatisering worden vervangen.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "091",
+    "group_title": "Tuinders, akkerbouwers en veetelers",
+    "esco_uri": null
   },
   {
     "code": "092",
@@ -1635,7 +1890,10 @@
     "annual_wage": 29952,
     "exposure": 1,
     "exposure_rationale": "Tuiniers voeren overwegend fysieke, manuele werkzaamheden uit die sterke afhankelijkheid hebben van directe aanwezigheid in de buitenlucht en handen-aan-het-lijf arbeid (snoeien, planten, grondwerk). De kern van het werk vereist voortdurend zintuiglijk oordeel, fysieke behendigheid en aanpassingsvermogen aan weersomstandigheden en plantaardige variabiliteit, wat moeilijk automatiseerbaar is met huidige AI-technologie.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "092",
+    "group_title": "Hulpkrachten landbouw",
+    "esco_uri": "http://data.europa.eu/esco/occupation/1b8c75a9-407b-4554-a7d6-df391672c6b1"
   },
   {
     "code": "10",
@@ -1674,7 +1932,10 @@
     "annual_wage": 69077,
     "exposure": 6,
     "exposure_rationale": "Artsen hebben een hoge AI-blootstelling omdat veel diagnostische taken (beeldanalyse, patroonherkenning in test-resultaten, gegevensinterpretatie) snel worden geautomatiseerd door AI-tools zoals medische AI-assistenten. Het kernwerk vereist echter blijvend menselijk oordeel, empathie, communicatie met patiënten en complexe klinische besluitvorming, evenals fysieke interventies (chirurgie, onderzoek). De transformatie zal significant zijn in diagnostiek en administratie, maar het beroep verdwijnt niet.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "101",
+    "group_title": "Artsen, therapeuten en gespeciali...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/5fd099da-218a-460e-bd5b-b42f1b76c67c"
   },
   {
     "code": "1012",
@@ -1687,7 +1948,10 @@
     "annual_wage": 57658,
     "exposure": 3,
     "exposure_rationale": "Gespecialiseerde verpleegkundigen voeren veel routinematige taken uit die potentieel kunnen worden ondersteund door AI (zoals monitoring, data-analyse, documentatie en diagnostische ondersteuning). Echter, het kernwerk vereist essentiële fysieke aanwezigheid, manuele vaardigheid, zintuiglijk oordeel en emotionele intelligentie bij patiëntenzorg, medische ingrepen en het opbouwen van therapeutische relaties die niet kunnen worden geautomatiseerd. AI kan ondersteunend werken, maar kan het beroep niet substantieel vervangen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "101",
+    "group_title": "Artsen, therapeuten en gespeciali...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/18e14e61-495b-44cc-a7c6-df4c625934ba"
   },
   {
     "code": "1013",
@@ -1700,7 +1964,10 @@
     "annual_wage": 52790,
     "exposure": 3,
     "exposure_rationale": "Fysiotherapie vereist directe fysieke interactie, handen-on behandeling en reële tijdse diagnostiek met patiënten, wat niet digitaal kan worden uitgevoerd. Hoewel AI kan ondersteunen bij diagnostiek, risicobeoordeling en behandelplanning, blijft het kernwerk afhankelijk van menselijke expertise, empathie en manuele behendigheid. Alleen administratieve en analysedelen zijn goed automatiseerbaar.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "101",
+    "group_title": "Artsen, therapeuten en gespeciali...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/006cc1f9-2841-41c3-991a-dc3f2f3bd533"
   },
   {
     "code": "102",
@@ -1726,7 +1993,10 @@
     "annual_wage": 50357,
     "exposure": 3,
     "exposure_rationale": "Maatschappelijk werk vereist cruciale interpersoonlijke vaardigheden, empathie, emotionele intelligentie en fysieke aanwezigheid voor crisisbegeleiding en face-to-face contact met kwetsbare groepen. Hoewel administratieve taken (verslaglegging, intake-assessments) door AI kunnen worden ondersteund, blijft de kernactiviteit van therapeutische begeleiding, probleemoplossing en menselijk oordeel fundamenteel afhankelijk van menselijke interactie en kan niet door AI worden vervangen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "102",
+    "group_title": "Specialisten op maatschappelijk g...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/7591db5b-ee01-4b6b-b626-ddaf892458d4"
   },
   {
     "code": "1022",
@@ -1739,7 +2009,10 @@
     "annual_wage": 63648,
     "exposure": 5,
     "exposure_rationale": "Polygrafisten voeren een mix uit van automatiseerbare en niet-automatiseerbare taken. Terwijl instrumentele metingen (ademhaling, zweetklieren, hartslag) en data-analyse gedeeltelijk door AI kunnen worden geautomatiseerd, vereist het beroep cruciaal menselijk oordeel bij vraagformulering, gedragsobservatie, testinterpretatie en getuigenisaflegging in de rechtszaal. De fysieke aanwezigheid en interpersoonlijke dimensie blijven essentieel.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "102",
+    "group_title": "Specialisten op maatschappelijk g...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/11df8941-508c-4103-ad40-52cdf9430a59"
   },
   {
     "code": "103",
@@ -1765,7 +2038,10 @@
     "annual_wage": 45677,
     "exposure": 6,
     "exposure_rationale": "Laboranten voeren veel gestandaardiseerde, routinematige taken uit die geschikt zijn voor automatisering: monsterbeheer, reagentiabeheer, apparatuurbediening en administratie kunnen grotendeels door geautomatiseerde systemen en robotica worden overgenomen. Echter, het werk vereist fysieke aanwezigheid in het lab, handigheid bij monsterbeheer, veiligheidsbewustzijn en menselijk oordeel bij anomalieën, wat volledige automatisering voorkomt. AI en robotica zullen veel huistaken transformeren, maar het kernwerk blijft deels menselijk.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "103",
+    "group_title": "Vakspecialisten gezondheidszorg",
+    "esco_uri": "http://data.europa.eu/esco/occupation/2c5ae1b4-c3ca-4882-b7ce-e346ae5b5b00"
   },
   {
     "code": "1032",
@@ -1778,7 +2054,10 @@
     "annual_wage": 45677,
     "exposure": 6,
     "exposure_rationale": "Apothekersassistenten voeren veel digitale, gestructureerde taken uit zoals documentbeheer, gegevensinvoer, registratie van bijwerkingen en klinische codering. Deze taken zijn sterk geschikt voor automatisering door AI en kunnen grotendeels op afstand worden gedaan. Echter, het beroep vereist ook interactie met patiënten, medische oordeel in bepaalde contexten en naleving van complexe regelgeving, wat menselijke supervisie blijft vereisen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "103",
+    "group_title": "Vakspecialisten gezondheidszorg",
+    "esco_uri": "http://data.europa.eu/esco/occupation/c1a86d6d-7785-43e1-994b-958eba58fff7"
   },
   {
     "code": "1033",
@@ -1791,7 +2070,10 @@
     "annual_wage": 49795,
     "exposure": 2,
     "exposure_rationale": "Verpleegkundigen voeren veel fysieke, handenarbeid uit die sterke aanwezigheid in de echte wereld vereist (patiëntenzorg, medische handelingen, monitoring). Hoewel administratieve en monitoring-taken deels door AI kunnen worden ondersteund, blijft het kernwerk afhankelijk van menselijk oordeel, empathie, fysieke interactie en directe patiëntenzorg.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "103",
+    "group_title": "Vakspecialisten gezondheidszorg",
+    "esco_uri": "http://data.europa.eu/esco/occupation/8d3e8aaa-791b-4c75-a465-f3f827028f50"
   },
   {
     "code": "1034",
@@ -1804,7 +2086,10 @@
     "annual_wage": 42307,
     "exposure": 5,
     "exposure_rationale": "Medisch praktijkassistenten voeren een mix uit van automatiseerbare en niet-automatiseerbare taken. Administratieve taken, planning en documentatie kunnen deels door AI ondersteund worden, maar het kernwerk vereist fysieke aanwezigheid, handhygiene, directe patiëntencommunicatie en medisch oordeel onder toezicht van artsen. De sterke fysieke component en noodzaak van aanwezigheid in de klinische omgeving beperken de volledige AI-transformatie.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "103",
+    "group_title": "Vakspecialisten gezondheidszorg",
+    "esco_uri": "http://data.europa.eu/esco/occupation/0c041d1e-1841-4acb-b0a1-2c387a61bf65"
   },
   {
     "code": "1035",
@@ -1817,7 +2102,10 @@
     "annual_wage": 55973,
     "exposure": 5,
     "exposure_rationale": "Medisch vakspecialisten voeren fysieke inspecties en milieuonderzoeken ter plaatse uit, wat menselijke aanwezigheid vereist, maar veel van hun werk bestaat uit data-analyse, rapportage en beleidsinterpretatie die AI kan ondersteunen. AI kan helpen bij patroonherkenning in inspecties, rapportgeneratie en risicoanalyse, maar het professioneel oordeel, veldwerk en stakeholdercommunicatie blijven kritieke menselijke elementen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "103",
+    "group_title": "Vakspecialisten gezondheidszorg",
+    "esco_uri": "http://data.europa.eu/esco/occupation/5d5fde2c-47ce-4dcd-99f0-ba651b7b908f"
   },
   {
     "code": "104",
@@ -1843,7 +2131,10 @@
     "annual_wage": 44928,
     "exposure": 3,
     "exposure_rationale": "Maatschappelijk assistenten voeren werk uit dat fundamenteel menselijk contact, emotionele intelligentie en fysieke aanwezigheid vereist. Hoewel administratieve taken (verslaglegging, planning) kunnen worden ondersteund door AI-tools, kunnen de kernactiviteiten – hulprelaties opbouwen, crisisinterventie, empathisch luisteren en ethische oordeelsvorming – niet door AI worden vervangen. Het werk vereist voortdurend menselijk oordeel in complexe sociale situaties.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "104",
+    "group_title": "Sociaal werkers, groeps- en woonb...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/4b05bef2-ded4-4b09-ab94-f4c6a555a775"
   },
   {
     "code": "105",
@@ -1869,7 +2160,10 @@
     "annual_wage": 42682,
     "exposure": 2,
     "exposure_rationale": "Verzorgenden voeren werk uit dat fundamenteel afhankelijk is van fysieke aanwezigheid, directe interpersoonlijke interactie en handmatige vaardigheden zoals lichaamsverzorging en mobiliteitshulp. Hoewel administratieve taken en enkele monitoring-aspecten kunnen worden ondersteund door AI-tools, vormt de kern van het werk—emotionele steun, fysieke zorg en directe patiëntcontact—een onvervanbare menselijke component die niet door technologie kan worden vervangen.",
-    "isco_skill_level": 4
+    "isco_skill_level": 4,
+    "group_code": "105",
+    "group_title": "Verzorgenden",
+    "esco_uri": "http://data.europa.eu/esco/occupation/30194ac4-93b8-4450-8a15-f6f7cbe351cb"
   },
   {
     "code": "11",
@@ -1908,7 +2202,10 @@
     "annual_wage": 28454,
     "exposure": 2,
     "exposure_rationale": "Reisbegeleiders voeren primair fysieke, face-to-face taken uit die voortdurende menselijke aanwezigheid vereisen: serveren van maaltijden, gastheerschap, klantencommunicatie en veiligheidstoezicht. Hoewel enkele administratieve taken (financiële transacties, verslagen) gedeeltelijk geautomatiseerd kunnen worden, blijft het kernwerk afhankelijk van directe interactie, sociale intelligentie en fysieke mobiliteit in beperkte ruimtes waar robots niet geschikt zijn.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "111",
+    "group_title": "Medewerkers persoonlijke dienstve...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/b5d76ddd-f59a-491a-9543-f6c0e2d8a950"
   },
   {
     "code": "1112",
@@ -1921,7 +2218,10 @@
     "annual_wage": 31075,
     "exposure": 2,
     "exposure_rationale": "Koken vereist intensieve fysieke aanwezigheid, manuele behendigheid en real-time zintuiglijk oordeel (smaak, textuur, timing). Hoewel AI kan helpen met menuplannen, recepten en voorraadbeheer, blijft het kernwerk — het daadwerkelijk bereiden en presenteren van maaltijden — sterk afhankelijk van hands-on vaardigheid en directe sensorische feedback in een fysieke omgeving.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "111",
+    "group_title": "Medewerkers persoonlijke dienstve...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/11e6d39e-1295-40e7-8eea-3eb042bc7e34"
   },
   {
     "code": "1113",
@@ -1934,7 +2234,10 @@
     "annual_wage": 25646,
     "exposure": 1,
     "exposure_rationale": "Kelners en barpersoneel verrichten voornamelijk fysieke, handmatige taken die sterke aanwezigheid in de echte wereld vereisen: tafels dekken, gerechten serveren, oppervlakken schoonmaken en directe klantinteractie. Hoewel betalingsverwerking en reserveringen digitaal kunnen worden ondersteund, blijft het kernwerk afhankelijk van fysieke mobiliteit, motorische vaardigheden en interpersonele interactie in een fysieke omgeving, wat moeilijk volledig te automatiseren is zonder robotica op aanzienlijke schaal.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "111",
+    "group_title": "Medewerkers persoonlijke dienstve...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/d5db9d5c-2ebf-4a54-a79a-1b7e7ff70471"
   },
   {
     "code": "1114",
@@ -1947,7 +2250,10 @@
     "annual_wage": 28454,
     "exposure": 1,
     "exposure_rationale": "Kapperwerk vereist fysieke aanwezigheid, directe handenarbeid met scharen, tondeuses en scheermessen, en voortdurend zintuiglijk oordeel over haarstructuur, textuur en gezichtsvormen. Hoewel consultatie en administratie kunnen worden gedigitaliseerd, is het kernwerk – het daadwerkelijk knippen, kleuren en stylen van haar – inherent fysiek en kan niet op afstand of door AI worden uitgevoerd.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "111",
+    "group_title": "Medewerkers persoonlijke dienstve...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/55f6380c-7511-4c33-8fc4-c74f10f524fa"
   },
   {
     "code": "1115",
@@ -1960,7 +2266,10 @@
     "annual_wage": 37440,
     "exposure": 3,
     "exposure_rationale": "Conciërges voeren overwegend fysieke, hands-on werkzaamheden uit die vereisen constante aanwezigheid in het gebouw (schoonmaken, inspecties, kleine reparaties). Hoewel enkele administratieve taken (rapportages, registratie) door AI kunnen worden ondersteund, vormen deze slechts een klein deel van het werk. Het kernwerk vereist zintuiglijk oordeel, vakmanschap en fysieke handigheid die moeilijk te automatiseren zijn.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "111",
+    "group_title": "Medewerkers persoonlijke dienstve...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/1822bfc2-e735-449f-ba00-ca71eb5c062b"
   },
   {
     "code": "1116",
@@ -1973,7 +2282,10 @@
     "annual_wage": 28454,
     "exposure": 2,
     "exposure_rationale": "Hondenfokking is een beroep met minimale AI-blootstelling omdat het primair fysieke, handen-on werk vereist: dagelijkse verzorging, gezondheidsmonitoring, geboorteassistentie en directe interactie met dieren. Hoewel administratieve taken (gegevensregistratie, dierenverslagen) deels door AI kunnen worden ondersteund, blijft het kernwerk van fysieke dierenzorg, observatie en vakmanschap onvervangbaar.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "111",
+    "group_title": "Medewerkers persoonlijke dienstve...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/0d442b70-5413-4820-bebf-36dd5ce437ac"
   },
   {
     "code": "112",
@@ -1999,7 +2311,10 @@
     "annual_wage": 30139,
     "exposure": 1,
     "exposure_rationale": "Schoonmakers treinen voeren voornamelijk fysieke, manuele werkzaamheden uit die sterke aanwezigheid in de echte wereld vereisen. Het werk omvat handen-on-activiteiten zoals stofzuigen, dweilen, afval legen en hogedrukreiniging, die niet door AI kunnen worden uitgevoerd zonder geavanceerde robotica. De kernactiviteiten zijn niet digitaal of op afstand uitvoerbaar en vereisen constant fysieke inspanning en zintuiglijk oordeel.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "112",
+    "group_title": "Schoonmakers en keukenhulpen",
+    "esco_uri": "http://data.europa.eu/esco/occupation/23be4cb6-c5e7-449e-8d76-8edfe9a00478"
   },
   {
     "code": "1122",
@@ -2012,7 +2327,10 @@
     "annual_wage": 18720,
     "exposure": 1,
     "exposure_rationale": "Keukenhulpen voeren fundamenteel fysiek, manueel werk uit dat sterke aanwezigheid in de keuken vereist: voedsel snijden, schoonmaken, order bewaken en veiligheid waarborgen. Deze taken vereisen motorische behendigheid, sensorisch oordeel (temperatuur, textuur, hygiëne) en constante fysieke aanwezigheid, wat niet door AI kan worden vervangen. Hoewel enkele administratieve taken (voorraadbeheer) gedeeltelijk digitaal kunnen worden geautomatiseerd, blijft het kernwerk van voedselpreparatie en keukenonderhoud onvervangbaar menselijk werk.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "112",
+    "group_title": "Schoonmakers en keukenhulpen",
+    "esco_uri": "http://data.europa.eu/esco/occupation/e1cf6897-158d-4b48-a39e-2a3a8cac216c"
   },
   {
     "code": "12",
@@ -2051,7 +2369,10 @@
     "annual_wage": 37814,
     "exposure": 3,
     "exposure_rationale": "Dekofficieren en piloten voeren veel fysieke taken uit die sterke aanwezigheid aan boord vereisen, zoals wachtdiensten, directe bemanning supervisie en real-time navigatie onder wisselende maritieme omstandigheden. Hoewel navigatiesystemen en AI kunnen helpen bij routeplanning en patroonherkenning, blijft het kernwerk afhankelijk van menselijk oordeel, crisismanagement en fysieke verantwoordelijkheid in een dynamische, onvoorspelbare omgeving.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "121",
+    "group_title": "Bestuurders voertuigen en bediene...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/9a4ba556-e72b-49c2-834c-d6a03a2fc906"
   },
   {
     "code": "1212",
@@ -2064,7 +2385,10 @@
     "annual_wage": 29952,
     "exposure": 3,
     "exposure_rationale": "Auto- en bestelwagenkoeriers hebben lage AI-blootstelling omdat het kernwerk sterk afhankelijk is van fysieke aanwezigheid, het besturen van voertuigen en manuele handelingen (laden/lossen). Hoewel routeplanning en GPS-navigatie deels door AI kunnen worden geoptimaliseerd, vereist het beroep voortdurend menselijk oordeel, rijvaardigheid en interactie met klanten in de fysieke wereld.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "121",
+    "group_title": "Bestuurders voertuigen en bediene...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/6f7c1e84-8162-4c20-a575-b57ff624eef5"
   },
   {
     "code": "1213",
@@ -2077,7 +2401,10 @@
     "annual_wage": 37814,
     "exposure": 1,
     "exposure_rationale": "Buschauffeurs voeren werk uit dat inherent fysiek is en voortdurende aanwezigheid in de echte wereld vereist. Hoewel autonoom rijden theoretisch relevant is, blijven taken zoals passagierscommunicatie, noodsituatiebeheer, eerste hulp en conflictbeheersing menselijk oordeel en fysieke aanwezigheid essentieel. Het kernwerk kan niet digitaal worden uitgevoerd en blijft sterk afhankelijk van menselijke interactie en sensomotorische vaardigheden.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "121",
+    "group_title": "Bestuurders voertuigen en bediene...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/03e02554-15d1-4697-960c-8909e7d36f7e"
   },
   {
     "code": "1214",
@@ -2090,7 +2417,10 @@
     "annual_wage": 38002,
     "exposure": 3,
     "exposure_rationale": "Vrachtwagenchauffeurs voeren werk uit dat fundamenteel afhankelijk is van fysieke aanwezigheid, manuele behendigheid en real-world waarneming. Hoewel routetekening, communicatie en administratie deels door AI kunnen worden ondersteund, blijft het kernwerk van besturen, manoeuvreren en verkeerssituaties interpreteren sterk afhankelijk van menselijke besluitvorming en fysieke controle. Autonoom rijden is nog niet wijdverbreid en zal op korte termijn geen massale vervanging veroorzaken.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "121",
+    "group_title": "Bestuurders voertuigen en bediene...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/45037d43-a8f5-4f46-b332-b2935bc305f4"
   },
   {
     "code": "1215",
@@ -2103,7 +2433,10 @@
     "annual_wage": 39312,
     "exposure": 2,
     "exposure_rationale": "Heftruckchauffeurs voeren sterk fysiek werk uit dat absolute aanwezigheid in de pakhuis vereist en afhankelijk is van handmatige behendigheid, ruimtelijk inzicht en veiligheidsbeoordelingen. Hoewel sommige administratieve taken (barcodes scannen, magazijndata) gedeeltelijk automatiseerbaar zijn, kan AI-robotica nog niet volledig het centrale kernwerk (veilig manoeuvreren van zware machines in dynamische omgevingen) vervangen zonder significante infrastructuurveranderingen.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "121",
+    "group_title": "Bestuurders voertuigen en bediene...",
+    "esco_uri": "http://data.europa.eu/esco/occupation/ecfcf554-254f-4dd7-a20c-b60cc6b16054"
   },
   {
     "code": "122",
@@ -2129,7 +2462,10 @@
     "annual_wage": 20592,
     "exposure": 2,
     "exposure_rationale": "Dit beroep vereist sterke fysieke aanwezigheid, manuele behendigheid en het hanteren van goederen in een fysieke omgeving. Hoewel enkele subtaken zoals voorraadmonitoring en prijscontrole door AI kunnen worden ondersteund (via computer vision), blijft het kernwerk – schappen vullen, producten fysiek verplaatsen, houdbaarheidsdatums beoordelen en winkels schoonmaken – sterk afhankelijk van menselijke handigheid en directe waarneming ter plaatse.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "122",
+    "group_title": "Hulpkrachten transport en logistiek",
+    "esco_uri": "http://data.europa.eu/esco/occupation/3d974e0c-8ed9-47a7-aec2-ebdb34391c87"
   },
   {
     "code": "1222",
@@ -2142,7 +2478,10 @@
     "annual_wage": 22464,
     "exposure": 2,
     "exposure_rationale": "Hotelportiers voeren hoofdzakelijk fysieke taken uit die constante aanwezigheid ter plaatse vereisen: bagage dragen, gasten begroeten, schoonmaakactiviteiten en veiligheid. Hoewel sommige administratieve taken (reserveringen, bestellingen) gedeeltelijk gedigitaliseerd kunnen worden, blijven de kernactiviteiten sterk afhankelijk van menselijke interactie, fysieke handigheid en nabijheid.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "122",
+    "group_title": "Hulpkrachten transport en logistiek",
+    "esco_uri": "http://data.europa.eu/esco/occupation/e54683ca-1fc9-468d-b880-6544ff6b7d0b"
   },
   {
     "code": "13",
@@ -2181,6 +2520,9 @@
     "annual_wage": 33134,
     "exposure": 0,
     "exposure_rationale": "Deze beroepsgroep kan niet worden beoordeeld omdat 'overig' geen specifiek beroep aanduidt met concrete werkactiviteiten. Zonder kennis van welke taken, vaardigheden of werkproducten bij dit beroep horen, is een AI-blootstellingsscore niet mogelijk.",
-    "isco_skill_level": 2
+    "isco_skill_level": 2,
+    "group_code": "131",
+    "group_title": "Beroepssegment overig",
+    "esco_uri": "http://data.europa.eu/esco/occupation/30194ac4-93b8-4450-8a15-f6f7cbe351cb"
   }
 ]
