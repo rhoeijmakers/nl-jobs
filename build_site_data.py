@@ -17,6 +17,13 @@ with open("occupations.csv", encoding="utf-8") as f:
 with open("scores.json", encoding="utf-8") as f:
     scores = json.load(f)
 
+esco_cache_path = "esco_cache.json"
+if os.path.exists(esco_cache_path):
+    with open(esco_cache_path, encoding="utf-8") as f:
+        esco_cache = json.load(f)
+else:
+    esco_cache = {}
+
 # BRC category names (2-digit) for treemap grouping
 categories = {code: occ["title"] for code, occ in occupations.items() if len(code) == 2}
 
@@ -52,6 +59,12 @@ for code, occ in occupations.items():
         "exposure_rationale": score_data.get("rationale", ""),
         "isco_skill_level": int(occ["isco_skill_level"]) if occ.get("isco_skill_level") else None,
     }
+    if int(occ["level"]) == 4:
+        group_code = code[:3]
+        entry["group_code"] = group_code
+        entry["group_title"] = occupations.get(group_code, {}).get("title", "")
+        cached = esco_cache.get(occ["title"])
+        entry["esco_uri"] = cached.get("uri") if isinstance(cached, dict) else None
     output.append(entry)
 
 with open("site/data.json", "w", encoding="utf-8") as f:

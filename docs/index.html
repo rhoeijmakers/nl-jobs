@@ -100,6 +100,9 @@
   #tooltip .meta { color: #666; margin-bottom: 6px; }
   #tooltip .meta b { color: #333; }
   #tooltip .rationale { color: #777; font-style: italic; font-size: 0.78rem; }
+  #tooltip .breadcrumb { color: #999; font-size: 0.74rem; margin-bottom: 6px; line-height: 1.4; }
+  #tooltip .breadcrumb a { color: #999; text-decoration: none; }
+  #tooltip .breadcrumb a:hover { color: #555; text-decoration: underline; }
   #tooltip .score-badge {
     display: inline-block; padding: 2px 10px; border-radius: 12px;
     font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;
@@ -591,8 +594,13 @@ const isTouchDevice = () => window.matchMedia("(pointer: coarse)").matches;
 function buildTooltipHTML(d) {
   const sc = d.exposure;
   let html = `<button class="close-tip" onclick="hideTooltip()">Sluiten</button>`;
-  html += `<h3>${d.code} — ${d.title}</h3>`;
-  html += `<div class="meta"><b>Categorie:</b> ${d.category}</div>`;
+  if (d.group_title) {
+    html += `<div class="breadcrumb">${d.category} › ${d.group_title}<br>`;
+    html += `${d.code}`;
+    if (d.esco_uri) html += ` · <a href="${d.esco_uri}" target="_blank" rel="noopener">ESCO ↗</a>`;
+    html += `</div>`;
+  }
+  html += `<h3>${d.title}</h3>`;
   if (sc != null) {
     const col = scoreColor(sc);
     html += `<span class="score-badge" style="background:${col}22;color:${col};border:1px solid ${col}55">AI: ${sc.toFixed(1)}/10</span><br>`;
